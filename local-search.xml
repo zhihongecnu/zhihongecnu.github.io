@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>07-09-topology</title>
+    <link href="/2021/07/10/07-09-topology/"/>
+    <url>/2021/07/10/07-09-topology/</url>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><hr><h2 id="pdf文件"><a href="#pdf文件" class="headerlink" title="pdf文件"></a>pdf文件</h2><ol><li><p>[讲义](“/pdf/代数拓扑 01 拓扑空间与连续性.pdf”)</p></li><li><p><a href="">拓扑学-熊金城</a></p></li><li><p><a href="">拓扑学-尤承业</a></p></li></ol><h2 id="内容概要"><a href="#内容概要" class="headerlink" title="内容概要"></a>内容概要</h2><ol><li>集合论基础<ul><li>De Morgan 公式</li><li>集合与映射运算关系</li><li>笛卡尔积与商</li></ul></li><li>拓扑空间<ul><li>动机：抽象数分中的连续</li><li>例子：离散，平凡，余有限，余可数</li><li>度量空间，度量拓扑（若干开球并）</li><li>结构：邻域，内点，内部；聚点，导集，闭包</li><li>子空间</li></ul></li><li>连续同胚<ul><li>点连续：邻域原像邻域；局部性质</li><li>连续：开原像开；闭原像闭</li><li>粘接引理</li><li>同胚：双射+连续+逆连续</li></ul></li><li>乘积空间与拓扑基<ul><li>乘积空间：投射连续的最小拓扑</li><li>拓扑基：若干并生成拓扑</li></ul></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>tutoring-outline-07-08</title>
     <link href="/2021/07/08/tutoring-outline-07-08/"/>
     <url>/2021/07/08/tutoring-outline-07-08/</url>

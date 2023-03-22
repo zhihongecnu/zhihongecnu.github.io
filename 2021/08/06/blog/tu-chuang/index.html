@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PicGo 搭建图床 | 我的学习空间</title><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="用 PicGo 搭建图床的几种方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PicGo 搭建图床">
+<meta property="og:url" content="http://www.wzhecnu.cn/2021/08/06/blog/tu-chuang/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="用 PicGo 搭建图床的几种方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic10.jpg">
+<meta property="article:published_time" content="2021-08-06T06:19:16.000Z">
+<meta property="article:modified_time" content="2023-03-16T02:42:32.113Z">
+<meta property="article:author" content="致宏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2021/08/06/blog/tu-chuang/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PicGo 搭建图床',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-16 10:42:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic10.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">PicGo 搭建图床</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2021-08-06T06:19:16.000Z" title="发布于 2021-08-06 14:19:16">2021-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-16T02:42:32.113Z" title="更新于 2023-03-16 10:42:32">2023-03-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>唠唠闲话</h1>
+<p>写博客总要和图片打交道，封面图片，文章插图等等，为了加快网页加载速度，图床就显得很有必要了，安装教程<a href="#install">点这里</a>跳转。</p>
+<hr>
+<h1>图床是什么？</h1>
+<h2 id="摘自简书"><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea1eb11db63f">摘自简书</a></h2>
+<p>MarkDown 作为一种纯文本格式的标记语言，通过简单的标记语法，就使普通文本内容具有一定的格式。一次标记可以做到各平台通用，免除了富文本编辑器换平台就要重新排版的繁琐，越来越受欢迎，尤其是程序员群体。现在很多论坛和社区都开始支持使用 MarkDown（例如国外数学论坛 <a target="_blank" rel="noopener" href="https://math.stackexchange.com/">stackexchage</a> )。但使用 Markdown 也有一个重要的问题，那就是图片的存储， Markdown 文件要用到图片时必须是一个链接。各个平台都有自己的图片存储方法，在不使用图床的情况下，同一篇文章发布到不同的平台需要单独上传图片一次。这个真的无法接受，太麻烦。</p>
+<p>解决办法就是使用图床来单独存储图片，需要用到图片的地方统一用图床上的图片链接就好了。这样同一篇文章，发布到不同的平台真正可以简单复制粘贴。</p>
+<p>图床就是一个图片服务器，用来存储图片，以URL的形式来供其他平台获取图片。可以自己搭建，也可以使用别人搭建好后提供的服务。自己搭建肯定花钱，别人搭建给你提供服务，有的收费，有的一定范围内不收费，有的完全免费。</p>
+<blockquote>
+<p>重要提示：数据是比金钱更重要的东西！这点务必先搞清楚。不要因为追求免费而用可能损失数据的服务，这样以后会发现，特别不值。即丢失了数据，又重新花钱，还浪费了时间。</p>
+</blockquote>
+<p>一般选择图床要满足下面条件</p>
+<ul>
+<li>可靠性。数据在当今社会是最宝贵的财富之一，因此在选择存储的服务时，可靠性无疑是首要的考虑因素。</li>
+<li>安全性。面对攻击、盗取和破坏时如何保障数据不受到损失，是另一个重要的考虑因素。</li>
+<li>是否简单易用。越简单易用越好。</li>
+<li>价格是否合理。在满足前两条的情况下，越便宜越好，最好免费。</li>
+</ul>
+<hr>
+<h2 id="摘自知乎"><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41646507/answer/128090221">摘自知乎</a></h2>
+<p>首先呢，如果你的网站访问量很小，一天也就几百一千撑死的，而且网站也用不了几张图片，那可以直接存服务器，甚至是几百块钱的虚拟服务器就能搞定。但是如果网站是专门的图片站呢？而且都需要高清大图，而你的服务器比较寒酸。比如说存储空间只有一个G吧，这种情况你会咋整？肯定不会把图片放服务器吧？如果预算有限，你或许会选择把图片存到一些第三方云相册中，这就相当于一个变相的图床，当然你预算充足，你肯定也会想到，再买个服务器专门存放图片，那这个服务器就是图床。同理，你的网站访问量很高啊，一天几十万几百万啊，我的天啊，这时候你考虑的就不是服务器空间够不够大，而是惊人的并发数啊，光是请求 html 文件（或其他）的链接就处理不过来了，哪还有多余的资源去读取图片啊，索性就把图片存另一个服务器吧，给主服务器减轻压力啊，于是图床又诞生了。。。</p>
+<h1>PicGo 搭建图床</h1>
+<h2 id="简介">简介</h2>
+<p>PicGo 是一个用于快速上传图片并获取图片 URL 链接的工具，详见 <a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">PicGo 官方文档</a>。<br>
+PicGo 支持许多平台，包括：</p>
+<ul>
+<li>七牛图床 v1.0</li>
+<li>腾讯云 COS v4\v5 版本 v1.1 &amp; v1.5.0</li>
+<li>又拍云 v1.2.0</li>
+<li>GitHub v1.5.0</li>
+<li><a target="_blank" rel="noopener" href="http://SM.MS">SM.MS</a> V2 v2.3.0-beta.0</li>
+<li>阿里云 OSS v1.6.0</li>
+<li>Imgur v1.6.0</li>
+</ul>
+<h2 id="span-id-install-安装及配置-span"><span id="install">安装及配置</span></h2>
+<ol>
+<li>
+<p>Ubuntu 系统使用命令行安装 Picgo 及相关插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs npm </span><br><span class="line">sudo npm install picgo -g <span class="comment"># 全局安装 picgo</span></span><br></pre></td></tr></table></figure>
+<p>Mac 系统使用 Homebrew 安装</p>
+</li>
+<li>
+<p>Windows 端在<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">发行页</a> 下载<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211127151632.png" alt="20211127151632"></p>
+</li>
+<li>
+<p>选择图床平台，这里介绍两种：<a target="_blank" rel="noopener" href="http://SM.MS">SM.MS</a> 和 Github，区别如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图床</th>
+<th style="text-align:center">稳定性</th>
+<th style="text-align:center">安全性</th>
+<th style="text-align:center">访问速度</th>
+<th style="text-align:center">上手难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">GitHub</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="http://SM.MS">SM.MS</a></td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">较快</td>
+<td style="text-align:center">简单</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p>推荐用 Github，方便长期管理。</p>
+<h2 id="span-id-SM-使用-SM-MS-span"><span id="SM">使用 SM.MS</span></h2>
+<p><a target="_blank" rel="noopener" href="http://SM.MS">SM.MS</a> 支持的图片格式包括 JPG、JPEG、GIF、PNG 及 BMP，单档不超过 5 MB，单次可上传图片最大 10 张，图片永久保存。配置过程如下：</p>
+<ol>
+<li>在 <a target="_blank" rel="noopener" href="https://sm.ms">官网</a> 注册 <a target="_blank" rel="noopener" href="http://sm.ms">sm.ms</a> 账号<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20211126153420.png" alt="深度截图_选择区域_20211126153420"></li>
+<li>进入<a target="_blank" rel="noopener" href="https://sm.ms/home/apitoken">控制台</a>，生成 API token<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20211126153535.png" alt="20211126153535"></li>
+<li>Ubuntu 系统下，用命令行设置 picgo <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picgo <span class="built_in">set</span> uploader <span class="comment"># 设置图床网站</span></span><br></pre></td></tr></table></figure>
+显示如下，选择 <code>smms</code> 并粘贴 token <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">? Choose a(n) uploader (Use arrow keys)</span><br><span class="line">❯ smms </span><br><span class="line">  tcyun </span><br><span class="line">  github </span><br><span class="line">  qiniu </span><br><span class="line">  imgur </span><br><span class="line">  aliyun </span><br><span class="line">  upyun</span><br></pre></td></tr></table></figure>
+</li>
+<li>Windows 系统在软件中设置<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211127151821.png" alt="20211127151821"></li>
+</ol>
+<h2 id="使用-Github">使用 Github</h2>
+<ol>
+<li>
+<p>点击账号设置，获取 Github 的 token，参见 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131584831">知乎</a>。</p>
+</li>
+<li>
+<p>新建 Github 仓库用于存储图片，注意要用<strong>公开仓库</strong>。</p>
+</li>
+<li>
+<p>Ubuntu 系统下，配置文件路径为 <code>~/.picgo/config.json</code></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.picgo</span><br><span class="line">code config.json</span><br></pre></td></tr></table></figure>
+<p>Windows 系统下，配置文件路径为 <code>C:\Users\&lt;用户名&gt;\.picgo\config.json</code></p>
+</li>
+<li>
+<p>文件内容修改如下</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;uploader&quot;</span>: <span class="string">&quot;github&quot;</span>,</span><br><span class="line">    <span class="string">&quot;current&quot;</span>: <span class="string">&quot;github&quot;</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置 smms</span></span><br><span class="line">    <span class="string">&quot;smms&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;token&quot;</span>: <span class="string">&quot;&lt;token&gt;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置 github</span></span><br><span class="line">    <span class="string">&quot;github&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;repo&quot;</span>: <span class="string">&quot;&lt;用户名&gt;/&lt;仓库名&gt;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;branch&quot;</span>: <span class="string">&quot;&lt;分支名&gt;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;token&quot;</span>: <span class="string">&quot;&lt;token&gt;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;path&quot;</span>: <span class="string">&quot;&lt;文件路径&gt;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;customUrl&quot;</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/&lt;用户名&gt;/&lt;仓库名&gt;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;picgoPlugins&quot;</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改说明</p>
+<ul>
+<li>文件有两块，对应 smms 和 github 的配置</li>
+<li><code>uploader</code> 和 <code>current</code> 填 <code>github</code></li>
+<li><code>repo</code> 填写仓库，格式为 <code>用户名/仓库名</code></li>
+<li><code>branch</code> 填写分支，默认是 <code>master</code> 或 <code>main</code></li>
+<li><code>path</code> 为图片保存路径，选填，<strong>注意结尾带</strong> <code>/</code></li>
+<li><code>customUrl</code> 用 <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsdelivr</a> 做 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/37353035">CDN</a> 加速，格式为 <code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code>，<strong>结尾不带</strong> <code>/</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="软件用法">软件用法</h2>
+<p>选择一种方法配置后，可以上传图片，生成链接。</p>
+<h3 id="Ubuntu-系统">Ubuntu 系统</h3>
+<ol>
+<li>
+<p>命令行执行 <code>picgo u &lt;图片路径&gt;</code> 上传图片</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picgo u picture.jpg</span><br></pre></td></tr></table></figure>
+<p>显示内容</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[PicGo INFO]: Before transform</span><br><span class="line">[PicGo INFO]: Transforming... Current transformer is [path]</span><br><span class="line">[PicGo INFO]: Before upload</span><br><span class="line">[PicGo INFO]: Uploading... Current uploader is [smms]</span><br><span class="line">[PicGo SUCCESS]: </span><br><span class="line">https://i.loli.net/2021/08/06/BbT7vxpNYqgLXwe.jpg</span><br></pre></td></tr></table></figure>
+<p>最后一行为需要的图片链接</p>
+</li>
+<li>
+<p>复制图片后，通过命令行上传剪贴板</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">picgo upload</span><br></pre></td></tr></table></figure>
+<p>注意一次只能复制一张图片。</p>
+</li>
+</ol>
+<h3 id="Windows-系统">Windows 系统</h3>
+<p>Windows 在软件主界面上传，或拖拽上传。<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211127152507.png" alt="20211127152507"></p>
+<h1>vscode 插件</h1>
+<p>写博客需要图片外链时，个人最用得最多的就是这个。 VSCode 的 PicGo 插件支持快捷键插入图片，更省心省事。</p>
+<h3 id="安装及配置">安装及配置</h3>
+<ol>
+<li>
+<p>搜索安装 vscode 插件 picgo，点击拓展设置<br>
+<img src="https://i.loli.net/2021/08/06/UvL5tFQs8D2fnJj.jpg" alt="PicGo 插件"></p>
+</li>
+<li>
+<p>插件默认使用 <a target="_blank" rel="noopener" href="http://SM.MS">SM.MS</a>，不需要配置；但为方便图片管理，建议使用个人账号的配置文件。进入插件配置<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20211126155104.png" alt="深度截图_选择区域_20211126155104"></p>
+</li>
+<li>
+<p>输入配置路径，指向<a href="#install">上一节</a>的配置文件，Ubuntu 的路径为 <code>.picgo/config.json</code>，Windows 系统为 <code>C:\Users\&lt;用户名&gt;\.picgo\config.json</code><br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/2021-08-07%2013-59-12%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="配置图片"></p>
+</li>
+<li>
+<p>如果使用剪贴板功能，Ubuntu 系统还要安装插件 xclip，实现终端与剪贴板之间的数据通道</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xclip</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Ps：如果上传提示 <code>Command &quot;UploadImageFromExplorer&quot; Not Found</code> 可能是插件安装错误，重新安装即可。</p>
+<h3 id="使用方法">使用方法</h3>
+<p>插件提供了三种输入图片的方式</p>
+<ol>
+<li><code>ctrl + alt + u</code> 上传剪贴板图片（Ubuntu 下有时会失灵</li>
+<li><code>ctrl + alt + e</code> 打开文档浏览器导入图片（个人用得最多</li>
+<li><code>ctrl + alt + o</code> 使用命令行输入图片位置（用得少</li>
+</ol>
+<p>Mac 使用快捷方式：Cmd+Opt+对应指令</p>
+<p>Ps：图床必备搭配（Ubuntu）： Picgo + Deepin-screenshot，后者用于截图，具体参阅 <a href="/2021/08/21/server/03-ubuntu-usage/" title="Ubuntu 教程(二) | 常见命令整理和学习">这篇</a>。</p>
+<h1>参考链接</h1>
+<h2 id="图床介绍">图床介绍</h2>
+<blockquote>
+<p>知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41646507/answer/128090221">图床有什么用</a><br>
+知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131584831">搭建稳定快速高效图床</a><br>
+简书：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea1eb11db63f">markdown 图床</a><br>
+知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81713842">超好用：免费的图床</a><br>
+简书：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c35091dcba84">分享8个高速稳定的图床网站</a></p>
+</blockquote>
+<h2 id="图床配置">图床配置</h2>
+<blockquote>
+<p>知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131584831">搭建稳定快速高效图床</a><br>
+简书：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/155fa7e46763">GitHub &amp; SM.MS 图床的使用</a><br>
+CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/jhsword/article/details/108946287">linux 安装 xclip</a><br>
+博客园：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/pineapple-py/p/14613332.html">Linux 为 Typora 搭建一个图床</a><br>
+百家号：<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1657980156535147441">vscode 配置插件 PicGo</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2021/08/06/blog/tu-chuang/">http://www.wzhecnu.cn/2021/08/06/blog/tu-chuang/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic10.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/08/13/programming/others/haskell-intro/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20210914190158.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">用范畴编程的语言 | Haskell 简介</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/25/blog/hexo-03-fu-za-she-zhi/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/c.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo | 主题设置二（进阶）</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">图床是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%87%AA%E7%AE%80%E4%B9%A6"><span class="toc-number">2.1.</span> <span class="toc-text">摘自简书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%87%AA%E7%9F%A5%E4%B9%8E"><span class="toc-number">2.2.</span> <span class="toc-text">摘自知乎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">PicGo 搭建图床</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">3.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-id-install-%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE-span"><span class="toc-number">3.2.</span> <span class="toc-text">安装及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-id-SM-%E4%BD%BF%E7%94%A8-SM-MS-span"><span class="toc-number">3.3.</span> <span class="toc-text">使用 SM.MS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Github"><span class="toc-number">3.4.</span> <span class="toc-text">使用 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%B3%95"><span class="toc-number">3.5.</span> <span class="toc-text">软件用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.5.1.</span> <span class="toc-text">Ubuntu 系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.5.2.</span> <span class="toc-text">Windows 系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">vscode 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="toc-number">4.0.1.</span> <span class="toc-text">安装及配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.2.</span> <span class="toc-text">使用方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BA%8A%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.1.</span> <span class="toc-text">图床介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BA%8A%E9%85%8D%E7%BD%AE"><span class="toc-number">5.2.</span> <span class="toc-text">图床配置</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ubuntu 教程(一) | 必备软件的安装 | 我的学习空间</title><meta name="keywords" content="ubuntu"><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ubuntu 基础软件和进阶软件的汇总，方便重装系统时进行安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 教程(一) | 必备软件的安装">
+<meta property="og:url" content="http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="ubuntu 基础软件和进阶软件的汇总，方便重装系统时进行安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic7.jpg">
+<meta property="article:published_time" content="2021-08-20T15:47:33.000Z">
+<meta property="article:modified_time" content="2023-03-08T04:36:14.752Z">
+<meta property="article:author" content="致宏">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic7.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ubuntu 教程(一) | 必备软件的安装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-08 12:36:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ubuntu 教程(一) | 必备软件的安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2021-08-20T15:47:33.000Z" title="发布于 2021-08-20 23:47:33">2021-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-08T04:36:14.752Z" title="更新于 2023-03-08 12:36:14">2023-03-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>本篇整理 ubuntu 常用软件的安装教程，一来方便在新设备（或者服务器）上配置，二来记录一些实用的软件和工具。</p>
+<p>文章目录：</p>
+<ul>
+<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85">命令行安装</a></li>
+<li><a href="#deb%E6%96%87%E4%BB%B6%E5%AE%89%E8%A3%85">deb 文件安装</a></li>
+<li><a href="#%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3">编程软件</a></li>
+<li><a href="#deepin-%E7%B3%BB%E5%88%97">deepin 系列</a></li>
+<li><a href="#Texlive">Texlive</a></li>
+<li><a href="#%E5%BD%95%E5%B1%8F%E4%B8%8E%E5%8A%A8%E5%9B%BE">录屏与动图</a></li>
+</ul>
+<p>注：教程假定用户拥有超级用户权限。</p>
+<h2 id="命令行安装">命令行安装</h2>
+<p>本节汇总</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt-get install -y git vim nethogs python3-dev python3-pip python3-setuptools</span><br><span class="line">sudo apt-get install -y thefuck</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(thefuck --alias)&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>更新软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装 git （系统通常自带）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装 vim （系统通常自带）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装流量监控器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nethogs</span><br></pre></td></tr></table></figure>
+<p>输入 <code>sudo nethogs</code> 查看实时流量状态</p>
+</li>
+<li>
+<p>神器 <code>the fuck</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install python3-dev python3-pip python3-setuptools</span><br><span class="line">pip3 install thefuck</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(thefuck --alias)&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>拍照摄像以及录音工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install cheese</span><br><span class="line">sudo apt-get install audacity</span><br></pre></td></tr></table></figure>
+<p>录音好像不能用，需设置声卡，暂空。</p>
+</li>
+<li>
+<p>安装多线程下载器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install axel</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>其他命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 软件卸载</span></span><br><span class="line">sudo apt remove &lt;包名称&gt;</span><br><span class="line"><span class="comment"># 搜索软件</span></span><br><span class="line">apt search &lt;包名称&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="deb文件安装">deb文件安装</h2>
+<ol>
+<li>
+<p>安装 gdebi ，用于安装 <code>.deb</code> 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gdebi -y</span><br><span class="line">sudo apt-get install gdebi-core -y</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装 chrome</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 .deb 安装包</span></span><br><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb </span><br><span class="line"><span class="comment"># 安装文件</span></span><br><span class="line">sudo gdebi google-chrome-stable_current_amd64.deb </span><br><span class="line"><span class="comment"># 删除安装包</span></span><br><span class="line"><span class="built_in">rm</span> google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>其他 <code>.deb</code> 包的安装过程类似</p>
+</li>
+<li>
+<p>安装 VScode：在<a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">官网</a>下载 <code>.deb</code> 文件并安装<br>
+<img src="https://i.loli.net/2021/08/21/H8f3rLNQnaBIAJz.png" alt="deb"><br>
+注：用命令行 <code>sudo snap install code</code> 安装可能有中文输入问题，所以推荐用 <code>.deb</code> 文件安装</p>
+</li>
+<li>
+<p>安装百度网盘，进入<a target="_blank" rel="noopener" href="https://pan.baidu.com/download/">官网</a>，下载 <code>debi</code> 文件并安装<br>
+<img src="https://i.loli.net/2021/08/21/z3oR5rLZSJDhtIq.png" alt="package"></p>
+</li>
+<li>
+<p>安装 Zoom：在 <a target="_blank" rel="noopener" href="https://zoom.us/download?os=linux">官网</a>下载 <code>debi</code> 文件并安装<br>
+<img src="https://i.loli.net/2021/08/22/I5bCjiyhPkARHJY.png" alt="package"></p>
+</li>
+<li>
+<p>安装飞书，<a target="_blank" rel="noopener" href="https://www.feishu.cn/download">官网链接</a></p>
+</li>
+</ol>
+<h2 id="坚果云">坚果云</h2>
+<h3 id="坚果云简介">坚果云简介</h3>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20767341">坚果云</a>是一款很实用的办公软件。我平常手机，平板和电脑间的文件交互都是用坚果云。<br>
+坚果云的优点是使用免费，即时更新而且速度快。虽然每月只有 1G 的上传流量和 3G 的下载流量，但基本办公完全够用。</p>
+<h3 id="安装教程">安装教程</h3>
+<p>安装参考了这篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/jiang_huixin/article/details/106129799">Ubuntu 安装坚果云</a>。</p>
+<ol>
+<li>
+<p>官网下载 .deb 文件，并用命令行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi nautilus_nutstore_amd64.deb</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修复依赖关系</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看启动命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep Exec /usr/share/applications/nutstore-menu.desktop </span><br></pre></td></tr></table></figure>
+<p>若 grep 未安装，先执行 <code>sudo apt-get install grep</code></p>
+</li>
+</ol>
+<h3 id="可能问题">可能问题</h3>
+<p>安装完成后，点击图标没有反应，问题原因：二进制组件需解压到 <code>~/.nutstore/dist</code>, 但默认安装过程文件解压失败。解决方法：</p>
+<ol>
+<li>
+<p>根据系统下载二进制组件： <a target="_blank" rel="noopener" href="https://www.jianguoyun.com/static/exe/installer/nutstore_linux_dist_x64.tar.gz">64位系统</a> 或 <a target="_blank" rel="noopener" href="https://www.jianguoyun.com/static/exe/installer/nutstore_linux_dist_x86.tar.gz">32位系统</a>，或者使用命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 位</span></span><br><span class="line">wget https://www.jianguoyun.com/static/exe/installer/nutstore_linux_dist_x64.tar.gz -O nut_64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 32 位</span></span><br><span class="line"><span class="comment"># wget https://www.jianguoyun.com/static/exe/installer/nutstore_linux_dist_x86.tar.gz -O nut_32.tar.gz</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建目录，并将刚刚下载的文件解压到 <code>~/.nutstore/dist</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.nutstore/dist</span><br><span class="line">tar -xzf nut_64.tar.gz -C ~/.nutstore/dist</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这时就能正常启动了。</p>
+<hr>
+<h2 id="编程相关">编程相关</h2>
+<h3 id="jupyter">jupyter</h3>
+<p>Jupyter Notebook 是一个 Web 应用程序，便于创建和共享程序文档，支持实时代码，数学方程，可视化和 markdown 等，安装方法如下：</p>
+<ol>
+<li>
+<p>命令行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install jupyter-notebook <span class="comment"># 安装 jupyter notebook</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置密码，方便访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>生成并修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config <span class="comment"># 生成配置文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改配置文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi jupyter_notebook_config.py</span><br><span class="line"><span class="comment"># code jupyter_notebook_config.py</span></span><br></pre></td></tr></table></figure>
+<p>添加以下字段</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取消弹出浏览器</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="literal">False</span></span><br><span class="line"><span class="comment"># 设置默认打开位置</span></span><br><span class="line"><span class="comment"># 或者用 c.ContentsManager.root_dir，有区别</span></span><br><span class="line">c.NotebookApp.notebook_dir = <span class="string">&#x27;/home/zhwang&#x27;</span></span><br><span class="line"><span class="comment"># 设置访问端口</span></span><br><span class="line">c.NotebookApp.port = <span class="number">6000</span></span><br></pre></td></tr></table></figure>
+<p>对于服务器端启动，可以增加以下字段</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置允许访问的 IP 地址</span></span><br><span class="line">c.NotebookApp.ip = <span class="string">&#x27;0.0.0.0&#x27;</span> <span class="comment"># 或者 &#x27;*&#x27;</span></span><br><span class="line"><span class="comment"># 允许 root 用户访问</span></span><br><span class="line">c.NotebookApp.allow_root = <span class="literal">True</span></span><br><span class="line"><span class="comment"># 设置显示链接</span></span><br><span class="line">c.NotebookApp.custom_display_url = <span class="string">f&#x27;&lt;链接名&gt;:<span class="subst">&#123;c.NotebookApp.port&#125;</span>&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置完毕后，通过浏览器访问相应的地址即可</p>
+</li>
+</ol>
+<h4 id="安装扩展">安装扩展</h4>
+<p>除了优美的原生编程环境，jupyter notebook 还支持各种各样的插件拓展，用以提高编程效率。</p>
+<blockquote>
+<p><strong>参考文章</strong><br>
+知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36389916">jupyter notebook 扩展工具</a></p>
+</blockquote>
+<ol>
+<li>
+<p>在终端输入下边命令，安装并配置插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_nbextensions_configurator</span><br><span class="line">pip install jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install --user</span><br><span class="line">jupyter nbextensions_configurator <span class="built_in">enable</span> --user</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重新打开 jupyter，右侧多了一项 <code>Nbextensions</code><br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20210923191859.png" alt="20210923191859"><br>
+取掉最上方的勾子，推荐勾选 <code>Collapsible Headings</code> 和 <code>Codefolding</code>，用于代码折叠。</p>
+</li>
+</ol>
+<h3 id="sagemath">sagemath</h3>
+<p><a target="_blank" rel="noopener" href="https://www.sagemath.org/">SageMath</a> 是一个基于 GPL 协议的开源数学软件。它使用 Python 作为通用接口，将现有的许多开源软件包整合在一起，构建一个统一的计算平台。参考<a target="_blank" rel="noopener" href="http://qiniu.wzhecnu.cn/books/M%C2%B7%E5%85%8B%E8%8E%B1%E5%9B%A0-%E6%95%B0%E5%AD%A6%EF%BC%9A%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%9A%84%E4%B8%A7%E5%A4%B1.pdf">sage 中文文档</a>。</p>
+<p>软件安装方法如下：</p>
+<ol>
+<li>
+<p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libssl-dev <span class="comment"># 安装依赖</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>命令行安装，需等待较长时间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install sagemath-jupyter -y <span class="comment"># 安装软件</span></span><br></pre></td></tr></table></figure>
+<p>也可以直接在<a target="_blank" rel="noopener" href="https://www.sagemath.org/download-linux.html">官网</a>下载免安装版并解压，比如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://mirrors.aliyun.com/sagemath/linux/64bit/sage-9.4-Ubuntu_20.04-x86_64.tar.bz2</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在终端输入 <code>sage</code> 运行软件<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20211204030836.png" alt="深度截图_选择区域_20211204030836"></p>
+</li>
+<li>
+<p>指定使用 <code>jupyter-notebook</code> 运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sage -n --notebook=jupyter</span><br></pre></td></tr></table></figure>
+<p>如果使用 <code>apt-get</code> 的方式安装 SageMath，直接运行 <code>jupyter</code> 也能看到 <code>sagemath</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter-notebook</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Mathematica">Mathematica</h3>
+<p>Mathematica(MMA) 是一款科学计算软件，很好地结合了数值和符号计算引擎、图形系统、编程语言、文本系统、和与其他应用程序的高级连接。很多功能在相应领域内处于世界领先地位，它也是使用最广泛的数学软件之一。</p>
+<p>安装教程如下：</p>
+<ol>
+<li>在<a target="_blank" rel="noopener" href="https://wdm.undo.icu/wyd/Mathematica/12.1.0.0/">这里</a>下载 12.1 版本（.sh 文件），或者直接用 <code>wget</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://wdm.undo.icu/wyd/Mathematica/12.1.0.0/MMA_12.1.0_Linux_zh_CN.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li>进入文件所在目录，打开终端，输入 <code>chmod a+x &lt;文件名&gt;</code> 赋予执行权限</li>
+<li><code>sudo ./&lt;文件名&gt;</code> 运行安装，按窗口提示进行</li>
+<li>激活参看<a target="_blank" rel="noopener" href="https://tiebamma.github.io/InstallTutorial/"> Github 博客</a>，或者<a target="_blank" rel="noopener" href="https://ibug.io/blog/2019/05/mathematica-keygen/">这里</a>。</li>
+</ol>
+<h3 id="Maple">Maple</h3>
+<p>先占位</p>
+<h3 id="Julia">Julia</h3>
+<p>Julia 是个灵活的动态语言，适合科学和数值计算，且性能与传统静态类型语言媲美。</p>
+<h2 id="deepin-系列">deepin 系列</h2>
+<p>一些国内常用软件，比如 QQ，微信，腾讯会议，在 Ubuntu 上安装比较麻烦，最简易的方式是借助 deepin 系统。深度操作系统(deepin)是一款致力于为全球用户提供美观易用、安全稳定服务的 Linux 发行版，同时也一直是排名最高的来自中国团队研发的 Linux 发行版。</p>
+<blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/zq1997/deepin-wine">deepin-wine</a>。</p>
+</blockquote>
+<ol>
+<li>
+<p>首次使用时，运行如下命令将移植仓库添加到系统中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O- https://deepin-wine.i-m.dev/setup.sh | sh</span><br></pre></td></tr></table></figure>
+<p>执行完成显示内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">大功告成，现在可以试试安装更新deepin-wine软件了，如：</span><br><span class="line">微信：sudo apt-get install com.qq.weixin.deepin</span><br><span class="line">QQ：sudo apt-get install com.qq.im.deepin</span><br><span class="line">TIM：sudo apt-get install com.qq.office.deepin</span><br><span class="line">钉钉：sudo apt-get install com.dingtalk.deepin</span><br><span class="line">完整列表见 https://deepin-wine.i-m.dev/</span><br><span class="line">🌟 尽量将main restricted universe multiverse这几个系统源都启用（自行百度），免得依赖问题多。</span><br><span class="line">🌟 安装后需要注销重登录才能显示应用图标。</span><br><span class="line">🌟 出了问题？先去github主页看README，再看别人提过的issue，再百度搜搜，避免直接就提issue。</span><br></pre></td></tr></table></figure>
+<p>提示信息：启用系统源 <code>main, restricted, universe, multiverse</code>。<br>
+解决方法参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_35338559/article/details/116942176"> CSDN 的教程</a>，关于系统源和 <code>apt</code> 的工作原理，博客暂不深入，只贴启用系统源的方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo add-apt-repository main</span><br><span class="line">sudo add-apt-repository restricted</span><br><span class="line">sudo add-apt-repository multiverse</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在尝试安装 QQ 时，报错下边问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">com.qq.weixin.deepin:i386 已经是最新版 (3.4.0.38deepin6)。</span><br><span class="line">您也许需要运行“apt --fix-broken install”来修正上面的错误。</span><br><span class="line">下列软件包有未满足的依赖关系：</span><br><span class="line">com.qq.weixin.deepin:i386 : 依赖: deepin-elf-verify:amd64 (&gt;= 0.0.16.7-1)</span><br><span class="line">                           依赖: deepin-wine6-stable:amd64 (&gt;= 6.0.0.19-1)</span><br><span class="line">                           依赖: deepin-wine-helper:i386 (&gt;= 5.1.25-1) 但是它将不会被安装</span><br><span class="line">                           依赖: fonts-wqy-microhei:i386</span><br><span class="line">                           依赖: fonts-wqy-zenhei:i386</span><br><span class="line">E: 有未能满足的依赖关系。请尝试不指明软件包的名字来运行“apt --fix-broken install”(也可以指定一个解决办法)。</span><br></pre></td></tr></table></figure>
+<p>这是因为无法连接上 <code>cn.archive.ubuntu.com</code>，解决方法参考了<a target="_blank" rel="noopener" href="https://www.cnblogs.com/OoycyoO/p/8506463.html">博客园</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先备份源列表文件</span></span><br><span class="line"><span class="built_in">cp</span> /etc/apt/sources.list ~/</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>修改 <code>sources.list</code> 文件，可以用 vim 或者用 vscode，将软件源 <code>cn.archive.ubuntu.com</code> 替换为其他软件源，比如 <code>mirrors.163.com</code>，然后执行更新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt --fix-broken install</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装微信，QQ，钉钉，腾讯会议</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 微信</span></span><br><span class="line"><span class="comment"># 需等待较长时间</span></span><br><span class="line">sudo apt-get install com.qq.weixin.deepin</span><br><span class="line"><span class="comment"># 安装 QQ</span></span><br><span class="line">sudo apt-get install com.qq.im.deepin</span><br><span class="line"><span class="comment"># 安装 钉钉</span></span><br><span class="line">sudo apt-get install com.dingtalk.deepin</span><br><span class="line"><span class="comment"># 安装腾讯会议</span></span><br><span class="line">sudo apt-get install com.tencent.meeting.deepin</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>可能的乱码问题，比如腾讯会议<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220420000415.png" alt="20220420000415"><br>
+参考了这个 <a target="_blank" rel="noopener" href="https://github.com/zq1997/deepin-wine/issues/5">issue</a> 以及 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37624415/article/details/82228572">CSDN</a> 的解决方法</p>
+<ol>
+<li>网上搜索下载 Windows 的 simsun.ttc 字体</li>
+<li>将字体文件 <code>simsun.ttc</code> 移动到软件目录中，比如腾讯会议<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 软件目录： ~/.deepinwine/&lt;软件名称&gt;/drive_c/windows/Fonts/</span></span><br><span class="line"><span class="built_in">cp</span> simsun.ttc ~/.deepinwine/Deepin-WeMeet/drive_c/windows/Fonts/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li>
+<p>录音问题，比如腾讯会议：进入会议后，选择系统默认麦克风；电脑右上角有麦克风的标识，默认音量为 0，需手动拉高。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220422110458.png" alt="深度截图_选择区域_20220422110458"><br>
+如果直接在设置界面测试麦克风，好像会闪退，必须开启会议，麦克风图标出现后，才能正常测试。微信 QQ 的录音同理。</p>
+</li>
+</ol>
+<blockquote>
+<p>还有摄像头问题没有解决，不过正常会议可以进行，就先不捣鼓了。</p>
+</blockquote>
+<p>注：从软件目录看，deepin 的原理好像是将 windows 的软件放在容器中，里边有不少 <code>exe</code> 文件。</p>
+<h2 id="AI-相关">AI 相关</h2>
+<p>Anaconda 是一个 Python/R 数据科学发行版，其中包含包和环境管理器 conda，可帮助管理超过 7,500 个可用的开源包。</p>
+<ol>
+<li>
+<p>进入<a target="_blank" rel="noopener" href="https://www.anaconda.com/">官网</a>，下载 <code>.sh</code> 文件并执行<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220606095200.png" alt="深度截图_选择区域_20220606095200"></p>
+</li>
+<li>
+<p>安装 <code>1.15</code> 版本的 <code>tensorflow</code>，参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/354273207">知乎</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tf1 <span class="comment"># 创建新环境</span></span><br><span class="line">conda activate tf1 <span class="comment"># 激活环境</span></span><br><span class="line">conda install pip python=3.7 <span class="comment"># 安装 3.7 版本的 pip 和 Python</span></span><br><span class="line">pip install tensorflow==1.15 <span class="comment"># 安装 tensorflow</span></span><br></pre></td></tr></table></figure>
+<p><code>1.x</code> 版本的 <code>tensorflow</code> 最多支持 <code>python3.7</code></p>
+</li>
+</ol>
+<h2 id="Texlive">Texlive</h2>
+<h3 id="下载镜像">下载镜像</h3>
+<ol>
+<li>登录镜像网站，选择资源，复制地址<br>
+<img src="https://i.loli.net/2021/08/31/siw6Fg7duBGHYrt.png" alt="镜像"></li>
+</ol>
+<blockquote>
+<p>注：国内镜像网站：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">清华</a>，<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/">中科大</a>，<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/">华中科大</a>，<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/CTAN/systems/texlive/Images/">阿里云</a></p>
+</blockquote>
+<ol start="2">
+<li>进入目录，用 <code>wget -c &lt;复制的地址&gt;</code> 下载镜像，比如<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/download</span><br><span class="line">wget -c https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive.iso</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>注：-c 参数允许中断续传，示例用中科大的镜像。</p>
+</blockquote>
+<h3 id="安装软件">安装软件</h3>
+<ol>
+<li>
+<p>安装图形化用户界面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install perl-tk</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>加载 iso 镜像文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   sudo mount -o loop texlive.iso /mnt</span><br><span class="line">   ````</span><br><span class="line">&gt; 注：此时提示 `/mnt: WARNING: device write-protected, mounted read-only`，不必理会。</span><br><span class="line"></span><br><span class="line">3. 启动图形化安装配置，按界面提示操作</span><br><span class="line">   ```bash</span><br><span class="line">   <span class="built_in">cd</span> /mnt/</span><br><span class="line">   sudo ./install-tl -gui </span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2021/08/31/qXZtdzjhMeH3uo5.png" alt="20210831163858"></p>
+</li>
+<li>
+<p>完成后卸载镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>中文支持</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install texlive-lang-chinese</span><br><span class="line">sudo apt-get install texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="设置中文">设置中文</h3>
+<ol>
+<li>
+<p>安装 Xelatex</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install texlive-xetex</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装 texstudio</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install texstudio</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开 texstudio -&gt; 点击 options -&gt; Configure Texstudio<br>
+<img src="https://i.loli.net/2021/08/31/7hUgtvO52BMyoJX.png" alt="pic"></p>
+</li>
+<li>
+<p>点击 General -&gt; Language， 选择 <code>zh-CN</code>，点击确认，此时界面语言为中文</p>
+</li>
+<li>
+<p>回到刚刚设置，点击“构建”，默认编译器不支持中文，将其改为 <code>Xelatex</code><br>
+<img src="https://i.loli.net/2021/08/31/bvCsJyPeopKWHGl.png" alt="pic"></p>
+</li>
+</ol>
+<h2 id="其他">其他</h2>
+<p>中文输入法：参看官方教程： <a target="_blank" rel="noopener" href="https://shurufa.sogou.com/linux/guide">https://shurufa.sogou.com/linux/guide</a></p>
+<h3 id="设置启动图标">设置启动图标</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.slfish.com/363.html">http://www.slfish.com/363.html</a></p>
+<p>举个例子，创建文件 <code>usr/share/applications/clash.desktop</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">   Encoding=UTF-8</span><br><span class="line">   Name=clash</span><br><span class="line">   Exec=/home/rex/software/clash/cfw</span><br><span class="line">   Terminal=<span class="literal">false</span></span><br><span class="line">   Type=Application</span><br><span class="line">   Categories=Application;Network;</span><br><span class="line">   StartupNotify=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>创建后，可以在主菜单中找到 clash</p>
+<h3 id="OBS-录屏软件">OBS 录屏软件</h3>
+<p>OBS 是开源的录屏软件和直播软件，功能强大，安装教程参考<a target="_blank" rel="noopener" href="https://obsproject.com/wiki/install-instructions#linux">官网</a>：</p>
+<ol>
+<li>
+<p>安装依赖 <code>ffmpeg</code></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ffmpeg -y</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>可选内容，如果需要录屏 + 录像功能</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install v4l2loopback-dkms -y</span><br></pre></td></tr></table></figure>
+<p>按提示设置重启密码<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_google-chrome_20220123165057.png" alt="深度截图_google-chrome_20220123165057"></p>
+</li>
+<li>
+<p>依次输入以下命令，安装 <code>obs</code> 软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:obsproject/obs-studio</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install obs-studio -y</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>可能存在的问题，文件下载失败（可能和网络有关）<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220123171637.png" alt="深度截图_选择区域_20220123171637"><br>
+可行方案为手动安装 <code>libfite</code>，将下载地址的域名 <code>cn.archive.</code> 改为 <code>archive.</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://archive.ubuntu.com/ubuntu/pool/universe/f/flite/libflite1_2.1-release-3_amd64.deb</span><br><span class="line">sudo gdebi libflite1_2.1-release-3_amd64.deb</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装完成后，在软件页面打开 <code>obs</code><br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220123171955.png" alt="深度截图_选择区域_20220123171955"></p>
+</li>
+</ol>
+<h4 id="基本使用">基本使用</h4>
+<ol>
+<li>
+<p>点击设置 -&gt; 输出，修改解码方式以及输出文件<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_gnome-terminal-server_20220123172856.png" alt="深度截图_gnome-terminal-server_20220123172856"></p>
+</li>
+<li>
+<p>点击 “+” 新建采集窗口，选择软件，点击开始录制<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20220123172635.png" alt="20220123172635"></p>
+</li>
+<li>
+<p>录制结束后，点击停止<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20220123172822.png" alt="20220123172822"></p>
+</li>
+</ol>
+<h3 id="GIF-动图录制">GIF 动图录制</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zheng5229875/article/details/47358963"> Ubuntu 录制 gif 动态图</a></p>
+<ol>
+<li>
+<p>下载工具 byzanz</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install byzanz</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>命令行输入 <code>byzanz-record --help</code> 查看帮助选项<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20220128161139.png" alt="20220128161139"></p>
+</li>
+<li>
+<p>常用选项：</p>
+<ul>
+<li><code>-d</code> 设置录制时间</li>
+<li><code>--delay=&lt;秒数&gt;</code> 设置录制开始延时</li>
+<li><code>-x, -y</code> 设置录制矩形区域左上位置的 x 坐标， y 坐标，默认为 <code>0, 0</code></li>
+<li><code>-w, -h</code> 设置录制矩形的宽度，高度</li>
+</ul>
+</li>
+<li>
+<p>示例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">byzanz-record -x 0 -y 0 -w 10 -h 20 -d 5 --delay=2 ~/test.gif</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>录制区域左上角起</li>
+<li>区域为宽 10 高 20 的矩形</li>
+<li>动画时间设置 5 秒，延迟 2 秒录制</li>
+<li>文件保存在 <code>~/test.gif</code></li>
+</ul>
+</li>
+<li>
+<p>录制区域的确定</p>
+<ul>
+<li>方法 1：用 <code>pyautogui.position()</code> 获取</li>
+<li>方法 2：终端输入 <code>xwininfo</code>，提示选择区域，鼠标操作后会返回区域的详细信息，比如<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_code_20220128163626.png" alt="深度截图_code_20220128163626"></li>
+</ul>
+</li>
+</ol>
+<h3 id="GIF-压缩工具">GIF 压缩工具</h3>
+<ol>
+<li>
+<p>用 byzanz 录制的 gif 文件可能比较大，可配合 gifsicle 压缩文件，GitHub <a target="_blank" rel="noopener" href="https://github.com/kornelski/giflossy/releases">下载地址</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://github.com/kornelski/giflossy/archive/refs/tags/1.91.tar.gz</span><br></pre></td></tr></table></figure>
+<p>注：直接用 <code>apt-install gifsicle</code> 下载的版本还不支持 <code>loosy</code> 参数，因而建议源码安装</p>
+</li>
+<li>
+<p>下载后解压文件，依次执行下边命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf giflossy-1.91.tar.gz <span class="comment"># 解压文件</span></span><br><span class="line">bash bootstrap.sh <span class="comment"># 生成 configure 文件</span></span><br><span class="line">./configure <span class="comment"># 生成 make install 文件</span></span><br><span class="line">sudo make install <span class="comment"># 源码安装-可能需要权限</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>gifsicle 的使用语法如下，其中 <code>--lossy</code> 参数值越高，文件压缩后越小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gifsicle -O3 --lossy=80 -o lossy-compressed.gif input.gif</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当然，也有些在线的压缩网站，比如 <a target="_blank" rel="noopener" href="https://docsmall.com/gif-compress">docsmall</a> 或者 <a target="_blank" rel="noopener" href="https://www.yasuotu.com/gif">压缩图</a>。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/">http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ubuntu/">ubuntu</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic7.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/08/21/server/03-ubuntu-usage/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic6.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Ubuntu 教程(二) | 常见命令整理和学习</div></div></a></div><div class="next-post pull-right"><a href="/2021/08/20/server/01-build-server/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20211212145455.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">服务器教程(一) | 个人服务器的连接与使用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/08/21/server/03-ubuntu-usage/" title="Ubuntu 教程(二) | 常见命令整理和学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-21</div><div class="title">Ubuntu 教程(二) | 常见命令整理和学习</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">命令行安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deb%E6%96%87%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">deb文件安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%9A%E6%9E%9C%E4%BA%91"><span class="toc-number">4.</span> <span class="toc-text">坚果云</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%9A%E6%9E%9C%E4%BA%91%E7%AE%80%E4%BB%8B"><span class="toc-number">4.1.</span> <span class="toc-text">坚果云简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">安装教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">4.3.</span> <span class="toc-text">可能问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="toc-number">5.</span> <span class="toc-text">编程相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jupyter"><span class="toc-number">5.1.</span> <span class="toc-text">jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95"><span class="toc-number">5.1.1.</span> <span class="toc-text">安装扩展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sagemath"><span class="toc-number">5.2.</span> <span class="toc-text">sagemath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mathematica"><span class="toc-number">5.3.</span> <span class="toc-text">Mathematica</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maple"><span class="toc-number">5.4.</span> <span class="toc-text">Maple</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Julia"><span class="toc-number">5.5.</span> <span class="toc-text">Julia</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deepin-%E7%B3%BB%E5%88%97"><span class="toc-number">6.</span> <span class="toc-text">deepin 系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E7%9B%B8%E5%85%B3"><span class="toc-number">7.</span> <span class="toc-text">AI 相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Texlive"><span class="toc-number">8.</span> <span class="toc-text">Texlive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="toc-number">8.1.</span> <span class="toc-text">下载镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">8.2.</span> <span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87"><span class="toc-number">8.3.</span> <span class="toc-text">设置中文</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">9.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%AF%E5%8A%A8%E5%9B%BE%E6%A0%87"><span class="toc-number">9.1.</span> <span class="toc-text">设置启动图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OBS-%E5%BD%95%E5%B1%8F%E8%BD%AF%E4%BB%B6"><span class="toc-number">9.2.</span> <span class="toc-text">OBS 录屏软件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">9.2.1.</span> <span class="toc-text">基本使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIF-%E5%8A%A8%E5%9B%BE%E5%BD%95%E5%88%B6"><span class="toc-number">9.3.</span> <span class="toc-text">GIF 动图录制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIF-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">9.4.</span> <span class="toc-text">GIF 压缩工具</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Julia 学习笔记(六) | Julia 简易爬虫 | 我的学习空间</title><meta name="keywords" content="Julia,Julia-Note"><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Julia 爬虫与基础的 IO 编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Julia 学习笔记(六) | Julia 简易爬虫">
+<meta property="og:url" content="http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="Julia 爬虫与基础的 IO 编程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg">
+<meta property="article:published_time" content="2022-06-30T16:38:12.000Z">
+<meta property="article:modified_time" content="2022-12-29T13:38:17.515Z">
+<meta property="article:author" content="致宏">
+<meta property="article:tag" content="Julia">
+<meta property="article:tag" content="Julia-Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Julia 学习笔记(六) | Julia 简易爬虫',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-29 21:38:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Julia 学习笔记(六) | Julia 简易爬虫</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2022-06-30T16:38:12.000Z" title="发布于 2022-07-01 00:38:12">2022-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-29T13:38:17.515Z" title="更新于 2022-12-29 21:38:17">2022-12-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>最近用 Julia 打比赛<s>和做项目(拖延好些天了orz，趁着间隙也赶紧干起来)</s> ，趁着热乎，把近期学习的 Julia 的 IO 编程用法，以及爬虫工具整理一下。</p>
+<p>目录：</p>
+<ul>
+<li><a href="#IO-%E7%BC%96%E7%A8%8B">IO 编程</a></li>
+<li><a href="#%E7%AE%80%E6%98%93%E7%88%AC%E8%99%AB">简易爬虫</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B">异步编程</a></li>
+</ul>
+<hr>
+<h2 id="IO-编程">IO 编程</h2>
+<h3 id="TxT-基本读写">TxT 基本读写</h3>
+<ol>
+<li>
+<p>读取文本文件-示例</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 使用 do 语法</span><br><span class="line">open(&quot;file.txt&quot;, &quot;r&quot;) do io</span><br><span class="line">    txt = read(io)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>形式上看和 Python 的 <code>with open(...) as</code> 类似，但含义不同。Julia 的 <code>do</code> 语法定义了匿名函数，比如</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 等价写法</span><br><span class="line">function f(io)</span><br><span class="line">    txt = read(io)</span><br><span class="line">end</span><br><span class="line">open(f, &quot;file.txt&quot;, &quot;r&quot;)</span><br></pre></td></tr></table></figure>
+<p>用 <code>read</code> 函数读取文件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 可以写成一行</span><br><span class="line">io = open(&quot;file.txt&quot;, &quot;r&quot;)</span><br><span class="line">txt = read(io, String) </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>写入文件-示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open(&quot;file.txt&quot;, &quot;w&quot;) do io</span><br><span class="line">    write(io, &quot;Hello, world!&quot;)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>同样地，也可以先返回 IO 对象，再调用 <code>write</code> 函数写入文件</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">io = open(&quot;file.txt&quot;, &quot;w&quot;)</span><br><span class="line">write(io, &quot;Hello, world!&quot;)</span><br><span class="line">close(io)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>常用参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;r&quot;</code></td>
+<td>读取文件</td>
+</tr>
+<tr>
+<td><code>&quot;w&quot;</code></td>
+<td>写入文件（不存在时创建）</td>
+</tr>
+<tr>
+<td><code>&quot;a&quot;</code></td>
+<td>追加文件 （不存在时创建）</td>
+</tr>
+<tr>
+<td><code>&quot;r+&quot;</code></td>
+<td>读写文件</td>
+</tr>
+<tr>
+<td><code>&quot;w+&quot;</code></td>
+<td>读写文件（不存在时创建）</td>
+</tr>
+<tr>
+<td><code>&quot;a+&quot;</code></td>
+<td>读取追加（不存在时创建）</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="Excel-文件读写">Excel 文件读写</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://felipenoris.github.io/XLSX.jl/stable/tutorial/">XLSX.jl</a></p>
+<p>一些场景需要用 <code>Excel</code> 文件来进行交互，比如谷歌的文档翻译。这时可以用 <code>JuliaIO</code> 的 <code>XLSX.jl</code> 工具，基于 <code>XLSX.jl</code> 模块，我们编写简单的 Excel 工具。</p>
+<ol>
+<li>
+<p>写入函数，将向量写在 Excel 表格第一列</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ]add XLSX # 安装模块</span><br><span class="line">using XLSX</span><br><span class="line">function write_xlsx(filename::AbstractString, vector::AbstractVector)</span><br><span class="line">    XLSX.openxlsx(filename, mode=&quot;w&quot;) do xf</span><br><span class="line">        sheet = xf[1]</span><br><span class="line">        n = length(vector)</span><br><span class="line">        sheet[&quot;A1:A$n&quot;] = reshape(vector, n, 1)</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>写入函数，将矩阵写入 Excel 表格</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function write_xlsx(filename::AbstractString, mat::AbstractMatrix)</span><br><span class="line">    XLSX.openxlsx(filename, mode=&quot;w&quot;) do xf</span><br><span class="line">        m, n = size(mat)</span><br><span class="line">        sheet = xf[1]</span><br><span class="line">        sheet[&quot;A1:$(excel_colind(n))$m&quot;] = mat</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>这里手写了一个列索引函数 <code>excel_colind</code>，用于计算 Excel 列编号</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function excel_colind(k::Int)</span><br><span class="line">    @assert k &lt;= 2 ^ 14 &quot;列数超过范围&quot;</span><br><span class="line">    (k -= 1) &lt;= 25 &amp;&amp; return &#x27;A&#x27; + k</span><br><span class="line">    (k -= 26) &lt;= 26 ^ 2 - 1 &amp;&amp; return (&#x27;A&#x27; + k ÷ 26) * (&#x27;A&#x27; + k % 26)</span><br><span class="line">    join(&#x27;A&#x27; + i for i in reverse!(digits(k - 26 ^ 2, base = 26, pad=3)))</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>注意 <code>.xlsx</code> 限制的列数上界为 <code>2 ^ 14</code></p>
+</li>
+<li>
+<p>读取 Excel 数据，如果只有一列返回向量，否则返回矩阵</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function read_xlsx(filename::AbstractString)</span><br><span class="line">    data = XLSX.readxlsx(filename)[1][:] # Any 类型矩阵</span><br><span class="line">    _, n = size(data)</span><br><span class="line">    string.(n == 1 ? data[:] : data) # 单行返回向量，多行返回矩阵</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>本篇只演示基础用法（文档交互足够），<code>XLSX.jl</code> 支持操作很还多，需要再进一步学习</p>
+</li>
+</ol>
+<h2 id="简易爬虫">简易爬虫</h2>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://julia.school/julia/scraping/">Julia School</a></p>
+<blockquote>
+<p>演示爬取 wiki 百科词条的方法，由于不需要用 <code>header, cookie</code> 之类的设置，教程暂不介绍</p>
+</blockquote>
+<ol>
+<li>
+<p>依赖模块，用 <code>]</code> 安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ]add HTTP</span><br><span class="line">using HTTP</span><br><span class="line">using AbstractTrees</span><br><span class="line">using Gumbo</span><br></pre></td></tr></table></figure>
+<p>其中 <code>HTTP</code> 用于请求网页，<code>AbstractTrees, Gumbo</code> 用于解析网页和提取信息</p>
+</li>
+<li>
+<p>获取维基词条</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 获取中文词条网页</span><br><span class="line">zhpage(word) = HTTP.get(&quot;https://zh.wikipedia.org/wiki/$word&quot;) </span><br><span class="line"># 获取英文词条网页</span><br><span class="line">enpage(word) = HTTP.get(&quot;https://en.wikipedia.org/wiki/$word&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>访问浏览器页面，右键单击检查，查看网页源代码<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220702173844.png" alt="深度截图_选择区域_20220702173844"></p>
+</li>
+<li>
+<p>这一步要根据爬取需求。下边演示的是提取维基<strong>中文词条</strong>的<strong>英文名</strong>，通过左侧“其他语言”查看源代码，找到英文名所在标签<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220702174427.png" alt="深度截图_选择区域_20220702174427"></p>
+</li>
+<li>
+<p>下一步是用 <code>Gumbo</code> 解析网页标签，提取目标信息，由于要提取的名词有很非常明显的模式，用正则表达式处理效率会有非常大的提升</p>
+</li>
+<li>
+<p>从英文页面提取中文名词：根据链接前的字符模式以及非贪婪匹配 <code>?</code>，截取中文名词</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reg_en2zh = r&quot;&quot;&quot;&lt;li class=&quot;interlanguage-link interwiki-zh mw-list-item&quot;&gt;&lt;a .*title=&quot;(.*) – Chinese?&quot;&quot;&quot;</span><br><span class="line">function wiki_en2zh(page)</span><br><span class="line">    res = match(reg_en2zh, String(page))</span><br><span class="line">    isnothing(res) ? &quot;&quot; : res.captures[1]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>从中文页面提取英文单词</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reg_zh2en = r&quot;&quot;&quot;&lt;li class=&quot;interlanguage-link interwiki-en mw-list-item&quot;&gt;&lt;a .*title=&quot;(.*) – 英语?&quot;&quot;&quot;</span><br><span class="line">function wiki_zh2en(page)</span><br><span class="line">    res = match(reg_zh2en, String(page))</span><br><span class="line">    isnothing(res) ? &quot;&quot; : res.captures[1]</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>最后添加关于单词的函数派发</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wiki_zh2en(word::AbstractString) = wiki_zh2en(zhpage(word))</span><br><span class="line">wiki_en2zh(word::AbstractString) = wiki_en2zh(enpage(word))</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>调用 <code>wiki_en2zh</code> 和 <code>wiki_zh2en</code> 爬取相关的词条翻译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">en = replace(wiki_zh2en(&quot;周武帝&quot;), &#x27; &#x27;=&gt;&#x27;_&#x27;)</span><br><span class="line">zh = wiki_en2zh(en)</span><br></pre></td></tr></table></figure>
+<p>注意单词中的空格要用下划线 <code>_</code> 代替，这一步操作可以在 <code>enpage/zhpage</code> 中定义<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220702181348.png" alt="20220702181348"></p>
+</li>
+</ol>
+<blockquote>
+<p>注：后续根据需要再补充关于 <code>Gumbo</code> 和 <code>AbstractTrees</code> 的介绍</p>
+</blockquote>
+<h2 id="异步编程">异步编程</h2>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://juliacn.gitlab.io/JuliaZH.jl/manual/asynchronous-programming.html">异步编程</a>，<a target="_blank" rel="noopener" href="https://docs.julialang.org/en/v1/base/parallel/">Task</a></p>
+<p>从网页数据抽取信息通常很快，但从网站下载数据则可能很慢，如果两部分内容不做任务调度，那么计算机可能大多时间都在等待下载，为此爬虫通常会用异步编程。</p>
+<p>在顺序模式(synchronization model)中，每个子任务按照严格的顺序进行执行；而异步模式(asynchronization model) 每个子任务的执行顺序是不确定的。简单说，<strong>异步过程的执行将不再与原有的序列有顺序关系</strong>。</p>
+<p>下边介绍 Julia 的相关函数及必要概念。</p>
+<ol>
+<li>
+<p><code>Task</code> 函数，定义<strong>待执行</strong>任务，输入函数要求能<strong>无参调用</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func() = sum(i for i in 1:10^6) # 定义函数</span><br><span class="line">t1 = Task(func)</span><br></pre></td></tr></table></figure>
+<p>也可以使用宏 <code>@task</code> 来定义任务，比如</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t2 = @task sum(i for i in 1:10^6)</span><br></pre></td></tr></table></figure>
+<p>用于查询任务状态的函数</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">println(istaskstarted(t1)) # 查询任务是否已经开始执行</span><br><span class="line">schedule(t1) # 开始执行任务</span><br><span class="line"># 等待进行</span><br><span class="line">println(istaskdone(t1))</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>Channel</code> 生成一个队列（先进先出），用 <code>put!</code> 加入元素，用 <code>take!</code> 提取元素，比如</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f(i) = begin;sleep(10);i;end</span><br><span class="line">chan = Channel(10) do c</span><br><span class="line">    for i in 1:100</span><br><span class="line">        put!(c, f(i))</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>代码说明：</p>
+<ul>
+<li><code>Channel(10)</code> 定义队列长度为 10，最大值可以取 `Inf</li>
+<li>默认参数为 0，即 <code>Channel(0)</code>，定义不存储数据的队列，仅当 <code>take!</code> 命令被执行时，<code>put!</code> 命令才会被执行</li>
+<li>运行上边代码将执行 <code>do</code> 函数体的内容（单参匿名函数）</li>
+<li><code>put!(c, f(i))</code> 执行 <code>f(i)</code> 并将结果加入队列</li>
+<li><code>for</code> 循环长度为 100，将会有 100 个元素会进入队列。受限于队列长度，当队列加满 10 个后，<code>put!</code> 操作进入等待状态，直到队列有空闲位置，才会继续执行</li>
+<li>当函数执行结束后，队列进入关闭状态，此时不会再有新的元素加入队列，比如<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220702185036.png" alt="20220702185036"></li>
+<li>此外，当函数内部出现错误时，队列也会进入关闭状态</li>
+<li>注意：创建队列几乎是瞬间完成的，函数体内容在后台进行，不会阻塞主线程</li>
+</ul>
+</li>
+<li>
+<p>上边例子中，队列元素的加入是顺序进行的，也即多次 <code>put!</code> 操作有明确的先后关系。当处理的问题不依赖加入顺序时，可使用宏 <code>@async</code></p>
+<ul>
+<li>宏 <code>@async</code> 标记的代码块会作为一个<strong>异步任务</strong>提交给任务池，然后由具体的任务调度器来决定执行和中断</li>
+<li>宏 <code>@sync</code> 表示等待代码块中所有的异步任务结束之后才结束</li>
+<li>示例</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f(i) = begin;sleep(10);i;end</span><br><span class="line">chan = Channel(10) do c</span><br><span class="line">    @sync for i in 1:100</span><br><span class="line">        @async put!(c, f(i))</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>代码说明：</p>
+<ul>
+<li>创建长度为 10 的队列</li>
+<li><code>@async</code> 将操作丢到任务池，不必等 <code>put!(c, f(i))</code> 进行完毕便开始下一个</li>
+<li><code>@sync</code> 等待代码内容的任务执行结束。</li>
+<li>这段代码里，<code>@async</code> 让任务同时进行，<code>@sync</code> 则等待代码块运行结束，避免因代码执行到末尾导致队列提前关闭</li>
+</ul>
+</li>
+<li>
+<p>作为反例，假设没有加 <code>@sync</code> 宏</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = collect(1:100)</span><br><span class="line">chan = Channel(10) do c</span><br><span class="line">    for i in 1:100</span><br><span class="line">        @async begin;a[i] = -i;put!(c, i);end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">take!(chan)</span><br><span class="line">chan</span><br></pre></td></tr></table></figure>
+<p>由于缺少 <code>@sync</code> 的限制，部分 <code>put!</code> 操作未将元素导入队列，循环便执行完毕，导致队列关闭，最终元素只有 10 个，而不是 100 个<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220702193431.png" alt="20220702193431"></p>
+</li>
+</ol>
+<h2 id="模拟多任务下载">模拟多任务下载</h2>
+<ol>
+<li>
+<p>规则：</p>
+<ul>
+<li>同时下载数目 ≤ 10</li>
+<li>一边下载（入栈）一边处理数据（出栈）</li>
+<li>正在下载的数目 + 本地已下载数目 ≤ 15</li>
+</ul>
+</li>
+<li>
+<p>模拟下载</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;下载网页&quot;&quot;&quot;</span><br><span class="line">function download(url)</span><br><span class="line">    sleep(rand(1:5))</span><br><span class="line">    println(&quot;page_$url downloaded&quot;)</span><br><span class="line">    flush(stdout) ## 清除缓存，避免运行过程不打印</span><br><span class="line">    return &quot;page_$url&quot;</span><br><span class="line">end</span><br><span class="line">&quot;&quot;&quot;处理数据&quot;&quot;&quot;</span><br><span class="line">dosth(sth) = &quot;process_$sth&quot;</span><br><span class="line"></span><br><span class="line"># 数据和结果</span><br><span class="line">urls = 1:100  # 链接</span><br><span class="line">res = String[] # 处理结果</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>模拟多任务下载和数据流处理</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">state = Channel(10) # 设置最大下载数目</span><br><span class="line">pages = Channel(15) # 正在下载 + 已下载的最大数目</span><br><span class="line">@sync begin</span><br><span class="line">    # 多任务下载</span><br><span class="line">    for url in urls</span><br><span class="line">        @async begin</span><br><span class="line">            push!(state, url) ## “登记”后下载</span><br><span class="line">            push!(pages, download(url))</span><br><span class="line">            take!(state) ## 下载完毕，去掉“登记”</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    # 数据处理</span><br><span class="line">    for _ in eachindex(urls)</span><br><span class="line">        page = take!(pages) # 读取下载数据</span><br><span class="line">        println(dosth(page)) # 处理数据</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>本地容量设置为 Inf，保持下载数为 10</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">state = Channel(10)</span><br><span class="line">pages = Channel(Inf) # 容量设置为 Inf</span><br><span class="line">urls = 1:50</span><br><span class="line">@sync for url in urls</span><br><span class="line">    @async begin</span><br><span class="line">        push!(state, url) ## “登记”后下载</span><br><span class="line">        push!(pages, download(url))</span><br><span class="line">        take!(state) ## 下载完毕，去掉“登记”</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>多线程执行 <code>dosth</code> （如果计算耗时）</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># env JULIA_NUM_THREADS=4 julia</span><br><span class="line">using .Threads</span><br><span class="line">@spawn for _ in eachindex(urls)</span><br><span class="line">    page = take!(pages) # 读取数据</span><br><span class="line">    println(dosth(page)) # 处理数据</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="踩坑点">踩坑点</h3>
+<p>队列 <code>state</code> 用于限制任务开始和结束，省略将带来问题，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pages = Channel(10)</span><br><span class="line">@sync for url in urls</span><br><span class="line">    @async put!(pages, download(url))</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>虽然 <code>pages</code> 限制了下载数目，但 <code>put!(pages, download(url))</code> 先执行 <code>download(url)</code> 再入栈，<code>download</code> 不会被队列卡住</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">page = download(url) # 先执行</span><br><span class="line">put!(pages, page) # 后入栈</span><br></pre></td></tr></table></figure>
+<p>这时候用 <code>@async</code> 丢入任务池，将同时执行 <code>length(urls)</code> 个 <code>download</code> 任务，同时再进行 <code>put!</code> 操作</p>
+<p>引入队列 <code>state</code>，限制 <code>download</code> 的执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 丢入任务池后</span><br><span class="line">push!(state, true) ## “登记”下载，如果没有空间，进入等待状态</span><br><span class="line">push!(pages, download(url))</span><br><span class="line">take!(state)</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/">http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Julia/">Julia</a><a class="post-meta__tags" href="/tags/Julia-Note/">Julia-Note</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/04/server/docker-tutorial/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220704150940.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Docker 简易教程</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/23/programming/algebra/cas-tutorial/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20211213144336.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">代数编程 | 学习笔记之零</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/18/programming/julia/julia-intro/" title="Julia 基本使用及安装教程"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-18</div><div class="title">Julia 基本使用及安装教程</div></div></a></div><div><a href="/2021/10/31/programming/julia/julia-note-2/" title="Julia 学习笔记(二) | 类型，派发与设计模式"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">Julia 学习笔记(二) | 类型，派发与设计模式</div></div></a></div><div><a href="/2021/10/18/programming/julia/julia-note-1/" title="Julia 学习笔记(一) | 数据类型和函数"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-18</div><div class="title">Julia 学习笔记(一) | 数据类型和函数</div></div></a></div><div><a href="/2021/10/31/programming/julia/julia-note-3/" title="Julia 学习笔记(三) | 广播，性能和模块"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">Julia 学习笔记(三) | 广播，性能和模块</div></div></a></div><div><a href="/2021/11/24/programming/julia/julia-note-4-parallel/" title="Julia 学习笔记(四) | 并行计算(预备篇)"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-24</div><div class="title">Julia 学习笔记(四) | 并行计算(预备篇)</div></div></a></div><div><a href="/2022/04/23/programming/julia/julia-note-5-package/" title="Julia 学习笔记(五) | 模块开发 - 基础篇"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-23</div><div class="title">Julia 学习笔记(五) | 模块开发 - 基础篇</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO-%E7%BC%96%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">IO 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TxT-%E5%9F%BA%E6%9C%AC%E8%AF%BB%E5%86%99"><span class="toc-number">2.1.</span> <span class="toc-text">TxT 基本读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Excel-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99"><span class="toc-number">2.2.</span> <span class="toc-text">Excel 文件读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E7%88%AC%E8%99%AB"><span class="toc-number">3.</span> <span class="toc-text">简易爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">异步编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E4%BB%BB%E5%8A%A1%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">模拟多任务下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">踩坑点</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

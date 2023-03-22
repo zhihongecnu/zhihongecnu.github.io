@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>二维码学习笔记(八) | 项目总结 | 我的学习空间</title><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="二维码总体的介绍：二维码构成，纠错原理，使用介绍和未来计划。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维码学习笔记(八) | 项目总结">
+<meta property="og:url" content="http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="二维码总体的介绍：二维码构成，纠错原理，使用介绍和未来计划。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png">
+<meta property="article:published_time" content="2022-11-26T02:49:16.000Z">
+<meta property="article:modified_time" content="2022-12-29T13:38:17.513Z">
+<meta property="article:author" content="致宏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '二维码学习笔记(八) | 项目总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-29 21:38:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">二维码学习笔记(八) | 项目总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2022-11-26T02:49:16.000Z" title="发布于 2022-11-26 10:49:16">2022-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-29T13:38:17.513Z" title="更新于 2022-12-29 21:38:17">2022-12-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>本篇是对二维码的概括性介绍，内容包括：使用演示，二维码构成和纠错原理。</p>
+<hr>
+<h2 id="使用演示">使用演示</h2>
+<p>工具由纯 Julia 编写：Julia <a target="_blank" rel="noopener" href="https://julialang.org/downloads/">下载地址</a> 及 <a href="/2021/10/18/programming/julia/julia-intro/" title="Julia 基本使用及安装教程">安装教程</a> 。</p>
+<p>打开 Julia，安装二维码工具</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Pkg</span><br><span class="line">Pkg.add(<span class="string">&quot;QRCoders&quot;</span>)</span><br><span class="line">Pkg.add(<span class="string">&quot;QRDecoders&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="基本示例">基本示例</h3>
+<ol>
+<li>
+<p>创建二维码</p>
+ <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> QRCoders</span><br><span class="line"><span class="comment"># 创建二维码对象</span></span><br><span class="line">code = QRCode(<span class="string">&quot;Hello World!&quot;</span>)</span><br><span class="line"><span class="comment"># 生成二维码矩阵</span></span><br><span class="line">qrcode(code)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221126123512.png" alt="20221126123512"></p>
+</li>
+<li>
+<p>导出二维码图片</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接导出</span></span><br><span class="line">exportqrcode(<span class="string">&quot;Hello world!&quot;</span>, <span class="string">&quot;hello.png&quot;</span>)</span><br><span class="line"><span class="comment"># 通过对象 code 导出，默认路径为 `qrcode.png`</span></span><br><span class="line">exportqrcode(code)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>导出 GIF 动图</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportqrcode([<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;Julia&quot;</span>, <span class="string">&quot;!&quot;</span>], <span class="string">&quot;hello.gif&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/hello.gif" alt="hello"></p>
+</li>
+<li>
+<p>指定二维码版本，纠错等级，掩码，编码模式和白框大小</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code = QRCode(<span class="string">&quot;Hello World!&quot;</span>, version=<span class="number">1</span>, eclevel=Low(), mode=UTF8(), mask=<span class="number">0</span>, width=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>二维码解码</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> QRDecoders, QRCoders, Test</span><br><span class="line"><span class="comment"># 解码二维码矩阵</span></span><br><span class="line">code = QRCode(<span class="string">&quot;Hello World!&quot;</span>, width=<span class="number">0</span>)</span><br><span class="line">mat = qrcode(code)</span><br><span class="line">info = qrdecode(mat)</span><br><span class="line"><span class="meta">@test</span> info.message == <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"><span class="meta">@test</span> info == code</span><br><span class="line"><span class="comment"># 解码二维码图片</span></span><br><span class="line">exportqrcode(<span class="string">&quot;Hello World!&quot;</span>, <span class="string">&quot;test.png&quot;</span>)</span><br><span class="line">info = qrdecode(<span class="string">&quot;test.png&quot;</span>)</span><br><span class="line"><span class="meta">@test</span> info.message == <span class="string">&quot;Hello World!&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="二维码样式">二维码样式</h3>
+<ol>
+<li>
+<p>用 Unicode 字符绘制二维码</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> QRCoders</span><br><span class="line">unicodeplot(<span class="string">&quot;Hello World!&quot;</span>) <span class="comment"># 使用 UnicodePlots.jl 绘制</span></span><br><span class="line">unicodeplotbychar(<span class="string">&quot;Hello World!&quot;</span>) |&gt; println <span class="comment"># 使用 Unicode 字符</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在二维码中绘制图片，自选图片或者使用 TestImages.jl 中的图片</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装图片编辑工具</span></span><br><span class="line"><span class="comment"># using Pkg; Pkg.add(&quot;TestImages&quot;); Pkg.add(&quot;FileIO&quot;); </span></span><br><span class="line"><span class="comment"># Pkg.add(&quot;ImageTransformations&quot;); Pkg.add(&quot;ColorTypes&quot;);</span></span><br><span class="line"><span class="keyword">using</span> TestImages, ImageTransformations, FileIO, ColorTypes</span><br><span class="line"><span class="comment"># 读取图片，转化为二值图</span></span><br><span class="line">img = testimage(<span class="string">&quot;cameraman&quot;</span>)</span><br><span class="line">code = QRCode(<span class="string">&quot;HELLO WORLD&quot;</span>, version=<span class="number">20</span>)</span><br><span class="line">inlen = qrwidth(code) - <span class="number">2</span> * code.border - <span class="number">15</span></span><br><span class="line">bitimg = .!(<span class="built_in">Bool</span>.(round.(Gray.(imresize(img, (inlen, inlen))))))</span><br><span class="line"><span class="comment"># 绘制二维码</span></span><br><span class="line">mat = imageinqrcode(code, bitimg, rate=<span class="number">0.9</span>)</span><br><span class="line"><span class="comment"># 导出二维码图片</span></span><br><span class="line">mat |&gt; exportbitmat(<span class="string">&quot;cameraman.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>关于样式的更多讨论参考 <a href="/2022/11/15/programming/gsoc/qr-code-07-style/" title="二维码学习笔记(七) | 特殊样式">二维码样式计划</a> 。</p>
+<h2 id="二维码构成">二维码构成</h2>
+<p>二维码的容量与版本和纠错等级有关：</p>
+<ul>
+<li>“版本”指二维码的大小，范围为 <code>1-40</code>，比如版本为 <code>k</code> 的二维码大小为 <code>17+4k x 17+4k</code></li>
+<li>二维码有四种纠错等级，从低到高分别为 <code>L</code>，<code>M</code>，<code>Q</code>，<code>H</code>，等级越高纠错码越多，二维码的容量也相越小</li>
+</ul>
+<h3 id="二维码拆解">二维码拆解</h3>
+<p>下图是版本 7 的二维码，主要分为<strong>功能区</strong>和<strong>编码区</strong>。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/version7.png" alt="version7"></p>
+<ol>
+<li>
+<p>功能区，用于图像定位<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220602230150.png" alt="20220602230150"></p>
+<ul>
+<li>位置探测图形，分别为左上角，右上角，左下角</li>
+<li>分隔符，包围探测图形的两段白条</li>
+<li>时序图案，水平和数值两条交错线段</li>
+<li>对齐图案，均匀分布在二维码的各个位置</li>
+<li>暗模块，紧挨着左下角的白色分隔符</li>
+</ul>
+</li>
+<li>
+<p>编码区，包括格式数据，版本信息和编码数据</p>
+<ul>
+<li>格式数据：二维码纠错等级和掩码模式，共 15 比特<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220603210934.png" alt="20220603210934"></li>
+<li>版本信息，仅在版本 <code>≥7</code> 时存在，共 18 比特<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20220603091647.png" alt="20220603091647"></li>
+<li>编码数据：剩下的空位存放编码数据</li>
+</ul>
+</li>
+</ol>
+<h3 id="编码过程">编码过程</h3>
+<ol>
+<li>
+<p>数据编码，分 <code>Numeric</code>, <code>Alphanumeric</code>，<code>Byte</code>，<code>Kanji</code> 和 <code>UTF-8</code> 五种模式，根据数据类型选择最优的编码模式，编码得到若干字节数据。</p>
+</li>
+<li>
+<p>纠错编码，使用 <code>GF(256)</code> 上的 <code>Reed-Solomon</code> 纠错码。限于编码特性 <strong>数据字节数 + 纠错字节数需不大于 255</strong>，将数据拆分为若干小块再分别配备纠错码，构成纠错块。</p>
+</li>
+<li>
+<p>依次填充功能区，版本信息（如果版本 <code>≥7</code>）和格式信息区，交织填入数据块和纠错块<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/qrimg.gif" alt="qrimg"><br>
+交织从右往左进行<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/qrimgbits.gif" alt="qrimgbits"></p>
+</li>
+<li>
+<p>施加不同掩码，分别计算罚分，选择罚分最低的二维码。使用掩码是为了尽可能避免二维码中出现容易混淆识别的图案，最极端的，可能会出现下图的这种设计。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/qr2.png" alt="qr2"></p>
+</li>
+</ol>
+<p>解码是编码的逆过程，步骤包括：定位图片，读取格式区，施加掩码还原，提取编码数据，纠错数据，解码得到原始字符串，主要难点在于<strong>定位</strong>和<strong>纠错</strong>。</p>
+<h2 id="纠错原理">纠错原理</h2>
+<h3 id="一个例子">一个例子</h3>
+<p>在数据传输过程可能会出现一些错误，比如把 1 传成了 0 或者丢失了某个位置数据。纠错码主要有三个作用：检测错误，补充缺失和纠正错误。</p>
+<p>纠错本质上引入了更大的空间来表达一个小的数据集，冗余信息提高了数据的容错能力。我们通过一个例子来说明这个过程。</p>
+<p>假设 Alice 要传输 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">x\in\{0,1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span> 给 Bob，为了增加容错率，Alice 采用了下边的编码模式</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.2500em" columnalign="right left right" columnspacing="0em 1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mspace width="1em"/></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>→</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mspace width="1em"/><mi>y</mi><mo>=</mo><mn>000</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mspace width="1em"/></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>→</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mspace width="1em"/><mi>y</mi><mo>=</mo><mn>111</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+x = 0 \quad &amp;\rightarrow &amp;\quad y=000 \\
+x = 1 \quad &amp;\rightarrow &amp;\quad y=111
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000000000000004em;vertical-align:-1.2500000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:1em;"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">000</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">111</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>现 Alice 将编码后的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 传输给 Bob</p>
+<ul>
+<li>纠错：假设传输过程至多产生 1 比特错误，比如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn><mo>→</mo><mn>010</mn></mrow><annotation encoding="application/x-tex">000\rightarrow 010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">010</span></span></span></span>，显然 Bob 能将 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>010</mn></mrow><annotation encoding="application/x-tex">010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">010</span></span></span></span> 解码为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，进而纠正错误</li>
+<li>检错：假设传输过程至多产生 2 比特错误，比如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn><mo>→</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">000\rightarrow 110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">110</span></span></span></span>，尽管 Bob 不能确定原始信息是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 还是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，但他能判断传输过程是否出现错误</li>
+<li>补缺：假设传输过程丢失了 2 比特，比如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn><mo>→</mo><mn>0</mn><mo>∗</mo><mo>∗</mo></mrow><annotation encoding="application/x-tex">000\rightarrow 0**</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord">∗</span></span></span></span>，显然 Bob 能根据剩下的信息补全得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn></mrow><annotation encoding="application/x-tex">000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span></span></span></span></li>
+</ul>
+<h3 id="编码理论">编码理论</h3>
+<p>上边例子采用了汉明距离为 3 的编码，一般地，设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 为汉明距离为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span></span></span></span> 的编码</p>
+<ul>
+<li>编码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 能检测至多 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>≤</mo><mi>d</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e\leq d-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个错误</li>
+<li>编码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 能填补至多 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>≤</mo><mi>d</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e\leq d-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个缺失</li>
+<li>编码 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 能纠正至多 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>≤</mo><mo stretchy="false">⌊</mo><mfrac><mrow><mi>d</mi><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">e\leq \lfloor\frac{d-1}{2}\rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span></span></span></span> 个错误，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>e</mi><mo>≤</mo><mi>d</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2e\leq d-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">2</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+</ul>
+<p>汉明距离指将一个编码转换为另一个编码所需要改变的位数，比如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn><mo>→</mo><mn>010</mn></mrow><annotation encoding="application/x-tex">000\rightarrow 010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">010</span></span></span></span> 的汉明距离为 1，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>000</mn><mo>→</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">000\rightarrow 110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">000</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">110</span></span></span></span> 的汉明距离为 2。我们通过图像理解这个定理，原始信息是一个个圆点，我们用更大的空间表达这些圆点，汉明距离是圆点之间的最小距离，当发生错误在距离的一半以内时，我们总能纠正错误<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220504115713.png" alt="20220504115713"></p>
+<p>此外，ReedSolomon 编码是最常用的纠错编码之一，其满足编码设计的几个指标：</p>
+<ul>
+<li><strong>较强的错误处理能力</strong></li>
+<li><strong>尽量小的冗余信息</strong></li>
+<li><strong>存在高效的编解码算法</strong></li>
+</ul>
+<hr>
+<h2 id="写在最后">写在最后</h2>
+<p>未来计划：</p>
+<ul>
+<li>拓展二维码的样式 <a target="_blank" rel="noopener" href="https://github.com/JuliaImages/QRCoders.jl/issues/33">https://github.com/JuliaImages/QRCoders.jl/issues/33</a></li>
+<li>提高解码器的检测能力 <a target="_blank" rel="noopener" href="https://github.com/JuliaImages/QRDecoders.jl/issues/14">https://github.com/JuliaImages/QRDecoders.jl/issues/14</a></li>
+</ul>
+<p>限于个人时间精力，目前这两方面还有很多工作没做，欢迎大家提出宝贵意见，帮助完善这个包。</p>
+<h3 id="性能测试">性能测试</h3>
+<p>当前二维码版本的性能测试，相较 <code>1.0.0</code> 版本使用 <code>UInt8</code> 代替 <code>Int64</code>。</p>
+<table>
+<thead>
+<tr>
+<th>repo</th>
+<th>release-version</th>
+<th>QR-version</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QRCode.jl</td>
+<td><code>0.2.0</code></td>
+<td><code>1</code></td>
+<td>4.040 ms (175888 allocations: 8.43 MiB)</td>
+</tr>
+<tr>
+<td>QRCoders.jl</td>
+<td><code>1.0.0</code></td>
+<td><code>1</code></td>
+<td>149.392 μs (370 allocations: 32.28 KiB)</td>
+</tr>
+<tr>
+<td>QRCoders.jl</td>
+<td><code>1.4.0</code></td>
+<td><code>1</code></td>
+<td><strong>134.559 μs</strong> (268 allocations: <strong>17.50 KiB</strong>)</td>
+</tr>
+<tr>
+<td>QRCode.jl</td>
+<td><code>0.2.0</code></td>
+<td><code>40</code></td>
+<td>509.677 ms (19128212 allocations: 922.52 MiB)</td>
+</tr>
+<tr>
+<td>QRCoders.jl</td>
+<td><code>1.0.0</code></td>
+<td><code>40</code></td>
+<td>21.700 ms (29459 allocations: 4.84 MiB)</td>
+</tr>
+<tr>
+<td>QRCoders.jl</td>
+<td><code>1.4.0</code></td>
+<td><code>40</code></td>
+<td><strong>17.276 ms</strong> (15281 allocations: <strong>1.07 MiB</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>测试使用的 Julia 版本</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Julia Version <span class="number">1.7</span><span class="number">.2</span></span><br><span class="line">Commit bf53498635 (<span class="number">2022</span>-<span class="number">02</span>-<span class="number">06</span> <span class="number">15</span>:<span class="number">21</span> UTC)</span><br><span class="line">Platform Info:</span><br><span class="line">  OS: Linux (x86_64-pc-linux-gnu)</span><br><span class="line">  CPU: Intel(R) Core(TM) i5-<span class="number">1035</span>G1 CPU @ <span class="number">1.00</span>GHz</span><br><span class="line">  WORD_SIZE: <span class="number">64</span></span><br><span class="line">  LIBM: libopenlibm</span><br><span class="line">  LLVM: libLLVM-<span class="number">12.0</span><span class="number">.1</span> (ORCJIT, icelake-client)</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/">http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/26/programming/gsoc/qr-code-08-summary-en/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">QR Code Learning Notes (8) | Project Summary</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/15/programming/gsoc/qr-code-07-style/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">二维码学习笔记(七) | 特殊样式</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%BC%94%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text">使用演示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.1.</span> <span class="toc-text">基本示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%B7%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">二维码样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%9E%84%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">二维码构成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%8B%86%E8%A7%A3"><span class="toc-number">3.1.</span> <span class="toc-text">二维码拆解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">编码过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A0%E9%94%99%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">纠错原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-number">4.1.</span> <span class="toc-text">一个例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E7%90%86%E8%AE%BA"><span class="toc-number">4.2.</span> <span class="toc-text">编码理论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">写在最后</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">5.1.</span> <span class="toc-text">性能测试</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>服务器使用教程 | DevOps | 我的学习空间</title><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="GitLab 开发流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器使用教程 | DevOps">
+<meta property="og:url" content="http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="GitLab 开发流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg">
+<meta property="article:published_time" content="2022-11-29T05:32:08.000Z">
+<meta property="article:modified_time" content="2023-03-16T05:22:55.006Z">
+<meta property="article:author" content="致宏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '服务器使用教程 | DevOps',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-16 13:22:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">服务器使用教程 | DevOps</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2022-11-29T05:32:08.000Z" title="发布于 2022-11-29 13:32:08">2022-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-16T05:22:55.006Z" title="更新于 2023-03-16 13:22:55">2023-03-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<blockquote>
+<p><strong>推荐阅读</strong><br>
+B站阿婆主 <a target="_blank" rel="noopener" href="https://space.bilibili.com/38841498">拿我格子衫来</a> 的视频和<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_35631540/category_11733415.html">博客</a><br>
+GitLab <a target="_blank" rel="noopener" href="https://docs.gitlab.com/">官方文档</a></p>
+</blockquote>
+<p>最近新买了服务器，配置比之前搭博客的要好些，配置服务器的同时，正好一边记录。本篇介绍 GitLab 开发环境从零到一的搭建方法以及 GitLab 的协作流程。</p>
+<hr>
+<h2 id="用户权限管理">用户权限管理</h2>
+<ol>
+<li>
+<p>创建用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo su <span class="comment"># 切换到root用户</span></span><br><span class="line">adduser rex</span><br><span class="line">passwd rex <span class="comment"># 设置密码</span></span><br><span class="line">vi /etc/sudoers <span class="comment"># 添加用户权限</span></span><br></pre></td></tr></table></figure>
+<p>修改内容如下，其中 <code>NOPASSWD:</code> 表示不需要密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root ALL=(ALL:ALL) ALL</span><br><span class="line">rex ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>联网工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install net-tools <span class="comment"># ifconfig</span></span><br><span class="line">apt-get install network-manager</span><br><span class="line">apt install bridge-utils <span class="comment"># brctl</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装 Docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>给 Docker 配置网络，参考 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet">stack</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭 Docker</span></span><br><span class="line">pkill docker</span><br><span class="line"><span class="comment"># 刷新 IP</span></span><br><span class="line">iptables -t nat -F</span><br><span class="line">ifconfig docker0 down</span><br><span class="line">brctl delbr docker0</span><br><span class="line">docker -d</span><br><span class="line"><span class="comment"># 重启 Docker</span></span><br><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="GitLab-安装配置">GitLab 安装配置</h2>
+<p>服务器系统：Ubuntu 20.04，参考<a target="_blank" rel="noopener" href="https://about.gitlab.com/install/#ubuntu">官方文档</a>以及 <a href="httpps://blog.csdn.net/once_fly/article/details/128031573">CSDN</a></p>
+<ol>
+<li>
+<p>执行以下命令安装 GitLab</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新源</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y curl openssh-server ca-certificates tzdata perl</span><br><span class="line"><span class="comment"># 添加 GitLab 官方仓库</span></span><br><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash</span><br><span class="line"><span class="comment"># 安装 GitLab -- 需要较长时间</span></span><br><span class="line">sudo apt-get install gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>成功安装的界面<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221129182632.png" alt="20221129182632"></p>
+</li>
+<li>
+<p>安装完成后，修改脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改配置文件</span></span><br><span class="line">sudo vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
+<p>添加以下内容，根据自己的需求修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置域名和端口</span></span><br><span class="line">external_url <span class="string">&#x27;http://gitlab.wzhecnu.cn:1415&#x27;</span></span><br><span class="line"><span class="comment"># 相应设置 nginx</span></span><br><span class="line">nginx[<span class="string">&#x27;listen_port&#x27;</span>] = 1234</span><br></pre></td></tr></table></figure>
+<p>这里端口 <code>1234</code> 根据自己需求设置，此外可以考虑添加 ssl 证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 ssl 协议，注意要更改上一步链接为 https</span></span><br><span class="line">letsencrypt[<span class="string">&#x27;enable&#x27;</span>] = <span class="literal">false</span></span><br><span class="line">nginx[<span class="string">&#x27;redirect_http_to_https&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">nginx[<span class="string">&#x27;redirect_http_to_https_port&#x27;</span>] = 1234</span><br><span class="line">nginx[<span class="string">&#x27;ssl_certificate&#x27;</span>] = <span class="string">&quot;/etc/gitlab/ssl/8925639_gitlab.wzhecnu.cn.pem&quot;</span></span><br><span class="line">nginx[<span class="string">&#x27;ssl_certificate_key&#x27;</span>] = <span class="string">&quot;/etc/gitlab/ssl/8925639_gitlab.wzhecnu.cn.key&quot;</span></span><br></pre></td></tr></table></figure>
+<p>此外，设置 ssl 协议后 <code>external_url</code> 的端口可能需要修改。个人只在使用 80 端口时成功过，其他端口设置似乎会比较麻烦，有空继续研究。文档对应链接-<a target="_blank" rel="noopener" href="https://docs.gitlab.com/omnibus/settings/ssl/">ssl配置</a>。</p>
+</li>
+<li>
+<p>重启 GitLab</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新配置 -- 首次运行需等待较长时间</span></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"><span class="comment"># 启动 GitLab</span></span><br><span class="line">gitlab-ctl start</span><br><span class="line"><span class="comment"># 查看 GitLab 状态</span></span><br><span class="line">gitlab-ctl status</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>访问前边设置的域名，顺利的话会看到如下页面<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221203000027.png" alt="深度截图_选择区域_20221203000027"></p>
+<p>登录 root 账号，密码可以在 <code>/etc/gitlab/initial_root_password</code> 中查看。</p>
+</li>
+<li>
+<p>工作区备份</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitLab 环境备份 -- 默认保存在 /var/opt/gitlab/backups</span></span><br><span class="line">sudo e</span><br><span class="line"><span class="comment"># 通过修改参数，可以指定备份路径，比如</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;backup_path&#x27;</span>] = <span class="string">&#x27;/mnt/backups&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>踩坑点：首次打开时，可能还是会出现连接超时之类的错误，多刷几次。如果多刷几次还是不行，请注意服务器上的防火墙是否已经关闭。执行 systemctl stop firewalld 后，如果还是不行，则可能是云服务器的安全组没有配置好，需要在云服务器安全组的入方向中添加端口。</p>
+</blockquote>
+<p>邮件设置等，后续补充。</p>
+<h2 id="Gitlab-安装配置-–-Docker-版">Gitlab 安装配置 – Docker 版</h2>
+<p>由于实验室服务器的 Gitlab 使用 Docker 安装，但在配置过程中遇到了一些问题，所以在自己服务器上用 Docker 安装了一遍，方便排查问题以及避免误操作。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f99559f82bd6">简书-使用 Docker 部署 GitLab</a></p>
+<ol>
+<li>
+<p>创建文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /data/gitlab/config /data/gitlab/logs /data/gitlab/data</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建容器，使用脚本或直接粘贴以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">GITLAB_HOME=/usr/local/gitlab</span><br><span class="line">sudo docker run --detach \</span><br><span class="line">   --hostname gitlab.wzhecnu.cn \</span><br><span class="line">   --publish 2233:443 --publish 9190:80 --publish 10080:22 \</span><br><span class="line">   --name gitlab \</span><br><span class="line">   --restart always \</span><br><span class="line">   --volume <span class="variable">$GITLAB_HOME</span>/config:/etc/gitlab \</span><br><span class="line">   --volume <span class="variable">$GITLAB_HOME</span>/logs:/var/log/gitlab \</span><br><span class="line">   --volume <span class="variable">$GITLAB_HOME</span>/data:/var/opt/gitlab \</span><br><span class="line">   gitlab/gitlab-ee:latest</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li><code>--hostname</code>：设置域名或 IP</li>
+<li><code>--publish</code>：设置端口映射，避免端口占用，格式为 <code>宿主机端口:容器端口</code></li>
+<li><code>https</code> 协议端口：宿主机端口 <code>2233</code> 映射为容器端口 <code>443</code></li>
+<li><code>http</code> 协议端口：宿主机端口 <code>9190</code> 映射为容器端口 <code>80</code></li>
+<li><code>ssh</code> 协议端口：宿主机端口 <code>10080</code> 映射为容器端口 <code>22</code></li>
+</ul>
+</li>
+<li>
+<p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/gitlab/config/gitlab.rb</span><br></pre></td></tr></table></figure>
+<p>在最前边添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 端口映射修改 - 避免与宿主机端口冲突</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_shell_ssh_port&#x27;</span>] = 10080  <span class="comment"># 映射为 22</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;forti_authenticator_port&#x27;</span>] = 2233 <span class="comment"># 映射为 443</span></span><br><span class="line"><span class="comment"># 修改访问链接</span></span><br><span class="line">external_url <span class="string">&#x27;http://gitlab.wzhecnu.cn:9190&#x27;</span></span><br><span class="line">nginx[<span class="string">&#x27;listen_port&#x27;</span>] = 80</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>进入容器，并重启配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入gitlab bash</span></span><br><span class="line">docker <span class="built_in">exec</span> -it gitlab bash    </span><br><span class="line"><span class="comment"># 重新应用gitlab的配置</span></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"><span class="comment"># 重启gitlab服务</span></span><br><span class="line">gitlab-ctl restart</span><br><span class="line"><span class="comment"># 查看gitlab运行状态</span></span><br><span class="line">gitlab-ctl status</span><br></pre></td></tr></table></figure>
+<p>和前边类似，这里也需要修改服务器的安全组，在入方向添加相应端口。</p>
+</li>
+</ol>
+<p>后续登录等操作与前边一致。</p>
+<h2 id="配置-GitLab-Runner">配置 GitLab Runner</h2>
+<h3 id="使用-Docker（推荐）">使用 Docker（推荐）</h3>
+<ol>
+<li>
+<p>下载 GitLab-Runner 镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --name gitlab-runner --restart always \</span><br><span class="line">-v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">-v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用 Docker 注册 Runner，参考<a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/register/index.html#docker">官网教程-Docker</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \</span><br><span class="line">   --non-interactive \</span><br><span class="line">   --executor <span class="string">&quot;docker&quot;</span> \</span><br><span class="line">   --docker-image alpine:latest \</span><br><span class="line">   --url <span class="string">&quot;http://gitlab.wzhecnu.cn:1234/&quot;</span> \</span><br><span class="line">   --registration-token <span class="string">&quot;TOKEN&quot;</span> \</span><br><span class="line">   --description <span class="string">&quot;mysecond-docker-runner&quot;</span> \</span><br><span class="line">   --tag-list <span class="string">&quot;mytest2&quot;</span> \</span><br><span class="line">   --run-untagged=<span class="string">&quot;true&quot;</span> \</span><br><span class="line">   --locked=<span class="string">&quot;false&quot;</span> \</span><br><span class="line">   --access-level=<span class="string">&quot;not_protected&quot;</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>url</code> 和 <code>registration-token</code> 在 GitLab 页面获取<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203003957.png" alt="20221203003957"><br>
+若干注记：</p>
+<ul>
+<li>其他两种类型 Runner 的设置类似，只是获取链接和 Token 的位置不同，有效范围也不同。</li>
+<li><code>tag-list</code> 设置 Runner 的标签，自动任务通过标签来指定运行容器。</li>
+<li><code>docker run</code> 的 <code>--rm</code> 参数指：退出容器以后，这个容器就被删除了，方便在临时测试使用。不加 <code>--rm</code> 退出容器后，容器只是停止运行，数据仍然被保留。不过容器内数据卷的内容不会被删除。</li>
+</ul>
+</li>
+<li>
+<p>执行脚本后， <code>/etc/gitlab-runner/</code> 目录下生成了配置文件 <code>config.toml</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">concurrent = 1</span><br><span class="line">check_interval = 0</span><br><span class="line">shutdown_timeout = 0</span><br><span class="line">[[runners]]</span><br><span class="line">  name = <span class="string">&quot;myfirst-docker-runner&quot;</span></span><br><span class="line">  url = <span class="string">&quot;http://gitlab.wzhecnu.cn:1234/&quot;</span></span><br><span class="line">  <span class="built_in">id</span> = 1</span><br><span class="line">  token = <span class="string">&quot;&lt;对应token&gt;&quot;</span></span><br><span class="line">  volumes = [<span class="string">&quot;/cache&quot;</span>]</span><br><span class="line">  shm_size = 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>concurrent 设置并发任务数，为减少性能占用，默认为串行，此处应根据任务需求<strong>调高</strong>，以减少测试的运行时间</li>
+<li>session_timeout 设置任务时间上限，超过时间将被终止</li>
+<li><code>volumes</code> 设置容器内的数据卷，用于缓存等，根据任务情况，有时要求改成<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volumes = [<span class="string">&quot;/cache&quot;</span>, <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>, <span class="string">&quot;usr/bin/docker:/usr/bin/docker&quot;</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="直接安装">直接安装</h3>
+<p>一开始尝试了用 Docker 安装 Runner，但一直连不上 GitLab，报错如下<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221203000601.png" alt="深度截图_选择区域_20221203000601"><br>
+一通捣鼓才发现是网络问题，所以也尝试了二进制编译安装的方式，这里顺便记录一下，参考<a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/install/linux-manually.html#using-binary-file">官网教程-二进制安装</a>。</p>
+<ol>
+<li>
+<p>下载二进制文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L --output /usr/local/bin/gitlab-runner <span class="string">&quot;https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果在服务器下载可能较慢，可以本地下载后再上传，并重命名到相应位置。</p>
+</li>
+<li>
+<p>赋予执行权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> +x /usr/local/bin/gitlab-runner</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建 GitLab-Runner 用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd --comment <span class="string">&#x27;GitLab Runner&#x27;</span> --create-home gitlab-runner --shell /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装并运行服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner</span><br><span class="line">sudo gitlab-runner start</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>注册 Runner，与 Docker 的方法一致</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">gitlab-runner register \</span><br><span class="line">   --non-interactive \</span><br><span class="line">   --executor <span class="string">&quot;docker&quot;</span> \</span><br><span class="line">   --docker-image alpine:latest \</span><br><span class="line">   --url <span class="string">&quot;http://gitlab.wzhecnu.cn:1234/&quot;</span> \</span><br><span class="line">   --registration-token <span class="string">&quot;TOKEN&quot;</span> \</span><br><span class="line">   --description <span class="string">&quot;myfirst-docker-runner&quot;</span> \</span><br><span class="line">   --tag-list <span class="string">&quot;mytest&quot;</span> \</span><br><span class="line">   --run-untagged=<span class="string">&quot;true&quot;</span> \</span><br><span class="line">   --locked=<span class="string">&quot;false&quot;</span> \</span><br><span class="line">   --access-level=<span class="string">&quot;not_protected&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注册成功后，可以在 GitLab 页面看到 Runner。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221203004718.png" alt="深度截图_选择区域_20221203004718"></p>
+<h2 id="故障排除">故障排除</h2>
+<p>在注册 GitLab Runner 时，个人服务器上测试顺利，但实验室服务器一直报错，信息如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RROR: Registering runner... failed</span><br><span class="line">runner=4KzFfK5b status=POST http://172.23.148.38:9190/api/v4/runners: 500 Internal Server Error</span><br><span class="line">PANIC: Failed to register the runner.</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221205184929.png" alt="20221205184929"></p>
+<p>这个问题捣鼓了很久，在自己服务器上做了许多尝试也没能复现这个错误，也排除了网络问题：</p>
+<ul>
+<li>服务器联网正常，Docker 联网正常</li>
+<li>内网能 ping 通服务器</li>
+<li>不是 Token 或链接的问题，因为更改 Token 后得到的报错信息不同，说明 Token 是能验证的，但注册不了</li>
+</ul>
+<p>在外网翻了许多帖子没找到方案，没想到最后在 CSDN 到了一个有效的<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45181398/article/details/127615618">解决方案</a>。这可能是服务器以前做过备份或迁移引起的？</p>
+<p>官网链接：<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/raketasks/backup_restore.html#reset-runner-registration-tokens">Reset runner registration tokens</a></p>
+<hr>
+<h1>GitLab 协作流程</h1>
+<h2 id="GitLab-workflow">GitLab workflow</h2>
+<p>个人使用 GitHub 开发较多，以下是从 GitHub 向 GitLab 迁移时，对 GitLab 的理解。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203010938.png" alt="20221203010938"></p>
+<p>流程说明：</p>
+<ol>
+<li>主分支为项目稳定开发的分支，开发者在主分支的基础上创建子分支，并在独立分支下进行开发(push code changes)</li>
+<li>完成阶段性工作后，向主分支发起合并请求(Pull Request/PR)</li>
+<li>提交 PR 将触发单元测试和部署测试(unit test/deploy test)，如果测试报错或 Reviewer 给了修改意见，根据意见修改代码后继续提交测试。整个过程称为持续集成(Continuous Integration/CI)</li>
+<li>Reviewer 审核通过后，将分支并入主分支，再一次触发测试和部署，并自动推送网站文件和部署网页。</li>
+<li>项目后期，功能雏形基本出来后，开始用 tag 打包发行版本。从 v0.1.0 开始递增，各阶段代码环境以 tag 的方式标记。</li>
+</ol>
+<p>补充说明：</p>
+<ul>
+<li>为确保主分支的可靠性，稳定性和安全性，通常设置主分支保护。即：不允许任何成员向主分支直接 push commit，而必须采用 Request 的方式提交合并请求，在代码审查和测试通过后，再并入主分支。</li>
+<li>为减少冲突和调试难度，Pull Request 应在阶段工作后开启，不应积累太多代码。当然也不要写一点就提交，但可以通过 Draft 标签表示功能还在完善中，Reviewer 可以不用看，也可以给些建议。</li>
+</ul>
+<h2 id="管理员端">管理员端</h2>
+<h3 id="初始设置">初始设置</h3>
+<ol>
+<li>
+<p>创建组<br>
+右上角点击 <code>+</code>，选择 <code>New group</code>，创建组。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130090759.png" alt="20221130090759"><br>
+填写组名，选择可见性，点击 <code>Create group</code>。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130090839.png" alt="20221130090839"></p>
+</li>
+<li>
+<p>成员管理<br>
+进入组后，点击左侧 <code>Settings -&gt; Members</code>，管理成员，根据用户名或账号名搜索，添加成员。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130091529.png" alt="20221130091529"><br>
+成员分四种权限，开发者设置为 Developer，代码 Reviewer 以及仓库更高权限设置为 Maintainer，权限细节参考<a target="_blank" rel="noopener" href="http://172.23.148.38:9190/help/user/permissions#group-members-permissions">表格（内网）</a></p>
+</li>
+<li>
+<p>创建项目<br>
+点击 <code>New project</code>，填写项目名，选择可见性，点击 <code>Create project</code>。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130091019.png" alt="20221130091019"><br>
+这里也可以选择 <code>Import project</code>，从其他 Git 仓库导入项目。</p>
+</li>
+<li>
+<p>主分支保护<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130221659.png" alt="20221130221659"><br>
+注：为确保主分支开发可靠性和稳定性，应避免任何用户对主分支的直接更改</p>
+</li>
+<li>
+<p>镜像更新<br>
+镜像更新可以用于代码备份，这里则是为了将主仓库主分支自动同步到所有 fork 仓库的主分支。在 GitHub 协作中，这一步通常是由用户主动更新(sync fork)，但 GitLab 似乎只能用镜像更新的方式。</p>
+<ul>
+<li>进入成员仓库，关闭成员仓库主分支的写入保护</li>
+<li>点击左侧 <code>Settings -&gt; Repository</code>，点击 <code>Mirror a repository</code>，填写目标仓库地址，输入用户密码，选择只复制主分支，点击 <code>Mirror repository</code>。提交成功后，下方出现相应的镜像记录。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130122445.png" alt="20221130122445"><br>
+注：管理员需对目标仓库用户拥有权限</li>
+</ul>
+</li>
+</ol>
+<h3 id="代码审查">代码审查</h3>
+<ol>
+<li>
+<p>点击左侧 <code>Merge Requests</code>，可以看到合并请求，点击相应请求<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130100951.png" alt="20221130100951"><br>
+如果设置了 CI/CD 流程，也可以看到 CI/CD 流程的状态</p>
+</li>
+<li>
+<p>查看更改<br>
+在界面底部查看代码内容，可以选中代码行进行评论，或者直接对文件进行修改<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130101323.png" alt="20221130101323"></p>
+</li>
+<li>
+<p>内容无误，CI/CD 流程通过后，且不产生冲突，点击 <code>Merge</code>，合并代码。</p>
+</li>
+</ol>
+<h2 id="开发端">开发端</h2>
+<h3 id="创建分支">创建分支</h3>
+<ol>
+<li>注册账号<br>
+访问内网服务器的<a target="_blank" rel="noopener" href="http://172.23.148.38:9190/users/sign_in"> GitLab 地址</a>，点击 <code>Register</code>，填写用户名、邮箱、密码，点击 <code>Register</code>，其中 <code>Full name</code> 为昵称，<code>username</code> 为标识账号的用户名<br>
+![深度截图_选择区域_20221130092530](<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F">https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/深度截图_选择区域</a></li>
+</ol>
+<p>注册后将用户名(username)告诉组织管理员，待邀请进组后，可以在 <code>Groups -&gt; Your groups</code> 中看到该组。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130092911.png" alt="深度截图_选择区域_20221130092911"></p>
+<ol start="2">
+<li>
+<p>创建 dev 分支</p>
+<ul>
+<li>进入成员组，可以看到该组下的所有项目，点击进入项目<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130093117.png" alt="深度截图_选择区域_20221130093117"></li>
+<li>点击 <code>+</code> 号，选择 <code>New branch</code>，创建分支<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130094156.png" alt="20221130094156"></li>
+<li>分支命名为 dev 或根据开发功能命名<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130093753.png" alt="深度截图_选择区域_20221130093753"></li>
+<li>为避免工作区冲突，开发工作均在自己创建的分支上推进。</li>
+</ul>
+</li>
+<li>
+<p>克隆仓库（可选）<br>
+当开发人员较多，分支较多时，通常用克隆仓库的方式来独立各个开发者的工作区（特别对于开源项目）。该功能可选，如果希望独立工作区可以按这节方法设置，如果觉得麻烦按上一步工作就行了。</p>
+<ul>
+<li>进入项目，选择 <code>fork</code> 将仓库克隆到<strong>个人账号</strong>下<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130093235.png" alt="20221130093235"></li>
+<li>操作后，自动跳转到 fork 的仓库<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130093413.png" alt="20221130093413"></li>
+<li>为方便协作，点击仓库左侧设置，将组织管理员添加为仓库管理者，<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130111912.png" alt="深度截图_选择区域_20221130111912"></li>
+<li>赋予权限后，组织管理员能直接对该仓库进行设置。</li>
+</ul>
+<p>后续开发方式同上一小节，创建 dev 分支，在分支中进行开发。</p>
+</li>
+</ol>
+<h3 id="本地连接仓库">本地连接仓库</h3>
+<ol>
+<li>
+<p>在仓库页面点击 clone 按钮，复制 http 链接<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203012056.png" alt="20221203012056"></p>
+</li>
+<li>
+<p>在复制的链接中加入用户名和密码，比如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制链接</span></span><br><span class="line">http://172.23.148.38:9190/Rex/demoproject.git</span><br><span class="line"><span class="comment"># 加入用户名和密码后</span></span><br><span class="line">http://myuser:mycode@172.23.148.38:9190/Rex/demoproject.git</span><br></pre></td></tr></table></figure>
+<p>注意将 <code>myuser</code> 和 <code>mycode</code> 替换为自己的用户名和密码。特别留意，这里填的是账号的 <code>username</code> 而不是 <code>fullname</code>。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203012210.png" alt="20221203012210"></p>
+</li>
+<li>
+<p>本地使用 git clone 命令，将仓库克隆到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> http://myuser:mycode@172.23.148.38:9190/Rex/demoproject.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="代码交流方式">代码交流方式</h3>
+<ol>
+<li>代码开发(push changes)<br>
+为演示方便，下例在云端直接对代码操作。</li>
+</ol>
+<ul>
+<li>以添加 .gitignore 文件为例：选择 dev 分支，点击 + 号，选择 New file，创建文件<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130094256.png" alt="深度截图_选择区域_20221130094256"></li>
+<li>填写文件名和内容，点击下方 commit changes 提交更改<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130094623.png" alt="20221130094623"></li>
+</ul>
+<ol start="2">
+<li>
+<p>合并请求（PR）</p>
+<ul>
+<li>提交更改后，点击右上角 <code>create merge request</code> 提交合并请求<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221130094813.png" alt="深度截图_选择区域_20221130094813"></li>
+<li>进入预提交界面，如下图<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130095111.png" alt="20221130095111"></li>
+<li>信息显示内容
+<ul>
+<li>PR 指向了主账号仓库的 master 分支</li>
+<li>Title 和 Description 可选，填写此次更改的摘要</li>
+<li>对于一次性开发的分支，可以选择提交后删除</li>
+</ul>
+</li>
+<li>页面最下方可以看到当前合并给主仓库带来的更改，确认内容无误（自己先简单 review 一遍）后，点击 Submit merge request<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130095606.png" alt="20221130095606"></li>
+</ul>
+</li>
+<li>
+<p>测试与交流</p>
+<ul>
+<li>如果仓库设置过 CI（自动测试）和 CD（自动部署），提交 PR 后会触发这些任务。下图为 GitHub 的 CI/CD 界面<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130100444.png" alt="20221130100444"></li>
+<li>代码报错，修改意见等均在这个界面下进行<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221130101904.png" alt="20221130101904"></li>
+<li>如果采用 fork 的方式协作，当代码合并到主仓库后，主仓库会自动向 fork 仓库的主分支提交更新（如果设置正确），因此 fork 仓库的开发也不要在主分支上进行，避免被覆盖。</li>
+</ul>
+</li>
+</ol>
+<h2 id="CI-CD">CI/CD</h2>
+<p>GitLab 的 <code>Pipeline</code> 指一个完整的 CI/CD 流程，包括了编译、测试、部署等环节。<br>
+<code>Pipeline</code> 包括：</p>
+<ul>
+<li><code>Jobs</code>，定义了具体的任务，例如编译、测试等</li>
+<li><code>Stages</code>，定义了任务的执行顺序，例如先编译再测试</li>
+</ul>
+<p>一般规则：</p>
+<ul>
+<li><code>Jobs</code> 由 Runner 执行，如果有足够的 Runner，同一 <code>Stage</code> 中的 <code>Jobs</code> 会并行执行</li>
+<li>如果同一 <code>Stage</code> 中的所有 <code>Jobs</code> 都成功，<code>Pipeline</code> 会继续执行下一个 <code>Stage</code></li>
+<li>如果同一 <code>Stage</code> 中的任意一个 <code>Job</code> 失败，<code>Pipeline</code> 会停止执行，不会执行下一个 <code>Stage</code></li>
+<li>一般情况下，<code>Pipeline</code> 会自动执行，不需要人工干预，但也有例外，例如手动触发 <code>Pipeline</code></li>
+<li>一个典型的 <code>Pipeline</code> 可能包括四个 <code>Stage</code>，执行顺序如下：
+<ul>
+<li><code>Build Stage</code>，包含一个 <code>Job</code>，叫 <code>compile</code></li>
+<li><code>Test Stage</code>，包含两个 <code>Job</code>，叫 <code>test1</code> 和 <code>test2</code></li>
+<li><code>Staging Stage</code>，包含一个 <code>Job</code>，叫 <code>deploy-to-stage</code></li>
+<li><code>Production Stage</code>，包含一个 <code>Job</code>，叫 <code>deploy-to-prod</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="配置-GitLab-Runner-2">配置 GitLab Runner</h3>
+<p>这一步前边已经完成了。</p>
+<h3 id="Yaml-文件">Yaml 文件</h3>
+<h3 id="触发规则">触发规则</h3>
+<p>You can trigger a pipeline for a branch or tag by generating a trigger token and using it to authenticate an API call. The token impersonates a user’s project access and permissions.</p>
+<p>Prerequisite:</p>
+<p>You must have at least the Maintainer role for the project.<br>
+To create a trigger token:</p>
+<p>On the top bar, select Main menu &gt; Projects and find your project.<br>
+On the left sidebar, select Settings &gt; CI/CD.<br>
+Expand Pipeline triggers.<br>
+Enter a description and select Add trigger.<br>
+You can view and copy the full token for all triggers you have created.<br>
+You can only see the first 4 characters for tokens created by other project members.</p>
+<p>可以通过生成一个触发 Token 并使用它来对分支或标签触发 Pipeline，该 Token 模拟用户的项目访问和权限。</p>
+<p>前提条件：</p>
+<ul>
+<li>至少具有 Maintainer 权限</li>
+</ul>
+<p>创建触发 Token：</p>
+<ul>
+<li>在项目的 CI/CD 设置页面展开 Pipeline triggers<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203110358.png" alt="20221203110358"></li>
+<li>输入描述并选择 Add trigger</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/ci/triggers/">https://docs.gitlab.com/ee/ci/triggers/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">trigger_pipeline:</span><br><span class="line">  stage: deploy</span><br><span class="line">  script:</span><br><span class="line">    - <span class="string">&#x27;curl --fail --request POST --form token=$MY_TRIGGER_TOKEN --form ref=main &quot;https://gitlab.example.com/api/v4/projects/123456/trigger/pipeline&quot;&#x27;</span></span><br><span class="line">  rules:</span><br><span class="line">    - <span class="keyword">if</span>: <span class="variable">$CI_COMMIT_TAG</span></span><br><span class="line">  environment: production</span><br></pre></td></tr></table></figure>
+<h3 id="版本相关">版本相关</h3>
+<p>通过tag 标签进行发行</p>
+<p>版本号采用 <a target="_blank" rel="noopener" href="https://semver.org/">Semantic Versioning</a></p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>中文说明</th>
+<th>英文说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x.y.z</td>
+<td>大版本.修订版.补丁</td>
+<td>MAJOR.MINOR.PATCH</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20221203012909.png" alt="20221203012909"></p>
+<p>简单来说：</p>
+<ol>
+<li>进行不兼容的 API 更改时，增加主版本 Major</li>
+<li>以向后兼容的方式添加功能时，增加次要版本 Minor</li>
+<li>进行向后兼容的错误修复时，增加补丁版本 Patch</li>
+</ol>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/">http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/30/mac/01-mac-usage/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Mac 基本使用</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/26/programming/gsoc/qr-code-08-summary-en/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">QR Code Learning Notes (8) | Project Summary</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">用户权限管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitLab-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">GitLab 安装配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-%E2%80%93-Docker-%E7%89%88"><span class="toc-number">4.</span> <span class="toc-text">Gitlab 安装配置 – Docker 版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-GitLab-Runner"><span class="toc-number">5.</span> <span class="toc-text">配置 GitLab Runner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Docker%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">使用 Docker（推荐）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85"><span class="toc-number">5.2.</span> <span class="toc-text">直接安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="toc-number">6.</span> <span class="toc-text">故障排除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">GitLab 协作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GitLab-workflow"><span class="toc-number">1.</span> <span class="toc-text">GitLab workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%98%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">管理员端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">初始设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5"><span class="toc-number">2.2.</span> <span class="toc-text">代码审查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">开发端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">3.1.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93"><span class="toc-number">3.2.</span> <span class="toc-text">本地连接仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BA%A4%E6%B5%81%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">代码交流方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI-CD"><span class="toc-number">4.</span> <span class="toc-text">CI&#x2F;CD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-GitLab-Runner-2"><span class="toc-number">4.1.</span> <span class="toc-text">配置 GitLab Runner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Yaml-%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">Yaml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E8%A7%84%E5%88%99"><span class="toc-number">4.3.</span> <span class="toc-text">触发规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%9B%B8%E5%85%B3"><span class="toc-number">4.4.</span> <span class="toc-text">版本相关</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

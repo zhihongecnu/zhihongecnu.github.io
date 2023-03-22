@@ -1,0 +1,501 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 刷题笔记 | 我的学习空间</title><meta name="keywords" content="leetcode,Python,Julia"><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="位运算，二叉树遍历，二分查找，前缀树与线段树，排序算法，最短路，动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 刷题笔记">
+<meta property="og:url" content="http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="位运算，二叉树遍历，二分查找，前缀树与线段树，排序算法，最短路，动态规划">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220224215248.png">
+<meta property="article:published_time" content="2022-03-25T02:15:08.000Z">
+<meta property="article:modified_time" content="2022-12-29T13:38:17.512Z">
+<meta property="article:author" content="致宏">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Julia">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220224215248.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode 刷题笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-29 21:38:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220224215248.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 刷题笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2022-03-25T02:15:08.000Z" title="发布于 2022-03-25 10:15:08">2022-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-29T13:38:17.512Z" title="更新于 2022-12-29 21:38:17">2022-12-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>本篇内容：<a href="#%E4%BD%8D%E8%BF%90%E7%AE%97">位运算</a>，<a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86">二叉树遍历</a>，<a href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a>，<a href="#%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">特殊数据结构</a>，<a href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>，<a href="#%E6%9C%80%E7%9F%AD%E8%B7%AF">最短路</a>以及<a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>。</p>
+<hr>
+<h2 id="位运算">位运算</h2>
+<h3 id="数环">数环</h3>
+<ol>
+<li>
+<p>位运算逐位进行，可等同看成数环 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi mathvariant="double-struck">Z</mi><mn>2</mn><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\mathbb{Z}_2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.936998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathbb">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="double-struck">Z</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\mathbb{Z}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83889em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathbb">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 直和环)上的运算</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi mathvariant="double-struck">Z</mi><mn>2</mn><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\mathbb{Z}_2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.936998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathbb">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span> 为交换幺环，以 0 为零元， <code>-1</code> 为单位元（简记为 <code>I</code>），所有元素加法阶为 2</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">位运算</th>
+<th style="text-align:center">数域操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">异或运算 <code>^</code></td>
+<td style="text-align:center">环上加法</td>
+</tr>
+<tr>
+<td style="text-align:center">与运算 <code>&amp;</code></td>
+<td style="text-align:center">环上乘法</td>
+</tr>
+<tr>
+<td style="text-align:center">非运算 <code>~</code></td>
+<td style="text-align:center"><code>~n</code> 等同于 <code>n ^ I</code></td>
+</tr>
+<tr>
+<td style="text-align:center">或运算 <code>|</code></td>
+<td style="text-align:center"><code>a | b = a ^ b ^ (a &amp; b)</code></td>
+</tr>
+</tbody>
+</table>
+<p>或运算推导过程如下：<br>
+<code>a | b = ~(~a &amp; ~b) = I ^ (I ^ a) &amp; (I ^ b) = a ^ b ^ (a &amp; b)</code></p>
+</li>
+<li>
+<p>位运算左移 <code>&lt;&lt;</code> 和 右移 <code>&gt;&gt;</code></p>
+</li>
+</ol>
+<h3 id="知识技巧">知识技巧</h3>
+<ol>
+<li>
+<p>异或技巧</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">问题 136. 只出现一次的数字</a>，利用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi mathvariant="double-struck">Z</mi><mn>2</mn><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\mathbb{Z}_2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.936998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathbb">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span> 元素加法阶为 2，将相等的数值抵消</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">singleNumber</span>(<span class="params">nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x, y: x ^ y, nums)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>减一技巧</p>
+<ul>
+<li>减一运算将最低位 1 化为 0，并将该位置以下的 0 化为 1，例如 <code>11|1000 -&gt; 11|0111</code></li>
+<li>延伸应用：<code>n &amp; n - 1</code> 将最低位 1 以上不变，以下（含）全化 0，例如 <code>11100 -&gt; 11000 -&gt; 10000 -&gt; 0</code></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">问题 231. 2 的幂</a>，判断是否 2 的幂次</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当且仅当 n 为 2 的幂次时，数值化为 0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">isPowerOfTwo</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    <span class="keyword">return</span> n &gt; <span class="number">0</span> <span class="keyword">and</span> (n &amp; n - <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">问题191. 位1的个数</a></li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次进行 `n &amp; n-1`，二进制数中的 1 数目减一</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hammingWeight</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    ret = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        n &amp;= n - <span class="number">1</span></span><br><span class="line">        ret += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>对偶地，加一技巧</p>
+<ul>
+<li>加一运算将最低位 0 化为 1，并将该位置以下的 1 化为 0，例如 <code>110|011 -&gt; 110|100</code></li>
+<li>延伸：<code>n &amp; n + 1</code> 将最低位 0 以下的部分截断（化 0），例如 <code>110|011 -&gt; 11000</code></li>
+</ul>
+</li>
+<li>
+<p>分治技巧：</p>
+<ul>
+<li>构造 01 序列 <code>s</code></li>
+<li>与运算 <code>s &amp; n</code> 提取 <code>n</code> 在序列取值 1 的位置的信息，例如 <code>1100 &amp; n</code> 提取四位整数 n 的前两位</li>
+<li>位移运算 <code>&gt;&gt;, &lt;&lt;</code> 移动结果，例如 <code>(1100 &amp; n) &gt;&gt; 2</code> 提取 n 的前两位，并移动到个位</li>
+<li>异或运算 <code>^</code> 合并提取内容，例如 <code>(1100 &amp; n) &gt;&gt; 2 ^ ((0011 &amp; n) &lt;&lt; 2)</code> 将 <code>n</code> 的前两位与后两位交换</li>
+</ul>
+</li>
+<li>
+<p>分治应用题，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-bits/">190. 颠倒二进制位</a>，图片来自<a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/fuxuemingzhu/">负雪明烛</a><br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220225104430.png" alt="20220225104430"></p>
+<ul>
+<li>利用分治思想，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>=</mo><msup><mn>2</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">32=2^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span> 位整数需互换 5 次，先理解 2,4,8 位的代码，再来看 32 位</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="keyword">lambda</span> i: <span class="built_in">int</span>(i, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_bits_2</span>(<span class="params">n: <span class="built_in">int</span></span>)-&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;二位整数互换&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> n &gt;&gt; <span class="number">1</span> ^ (n &lt;&lt; <span class="number">1</span> &amp; b(<span class="string">&quot;10&quot;</span>)) <span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_bits_4</span>(<span class="params">n: <span class="built_in">int</span></span>)-&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;四位整数互换&quot;&quot;&quot;</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">2</span> ^ (n &lt;&lt; <span class="number">2</span> &amp; b(<span class="string">&quot;1100&quot;</span>)) <span class="comment"># 1100</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">1</span> &amp; b(<span class="string">&quot;0101&quot;</span>) ^ (n &lt;&lt; <span class="number">1</span> &amp; b(<span class="string">&quot;1010&quot;</span>)) <span class="comment"># 10 的重复</span></span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_bits_8</span>(<span class="params">n: <span class="built_in">int</span></span>)-&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;八位整数互换&quot;&quot;&quot;</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">4</span> ^ (n &lt;&lt; <span class="number">4</span> &amp; b(<span class="string">&quot;11110000&quot;</span>)) <span class="comment"># 11110000</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">2</span> &amp; b(<span class="string">&quot;00110011&quot;</span>) ^ (n &lt;&lt; <span class="number">2</span> &amp; b(<span class="string">&quot;11001100&quot;</span>)) <span class="comment"># 1100 的重复</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">1</span> &amp; b(<span class="string">&quot;01010101&quot;</span>) ^ (n &lt;&lt; <span class="number">1</span> &amp; b(<span class="string">&quot;10101010&quot;</span>)) <span class="comment">## 10 的重复</span></span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverseBits</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    n = n &gt;&gt; <span class="number">16</span> ^ (n &lt;&lt; <span class="number">16</span> &amp; <span class="number">0xffff0000</span>) <span class="comment"># 16 个 1</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">8</span> &amp; <span class="number">0x00ff00ff</span> ^ (n &lt;&lt; <span class="number">8</span> &amp; <span class="number">0xff00ff00</span>) <span class="comment"># 8 个 1</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">4</span> &amp; <span class="number">0x0f0f0f0f</span> ^ (n &lt;&lt; <span class="number">4</span> &amp; <span class="number">0xf0f0f0f0</span>) <span class="comment"># 11110000...</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">2</span> &amp; <span class="number">0x03030303</span> ^ (n &lt;&lt; <span class="number">2</span> &amp; <span class="number">0xcccccccc</span>) <span class="comment"># 1100...</span></span><br><span class="line">    n = n &gt;&gt; <span class="number">1</span> &amp; <span class="number">0x55555555</span> ^ (n &lt;&lt; <span class="number">1</span> &amp; <span class="number">0xaaaaaaaa</span>) <span class="comment"># 1010</span></span><br><span class="line">    <span class="keyword">return</span> n</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="其他知识">其他知识</h3>
+<ol>
+<li>
+<p>2, 8, 16 进制的单词分别为 <code>binary, octal, hexadecimal</code>，在 Python 中的相关函数如下</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 十进制 -&gt; 其他进制(字符串)</span></span><br><span class="line"><span class="built_in">bin</span>(<span class="number">123</span>) <span class="comment"># &#x27;0b1111011&#x27; | 十进制 -&gt; 二进制</span></span><br><span class="line"><span class="built_in">oct</span>(<span class="number">123</span>) <span class="comment"># &#x27;0o173&#x27; | 十进制 -&gt; 八进制</span></span><br><span class="line"><span class="built_in">hex</span>(<span class="number">123</span>) <span class="comment"># &#x27;0x7b&#x27; | 十进制 -&gt; 十六进制</span></span><br><span class="line"><span class="comment"># 其他进制(字符串) -&gt; 十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">&quot;011&quot;</span>) <span class="comment"># 11 | 十进制字符串 -&gt; 十进制整数</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">&quot;11&quot;</span>, <span class="number">3</span>) <span class="comment"># 4 | 三进制字符串 -&gt; 十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">&quot;11&quot;</span>, <span class="number">2</span>) <span class="comment"># 3 | 二进制字符串 -&gt; 十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">&quot;0b11&quot;</span>, <span class="number">2</span>) == <span class="number">0b11</span> <span class="comment"># True | 可直接书写</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数值编码，<a target="_blank" rel="noopener" href="https://blog.csdn.net/afsvsv/article/details/94553228">参考 CSDN</a></p>
+<ul>
+<li>计算机中，有符号整数有三种存储方式，原码，反码和补码</li>
+<li>原码：用最高位表示符号位，‘1’表示负号，‘0’表示正号，其他位存放该数的二进制的绝对值
+<ul>
+<li>整数 0 分为 <code>+0</code> 和 <code>-0</code></li>
+<li>用原码做正负数的加法运算：<code>0001 + 1001 = 1010 =&gt; 1 + (-1) = -2</code>，出现问题</li>
+<li>原码虽然直观易懂，易于正值转换，但实现加减法的运算规则太复杂，于是反码来了</li>
+</ul>
+</li>
+<li>反码：正数的反码还是等于原码，负数的反码就是他的原码除符号位外，按位取反
+<ul>
+<li>比如 <code>-3 = 1100, 0 = 0000 = 1111 </code></li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 = 0(011) =&gt; -3 = 1(110) = 1100</span><br><span class="line">0 = 0(000) =&gt; -0 = 1(111) = 1111</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时仍存在运算错误的问题</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1100 + 0001 = 1101 = -(0010) =&gt; -3 + 1 = -2</span><br><span class="line">1100 + 1001 = 1101 = -(0010) =&gt; -3 + (-6) = -2</span><br></pre></td></tr></table></figure>
+</li>
+<li>补码：负数的补码等于他的原码自右向做，第一个‘1’及其右边的‘0’保持不变，左边的各位按位取反
+<ul>
+<li>等价刻画：正数的反码还是等于原码，负数的补码是其反码 + 1</li>
+<li>此外，正数和负数互为彼此的补码，0 的表达方式唯一</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0110 =&gt; -(0110) = 1010</span><br><span class="line">1010 =&gt; -(1010) = 0110</span><br><span class="line">0000 =&gt; 0000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>补码的数学运算</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># -1 + 1 = 0</span><br><span class="line">1111 + 0001 = 0000 # 进位丢掉</span><br><span class="line"># -2 + 1 = -1</span><br><span class="line">1110 + 0001 = 1111</span><br><span class="line"># -1 + 2 = 1</span><br><span class="line">1111 + 0010 = 0001</span><br></pre></td></tr></table></figure>
+</li>
+<li>由补码原理，负数位移运算 <code>&gt;&gt;</code> 也是下整除</li>
+</ul>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 负数右移，左侧补 1</span></span><br><span class="line"><span class="comment"># 1101 -&gt; 1110 =&gt; -(0011) -&gt; -(0010) =&gt; -3 -&gt; -2</span></span><br><span class="line">-<span class="number">3</span> &gt;&gt; <span class="number">1</span> == -<span class="number">2</span></span><br><span class="line">-<span class="number">1</span> &gt;&gt; <span class="number">1</span> == -<span class="number">1</span> <span class="comment"># 下整除</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Python 位运算的优先级</p>
+<ul>
+<li>单目运算符 <code>~</code> 的优先级高于四则运算</li>
+<li><code>&gt;&gt;, &lt;&lt;</code> 的优先级比 <code>==, !=, and, or, &amp;, ^, |</code> 高，比四则运算低</li>
+</ul>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> == <span class="number">1</span> &lt;&lt; <span class="number">1</span> <span class="comment"># 返回 False</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">or</span> <span class="number">1</span> &lt;&lt; <span class="number">2</span> <span class="comment"># 返回 2，相当于 2 or 2</span></span><br><span class="line">(<span class="number">2</span> <span class="keyword">or</span> <span class="number">1</span>) &lt;&lt; <span class="number">2</span> <span class="comment"># 返回 8， 相当于 2 &lt;&lt; 2</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span> &lt;&lt; <span class="number">3</span> <span class="comment"># 返回 24，相当于 3 &lt;&lt; 3</span></span><br><span class="line"><span class="number">1</span> &amp; <span class="number">1</span> &lt;&lt; <span class="number">3</span> <span class="comment"># 返回 0，相当于 1 &amp; 8</span></span><br><span class="line">(<span class="number">1</span> &amp; <span class="number">1</span>) &lt;&lt; <span class="number">3</span> <span class="comment"># 返回 8，相当于 1 &lt;&lt; 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Julia 位运算的优先级</p>
+<ul>
+<li><code>&gt;&gt;, &lt;&lt;</code> 的优先级比 <code>==, !=, &amp;&amp;, ||, &amp;, ⊻, |</code> 高，与乘法运算同级</li>
+<li>也即： <code>1 + 2 &lt;&lt; 3</code> 在 Julia 中取值为 17，在 Python 中取值为 24</li>
+</ul>
+</li>
+</ol>
+<h2 id="二叉树遍历">二叉树遍历</h2>
+<h3 id="宽度优先遍历">宽度优先遍历</h3>
+<p>树的三种宽度遍历方式，对应三道 LeetCode 习题：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a>，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a>，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a></p>
+<ol>
+<li>
+<p>先序遍历(Python)</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">traversal</span>(<span class="params">root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">    ans, stack = [], [root]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        node = stack.pop()</span><br><span class="line">        ans.append(node.val)</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            stack.append(node.right)</span><br><span class="line">        <span class="keyword">if</span> node.left: <span class="comment"># 左节点优先</span></span><br><span class="line">            stack.append(node.left)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>先序遍历 + 中序遍历(Julia)</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">## Julia 模板</span><br><span class="line">traversal(::Nothing) = Int[]</span><br><span class="line">function traversal(root::TreeNode)::Vector&#123;Int&#125;</span><br><span class="line">    res, stack = Int[], []</span><br><span class="line">    while !isempty(stack) || !isnothing(root)</span><br><span class="line">        while !isnothing(root)</span><br><span class="line">            push!(stack, root)</span><br><span class="line">            ## preorder traversal</span><br><span class="line">            root = root.left</span><br><span class="line">        end</span><br><span class="line">        root = pop!(stack) </span><br><span class="line">        ## inorder traversal</span><br><span class="line">        root = root.right</span><br><span class="line">    end</span><br><span class="line">    res</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>先序遍历 + 中序遍历 + 后序遍历(Python)</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Traversal</span>(<span class="params">root: TreeNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">    res, stack, pre = [], [], <span class="literal">None</span></span><br><span class="line">    <span class="keyword">while</span> root <span class="keyword">or</span> stack:</span><br><span class="line">        <span class="keyword">while</span> root: <span class="comment"># 访问到最左节点</span></span><br><span class="line">            stack.append(root)</span><br><span class="line">            <span class="comment"># 先序遍历，准备访问左子树</span></span><br><span class="line">            root = root.left</span><br><span class="line">        root = stack[-<span class="number">1</span>] <span class="comment"># 到达最左节点</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root.right <span class="keyword">or</span> root.right == pre: <span class="comment"># 右节点为空或访问过</span></span><br><span class="line">            <span class="comment"># 后序遍历，左右子树访问完毕</span></span><br><span class="line">            pre, root = stack.pop(), <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 中序遍历，准备访问右子树</span></span><br><span class="line">            root = root.right</span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Morris-遍历">Morris 遍历</h3>
+<p>暂略，有需要再学习</p>
+<h3 id="序列构造树">序列构造树</h3>
+<p>递归解法比较简单，难点是迭代解法。</p>
+<ol>
+<li>
+<p>先序遍历 + 中序遍历，反推二叉树，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">问题 105</a></p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">buildTree</span>(<span class="params">preorder: <span class="type">List</span>[<span class="built_in">int</span>], inorder: <span class="type">List</span>[<span class="built_in">int</span>]</span>):</span><br><span class="line">    root = TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">    stack, j, n = [root], <span class="number">0</span>, <span class="built_in">len</span>(preorder)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        node = TreeNode(preorder[i]) <span class="comment"># 创建节点</span></span><br><span class="line">        <span class="keyword">if</span> stack[-<span class="number">1</span>].val != inorder[j]: <span class="comment"># 栈顶不是最左节点</span></span><br><span class="line">            stack[-<span class="number">1</span>].left = node</span><br><span class="line">            stack.append(node) <span class="comment"># 继续向左</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 栈顶是最左节</span></span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(stack) <span class="keyword">and</span> inorder[j] == stack[-<span class="number">1</span>].val: <span class="comment"># 依次消除栈顶元素</span></span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">                top = stack.pop()</span><br><span class="line">            top.right = node <span class="comment"># 合适位置向右</span></span><br><span class="line">            stack.append(node)</span><br><span class="line">    <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>后序遍历 + 中序遍历，反推二叉树，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">问题 106</a><br>
+（暂略）</p>
+</li>
+</ol>
+<h2 id="二分查找">二分查找</h2>
+<ol>
+<li>
+<p>自编模板，寻找左边界</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">search_left_border</span>(<span class="params">left, right, key</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;搜索 key(i)==true 的左边界&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment">## e.g. search_left_border(0, 10, lambda i:i&gt;3) | returns 4</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        mid = (left + right) &gt;&gt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> key(mid): <span class="comment"># 位置正确</span></span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用函数库</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bisect <span class="keyword">import</span> bisect_left</span><br><span class="line">bisect_left([], <span class="number">0</span>) == <span class="number">0</span></span><br><span class="line">bisect_left([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>], <span class="number">2</span>) == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="特殊数据结构">特殊数据结构</h2>
+<h3 id="前缀树">前缀树</h3>
+<ol>
+<li>
+<p>简单说，就是根据输入的字符信息，构造多叉树，比如输入单词 <code>&quot;sea&quot;,&quot;sells&quot;,&quot;she&quot;</code>（图片来自 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/huwt/">huwt</a>）<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220325175450.png" alt="20220325175450"></p>
+</li>
+<li>
+<p>树本身不存储信息，每次检查单词时，根据能否切换分支进行判断，具体问题可以添加结尾标记 <code>isend = true</code> 等信息。</p>
+</li>
+<li>
+<p>相关 LeetCode 问题：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">前缀树 208</a>，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-word-in-dictionary/">最长前缀 720</a></p>
+</li>
+<li>
+<p>习题 720，给出单词列表中，逐步添加得到的最长单词（Julia 代码）</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function longest_common_word!(words::Vector&#123;String&#125;)::String</span><br><span class="line">    root, res = Dict&#123;Char, Dict&#125;(), &quot;&quot;</span><br><span class="line">    for word in sort!(words, by=length)</span><br><span class="line">        node, n = root, length(word)</span><br><span class="line">        for (i, c) in enumerate(word)</span><br><span class="line">            if haskey(node, c)</span><br><span class="line">                node = node[c]</span><br><span class="line">            elseif i == n</span><br><span class="line">                node[c] = Dict&#123;Char, Dict&#125;() ## add new child</span><br><span class="line">                res = word</span><br><span class="line">            else</span><br><span class="line">                break</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    res    </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="线段树">线段树</h3>
+<p>线段树的三个关键步骤，对应 LeetCode 习题 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-mutable/">307</a>，计算可变数据的区间和</p>
+<ul>
+<li>构造线段树</li>
+<li>更新线段树</li>
+<li>查找区间信息</li>
+</ul>
+<ol>
+<li>
+<p>构造线段树</p>
+<ul>
+<li>将数据视为叶子节点</li>
+<li>根节点与左右子节点的索引关系为 <code>k -&gt; (2 * k, 2 * k + 1)</code></li>
+<li>根节点为左右子节点之和 <code>nums[i] = nums[2 * i] + nums[2 * i + 1]</code><br>
+Python 代码</li>
+</ul>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SegmentTree</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>):</span><br><span class="line">        self.n = n = <span class="built_in">len</span>(nums)</span><br><span class="line">        self.tree = tree = [<span class="number">0</span>] * n + nums <span class="comment"># 线段树 ST 长度为2n</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>): <span class="comment"># [1, n-1] 倒序添加，子节点之和</span></span><br><span class="line">            <span class="comment"># ST[2i] 和 ST[2i+1] 分别为 ST[i] 的左右子节点</span></span><br><span class="line">            tree[i] = tree[i &lt;&lt; <span class="number">1</span>] + tree[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>更新索引信息，从叶子节点逐步往回</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self, index: <span class="built_in">int</span>, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    index += self.n <span class="comment"># nums下标转换到 ST 下标</span></span><br><span class="line">    delta = val - self.tree[index] <span class="comment"># 变更值</span></span><br><span class="line">    <span class="keyword">while</span> index: <span class="comment"># 自下而上进行更新</span></span><br><span class="line">        self.tree[index] += delta</span><br><span class="line">        index &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>获取区间和</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sumRange</span>(<span class="params">self, left: <span class="built_in">int</span>, right: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># nums下标转换到 ST 下标</span></span><br><span class="line">    left += self.n</span><br><span class="line">    right += self.n</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="keyword">if</span> left &amp; <span class="number">1</span>: <span class="comment"># 奇数，右子节点</span></span><br><span class="line">            res += self.tree[left]</span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">        left &gt;&gt;= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> right &amp; <span class="number">1</span> == <span class="number">0</span>: <span class="comment"># 左子节点</span></span><br><span class="line">            res += self.tree[right]</span><br><span class="line">            right -= <span class="number">1</span></span><br><span class="line">        right &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>原理说明，<code>left</code> 和 <code>right</code> 同步跳动，规则如下：</p>
+<ul>
+<li><code>left</code> 出现在左节点时，直接回退父节点</li>
+<li><code>left</code> 出现在右节点时，由于父节点也包含了左节点的结果，不能直接回退，而是记录当前数值，并跳到相邻父节点，如下图<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/2022-03-26_11-06-26.jpg" alt="2022-03-26_11-06-26"></li>
+<li><code>right</code> 的规则与 <code>left</code> 相反，同理讨论</li>
+<li>当 <code>right</code> 和 <code>left</code> 相遇时，记录当前数值并跳出循环，如下图<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/2022-03-26_11-13-29.jpg" alt="2022-03-26_11-13-29"></li>
+<li>当 <code>right</code> 和 <code>left</code> 交错时，直接跳出循环，参看下图<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/2022-03-26_11-13-38.jpg" alt="2022-03-26_11-13-38"></li>
+<li>讨论不仅对节点数目非 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> 的情形也适用，只是叶子节点会分布在两层，比如 10个节点的情形<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/2022-03-26_11-17-25.jpg" alt="2022-03-26_11-17-25"></li>
+</ul>
+</li>
+</ol>
+<h2 id="排序算法">排序算法</h2>
+<h3 id="快速排序">快速排序</h3>
+<ol>
+<li>
+<p>主函数</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort</span>(<span class="params">nums, left, right</span>):</span><br><span class="line">    <span class="keyword">if</span> right &lt;= left: <span class="keyword">return</span> nums <span class="comment"># 至少两个元素</span></span><br><span class="line">    p = partition(nums, left, right)</span><br><span class="line">    quick_sort(nums, p + <span class="number">1</span>, right) <span class="comment"># 排序右边部分</span></span><br><span class="line">    quick_sort(nums, left, p - <span class="number">1</span>) <span class="comment"># 排序左边部分</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>双边扫描，左指针数值保持严格小，右指针保持不小于</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">partition</span>(<span class="params">nums, left, right</span>):</span><br><span class="line">    i, j, num = left, right - <span class="number">1</span>, nums[right] <span class="comment"># 左右指针和中间值</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">        <span class="keyword">if</span> nums[i] &lt; num: <span class="comment"># 左指针前进</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> nums[j] &gt;= num: <span class="comment"># 右指针后退</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 交换</span></span><br><span class="line">            nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line">            i, j = i + <span class="number">1</span>, j - <span class="number">1</span></span><br><span class="line">    nums[right], nums[i] = nums[i], nums[right]</span><br><span class="line">    <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>单边扫描，一个指针扫描，一个指针记录大于目标值的最左位置</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">partition</span>(<span class="params">nums, left, right</span>):</span><br><span class="line">    p1, num = left, nums[right] <span class="comment"># 记录位置的指针 p1</span></span><br><span class="line">    <span class="keyword">for</span> p2 <span class="keyword">in</span> <span class="built_in">range</span>(left, right): <span class="comment"># 扫描区间 [left, right-1]</span></span><br><span class="line">        <span class="keyword">if</span> nums[p2] &lt; num: <span class="comment"># 小于目标值，交换到左侧</span></span><br><span class="line">            nums[p1], nums[p2] = nums[p2], nums[p1]</span><br><span class="line">            p1 += <span class="number">1</span></span><br><span class="line">    nums[p1], nums[right] = nums[right], nums[p1] <span class="comment"># 最后交换目标值</span></span><br><span class="line">    <span class="keyword">return</span> p1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="归并排序">归并排序</h3>
+<ol>
+<li>
+<p>代码模板</p>
+ <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">merge_sort</span>(<span class="params">arr</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>: <span class="keyword">return</span> arr</span><br><span class="line">    mid = n &gt;&gt; <span class="number">1</span></span><br><span class="line">    lpart = merge_sort(arr[:mid])</span><br><span class="line">    rpart = merge_sort(arr[mid:])</span><br><span class="line">    <span class="keyword">return</span> merge(lpart, rpart)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">lpart, rpart</span>):</span><br><span class="line">    tmp, i, j, nl, nr = [], <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">len</span>(lpart), <span class="built_in">len</span>(rpart)</span><br><span class="line">    <span class="keyword">while</span> i &lt; nl <span class="keyword">or</span> j &lt; nr:</span><br><span class="line">        <span class="keyword">if</span> j == nr <span class="keyword">or</span> i &lt; nl <span class="keyword">and</span> lpart[i] &lt;= rpart[j]:</span><br><span class="line">            tmp.append(lpart[i])</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tmp.append(rpart[j])</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"></span><br><span class="line">merge_sort(nums)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>相关 LeetCode 问题：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/">剑指 Offer 51. 数组中的逆序对</a>，在降低反序的位置记录数值</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/">问题 315. 计算右侧小于当前元素的个数</a>，数据预处理，用 <code>(idx, num)</code> 形式记录索引</li>
+</ul>
+</li>
+</ol>
+<h3 id="堆排序">堆排序</h3>
+<p>小顶堆模板</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heapify, heappop, heappush, nsmallest, nlargest</span><br><span class="line">heapify(nums)</span><br><span class="line">nsmallest(<span class="number">1</span>, nums)</span><br></pre></td></tr></table></figure>
+<h2 id="最短路">最短路</h2>
+<p>堆优化的 Dijkstra 模板</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dijkstra</span>(<span class="params">arrows, src, dist</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;arrows 为字典类型&quot;&quot;&quot;</span></span><br><span class="line">    queue = [(<span class="number">0</span>, src)]</span><br><span class="line">    dist[src] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(queue):</span><br><span class="line">        cost, node = heappop(queue)</span><br><span class="line">        <span class="keyword">if</span> cost &gt; dist[node]:<span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> new, weight <span class="keyword">in</span> arrows[node].items():</span><br><span class="line">            weight += cost</span><br><span class="line">            <span class="keyword">if</span> weight &lt; dist[new]:</span><br><span class="line">                dist[new] = weight</span><br><span class="line">                heappush(queue, (weight, new))</span><br><span class="line">    <span class="keyword">return</span> </span><br></pre></td></tr></table></figure>
+<h2 id="动态规划">动态规划</h2>
+<h3 id="01背包">01背包</h3>
+<p>暂略</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/">http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/leetcode/">leetcode</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Julia/">Julia</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220224215248.png" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/05/chat/ti-wen-de-yi-zhu/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220405135409.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">社区交流礼仪 | 提问的艺术</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/22/programming/gsoc/qr-code-01/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/21_088cd0b624d90f8847029f939a3fc37a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">二维码学习笔记(一) | 二维码概述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/02/23/programming/others/regular-expression/" title="正则表达式 | Python/Julia/Shell"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed2/picgo/20220303214230.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-23</div><div class="title">正则表达式 | Python/Julia/Shell</div></div></a></div><div><a href="/2022/02/19/programming/julia/julia-python/" title="Julia 学习笔记(番外) | 从 Python 到 Julia"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/julia.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-19</div><div class="title">Julia 学习笔记(番外) | 从 Python 到 Julia</div></div></a></div><div><a href="/2022/01/14/programming/data-structure/sort/" title="Python 实战 | 十大排序算法"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed/picgo/20220119173810.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">Python 实战 | 十大排序算法</div></div></a></div><div><a href="/2021/10/20/programming/others/python-er-cha-shu/" title="二叉树优化问题 | Python 实战"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/09.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">二叉树优化问题 | Python 实战</div></div></a></div><div><a href="/2021/08/31/programming/others/latex-tool/" title="LaTeX 工具编写 | Python 实战"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@master/WallPapers/2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-31</div><div class="title">LaTeX 工具编写 | Python 实战</div></div></a></div><div><a href="/2023/03/22/programming/others/openai-api-call/" title="OpenAI API 调用工具 | Python 实战"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-22</div><div class="title">OpenAI API 调用工具 | Python 实战</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%8E%AF"><span class="toc-number">2.1.</span> <span class="toc-text">数环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E6%8A%80%E5%B7%A7"><span class="toc-number">2.2.</span> <span class="toc-text">知识技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86"><span class="toc-number">2.3.</span> <span class="toc-text">其他知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86"><span class="toc-number">3.</span> <span class="toc-text">二叉树遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BD%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="toc-number">3.1.</span> <span class="toc-text">宽度优先遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Morris-%E9%81%8D%E5%8E%86"><span class="toc-number">3.2.</span> <span class="toc-text">Morris 遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E6%A0%91"><span class="toc-number">3.3.</span> <span class="toc-text">序列构造树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">4.</span> <span class="toc-text">二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">特殊数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E6%A0%91"><span class="toc-number">5.1.</span> <span class="toc-text">前缀树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-number">5.2.</span> <span class="toc-text">线段树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">6.1.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">6.2.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">6.3.</span> <span class="toc-text">堆排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-number">7.</span> <span class="toc-text">最短路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">8.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#01%E8%83%8C%E5%8C%85"><span class="toc-number">8.1.</span> <span class="toc-text">01背包</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

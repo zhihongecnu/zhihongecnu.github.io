@@ -1,0 +1,426 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hexo | butterfly 主题设置一 | 我的学习空间</title><meta name="keywords" content="hexo"><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="butterfly 主题的基本设置和美化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo | butterfly 主题设置一">
+<meta property="og:url" content="http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="butterfly 主题的基本设置和美化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic1.jpg">
+<meta property="article:published_time" content="2021-07-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-29T13:38:17.510Z">
+<meta property="article:author" content="致宏">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo | butterfly 主题设置一',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-29 21:38:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo | butterfly 主题设置一</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2021-07-21T16:00:00.000Z" title="发布于 2021-07-22 00:00:00">2021-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-29T13:38:17.510Z" title="更新于 2022-12-29 21:38:17">2022-12-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>唠唠闲话</h1>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo 官网</a>有很多风格不错的主题，本篇介绍 butterfly 主题的基本配置和美化。</p>
+<blockquote>
+<p><strong>参考文章</strong><br>
+官方地址：<a target="_blank" rel="noopener" href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>
+CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a19097991483/article/details/107628123">hexo 博客 butterfly 主题美化</a><br>
+Github：<a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 项目地址</a></p>
+</blockquote>
+<p>限于篇幅，本篇只介绍基础样式，特殊效果和功能另外再介绍。</p>
+<p><strong>内容一览</strong><br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/%E7%BE%8E%E5%8C%96.png" title="主题美化" width="60%" height="60%"></p>
+<hr>
+<h1>安装主题</h1>
+<ol>
+<li>
+<p>搭建博客框架，参看<a href="/2021/07/19/blog/hexo-01-kuang-jia-pian/" title="hexo | 博客框架搭建">hexo | 博客框架搭建</a>。</p>
+</li>
+<li>
+<p>进入博客目录，下载 butterfly 主题，官方提供了两种方法<br>
+方法一，用 git 将主题下载到 themes 目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<p>方法二（同步不方便，不推荐），用 npm 将主题下载到 node_modules 目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-butterfly</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>进入主题目录，复制配置文件 _config.yml 到博客主目录，并改名为 _config.butterfly.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 方法1</span><br><span class="line">cp themes/butterfly/_config.yml ./_config.butterfly.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 _config.yml ，将其中 theme 参数改为 butterfly</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: butterfly</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装渲染工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此时，用 hexo s 启动，就进入了 butterfly 主题。</p>
+<blockquote>
+<p>注：命令 npm i 中，i 为 install 的缩写，但也有差异，参见<a target="_blank" rel="noopener" href="https://blog.csdn.net/chern1992/article/details/79193211">npm i和npm install的区别</a>。npm i 默认为局部安装，安装目录为 node_modules。</p>
+</blockquote>
+<hr>
+<h1>文章内部</h1>
+<h2 id="文章封面">文章封面</h2>
+<p>在文章开头的 title 下添加一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cover: &lt;图片链接&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：图片可放在 source 目录，用链接引用，使用方便但加载慢，更推荐的方法是<a href="/2021/08/06/blog/tu-chuang/" title="PicGo 搭建图床">图床</a>。</p>
+</blockquote>
+<h2 id="代码高亮">代码高亮</h2>
+<p>在 _config.butterfly.yml 中找到下边代码并修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false</span><br><span class="line">highlight_copy: true # copy button</span><br><span class="line">highlight_lang: true # show the code language</span><br><span class="line">highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button</span><br><span class="line">highlight_height_limit: false # unit: px</span><br><span class="line">code_word_wrap: false</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>highlight_theme # 设置代码样式，个人偏好为 mac</li>
+<li>code_word_wrap # 设置是否换行</li>
+<li>其他参数参看注释</li>
+</ul>
+<h2 id="赞赏界面">赞赏界面</h2>
+<ol>
+<li>
+<p>在 _config.butterfly.yml 中找到下边代码，将 <code>enable</code> 参数改为 true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Sponsor/reward</span><br><span class="line">reward:</span><br><span class="line">enable: false</span><br><span class="line">QR_code:</span><br><span class="line">   # - img: /img/wechat.jpg</span><br><span class="line">   #   link:</span><br><span class="line">   #   text: wechat</span><br><span class="line">   # - img: /img/alipay.jpg</span><br><span class="line">   #   link:</span><br><span class="line">   #   text: alipay</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将对应二维码截图放在 <code>themes/butterfly/source/img</code> 目录下</p>
+</li>
+</ol>
+<h2 id="底部分享按钮">底部分享按钮</h2>
+<p>在 _config.butterfly.yml 中找到下边代码并修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Share.js</span><br><span class="line"># https://github.com/overtrue/share.js</span><br><span class="line">sharejs:</span><br><span class="line">  enable: true</span><br><span class="line">  sites: facebook,twitter,wechat,weibo,qq</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：国内分享一般去掉前两个。</p>
+</blockquote>
+<h2 id="版权声明">版权声明</h2>
+<p>文章的版权声明，追加在末尾。</p>
+<p>在 _config.butterfly.yml 中检索 <em>copyright</em>，将 enable 设置为 true，编码 <em>decode</em> 设置为 utf-8</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">post_copyright:</span><br><span class="line">  enable: true</span><br><span class="line">  decode: false</span><br><span class="line">  license: CC BY-NC-SA 4.0</span><br><span class="line">  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：不需要加 Copyright 的文章只需要在开头(front-matter)加一行参数 <code>copyright: false</code></p>
+</blockquote>
+<h1>文章预览</h1>
+<h2 id="显示封面图">显示封面图</h2>
+<p>在 _config.butterfly.yml 中找到下边代码并修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cover:</span><br><span class="line">  # display the cover or not (是否顯示文章封面)</span><br><span class="line">  index_enable: true</span><br><span class="line">  aside_enable: true</span><br><span class="line">  archives_enable: true</span><br><span class="line">  # the position of cover in home page (封面顯示的位置)</span><br><span class="line">  # left/right/both</span><br><span class="line">  position: both</span><br><span class="line">  # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)</span><br><span class="line">  default_cover:</span><br><span class="line">    # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>前三个参数设置不同位置是否放图片预览</li>
+<li>index_enable 设置主页面</li>
+<li>aside_enable 设置侧边栏</li>
+<li>archives_enable 设置归档页面</li>
+<li>position 设置主页面预览图位置</li>
+</ul>
+<h2 id="预览文字">预览文字</h2>
+<p>在 _config.butterfly.yml 中找到下边代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Display the article introduction on homepage</span><br><span class="line"># 1: description</span><br><span class="line"># 2: both (if the description exists, it will show description, or show the auto_excerpt)</span><br><span class="line"># 3: auto_excerpt (default)</span><br><span class="line"># false: do not show the article introduction</span><br><span class="line">index_post_content:</span><br><span class="line">  method: 3</span><br><span class="line">  length: 500 # if you set method to 2 or 3, the length need to config</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>method 参数取 1 或 2 或 3，代表不同预览方式，建议修改为 2。</li>
+<li>参数取 3 ：摘取正文前边的文字</li>
+<li>参数取 1 ：取 markdown 头部 description 参数的内容。</li>
+<li>参数取 2 ：当 markdown 头部没有 description 参数时摘取正文，否则按 description 参数的内容。</li>
+</ul>
+<h1>个人信息</h1>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/personal.png" width="30%" height="30%" title="个人信息">
+<h2 id="头像">头像</h2>
+<p>在 _config.butterfly.yml 中找到下边代码，将 img 参数改为头像图片的地址.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Avatar</span><br><span class="line">avatar:</span><br><span class="line">  img: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png</span><br><span class="line">  effect: false</span><br></pre></td></tr></table></figure>
+<h2 id="姓名">姓名</h2>
+<p>这部分在 _config.yml 中直接修改，注意不是修改 _config.butterfly.yml 。</p>
+<h2 id="社交图标">社交图标</h2>
+<p>默认使用语法 <code>fa xxx</code> 引用网站 <a target="_blank" rel="noopener" href="https://fontawesome.com/">FontAwesome</a>里的图标。</p>
+<h3 id="使用阿里-iconfont">使用阿里 iconfont</h3>
+<blockquote>
+<p><strong>参考文章</strong><br>
+CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012208219/article/details/106883012">Hexo博客之优雅使用阿里 iconfont 图标</a></p>
+</blockquote>
+<p>一些图标 [FontAwesome] 上没有，比如 bilibili 小电视，这时可以用阿里的 iconfont 图标，使用教程如下</p>
+<ol>
+<li>
+<p>进入阿里 <a target="_blank" rel="noopener" href="https://www.iconfont.cn/">iconfont</a> 寻找想要添加的图标，点击右上角购物车<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211014132325.png" alt="20211014132325"></p>
+</li>
+<li>
+<p>依次点击新建项目 -&gt; 添加项目 -&gt; 确定<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211014132607.png" alt="20211014132607"></p>
+</li>
+<li>
+<p>依次点击资源管理 -&gt; 我的项目 -&gt; 查看在线链接 -&gt; 点击 css 文件<br>
+<img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@picgo/picgo_folder/20211014132836.png" alt="20211014132836"></p>
+</li>
+<li>
+<p>将文件保存到博客目录，例如放在 <code>themes/butterfly/source/css/iconfont.css</code></p>
+</li>
+<li>
+<p>引用 css 文件：在 head 标签中添加一行 <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/iconfont.css&quot;&gt;</code><br>
+对 butterfly 主题，编辑 <code>themes/layout/includes/head.pug</code>，找到下边字段并修改（添加最后一行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//- main css</span><br><span class="line">link(rel=&#x27;stylesheet&#x27;, href=url_for(theme.CDN.main_css))</span><br><span class="line">link(rel=&#x27;stylesheet&#x27;, href=url_for(theme.CDN.fontawesome) media=&quot;print&quot; onload=&quot;this.media=&#x27;all&#x27;&quot;)</span><br><span class="line">link(rel=&quot;stylesheet&quot; href=&quot;/css/iconfont.css&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="设置图标">设置图标</h3>
+<p>在 _config.butterfly.yml 中找到 social settings 并修改，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># social settings </span><br><span class="line"># formal:</span><br><span class="line">#   icon: link || the description</span><br><span class="line">social:</span><br><span class="line">  fab fa-github: &lt;link&gt; || &lt;text&gt; # 使用 fontawesome 图标</span><br><span class="line">  iconfont icon-zhihu: &lt;link&gt; || &lt;text&gt; # 使用 iconfont</span><br></pre></td></tr></table></figure>
+<p>设置说明：</p>
+<ul>
+<li>冒号 : 前为图标设置，参看。</li>
+<li>|| 后为图标的文字描述，即鼠标移动到图标时会显示的文字。</li>
+<li><code>&lt;link&gt;</code> 和 <code>&lt;text&gt;</code> 根据自己内容修改</li>
+</ul>
+<h2 id="follow-me">follow me</h2>
+<p>关注这行在后边 <a href="#aside">侧边栏</a> 中设定</p>
+<h1>菜单栏设置</h1>
+<h2 id="标签设置">标签设置</h2>
+<blockquote>
+<p>参考博客</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/lcyaiym/article/details/76762105">hexo的Next创建tags</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/KnownAll/article/details/81360235?utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control">hexo 添加标签和分类</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>新建标签文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>进入 source/tags，修改 <a target="_blank" rel="noopener" href="http://index.md">index.md</a>（添加了 type 一行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2021-07-18 16:48:20</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在文件 _config.butterfly.yml 中，找到 menu 选项添加一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line"> Tags: /tags/ || fas fa-tags</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>文章标签设置</p>
+<ol>
+<li>单个标签<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: 标签</span><br></pre></td></tr></table></figure>
+</li>
+<li>多个标签<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">   - 标签1</span><br><span class="line">   - 标签2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>注1： hexo n “博客名” 创建博客；hexo new page “名称” 则是创建“关于我”的页面。<br>
+注2：第三步中，|| 后设置图标<br>
+注3：文章设置标签时，用 tag 和 tags 效果等价。</p>
+</blockquote>
+<h2 id="分类设置">分类设置</h2>
+<p>与标签方法相同，其中 category 和 categories 效果等同。</p>
+<h2 id="搜索功能">搜索功能</h2>
+<ol>
+<li>安装插件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+</li>
+<li>在 _config.butterfly.yml 找到 local_search 并修改(将 enable 参数改为 true)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">labels:</span><br><span class="line">  input_placeholder: Search for Posts</span><br><span class="line">  hits_empty: &quot;We didn&#x27;t find any results for the search: $&#123;query&#125;&quot; # if there are no result</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>注：labels 一行可以不写。</p>
+</blockquote>
+<h1>其他</h1>
+<h2 id="编写模板">编写模板</h2>
+<p>进入博客主目录，修改 scaffolds/ 目录下的 <a target="_blank" rel="noopener" href="http://post.md">post.md</a> 文件。每次使用 hexo n 新建文章时，都会按 <a target="_blank" rel="noopener" href="http://post.md">post.md</a> 的内容，生成空白模板。</p>
+<p>参考内容（比初始模板加了后四个参数）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">cover: </span><br><span class="line">description: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="404页面">404页面</h2>
+<p>默认设置如下，将 false 改 true。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># A simple 404 page</span><br><span class="line">error_404:</span><br><span class="line">  enable: false</span><br><span class="line">  subtitle: &#x27;Page Not Found&#x27;</span><br><span class="line">  background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png</span><br></pre></td></tr></table></figure>
+<h2 id="span-id-aside-侧边栏-span"><span id="aside">侧边栏</span></h2>
+<p>找到下边模块，并修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># aside (側邊欄)</span><br><span class="line"># --------------------------------------</span><br><span class="line">aside:</span><br><span class="line">  enable: true</span><br><span class="line">  hide: false</span><br><span class="line">  button: true</span><br><span class="line">  mobile: true # display on mobile</span><br><span class="line">  position: right # left or right</span><br><span class="line">  card_author:</span><br><span class="line">    enable: true</span><br><span class="line">    description:</span><br><span class="line">    button:</span><br><span class="line">      enable: true</span><br><span class="line">      icon: fab fa-github</span><br><span class="line">      text: Follow Me</span><br><span class="line">      link: https://github.com/xxxxxx</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：_config.butterfly.yml 中还有很多设置，例如访问验证 site_verification，数据分析 Analysis，广告 Advertisement；此外还有主题配色 theme_color，背景动态等等效果设置。本篇只介绍博客最基本的部分。</p>
+</blockquote>
+<h1>踩坑的地方</h1>
+<p>**主题配置文件 _config.butterfly.yml 中，参数填写错误导致样式失效。**例如下边 author 参数只接收 true 和 false ，但填写人名就会导致代码高亮等样式失效。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># anchor</span><br><span class="line"># when you scroll in post, the URL will update according to header id.</span><br><span class="line">anchor: false</span><br></pre></td></tr></table></figure>
+<hr>
+<p>到这里，一个简约漂亮的博客就搭建好了。用 Github 部署的网站为静态网站，方便管理维护，但功能也有限。下边视频介绍了用 bmob 来实现动态网站功能，视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yE411M7nG">github page + bmob 搭建动态网站</a>。</p>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=94700507&bvid=BV1yE411M7nG&cid=161663339&page=1" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen" ></iframe>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/">http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic1.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/25/blog/hexo-03-fu-za-she-zhi/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/c.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">hexo | 主题设置二（进阶）</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/&amp;refer=http___i0.hdslb.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub | 多账户设置以及下载加速</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/07/19/blog/hexo-01-kuang-jia-pian/" title="hexo | 博客框架搭建"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/v2-f0227c5b40848474645a2537e94baf94_r.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-19</div><div class="title">hexo | 博客框架搭建</div></div></a></div><div><a href="/2021/07/25/blog/hexo-03-fu-za-she-zhi/" title="hexo | 主题设置二（进阶）"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/c.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-25</div><div class="title">hexo | 主题设置二（进阶）</div></div></a></div><div><a href="/2021/09/16/blog/wang-ye-mo-ban-pug-ji-ben-yu-fa/" title="博客魔改 | 网页模板 pug 的基本语法"><img class="cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/WallPapers/02.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">博客魔改 | 网页模板 pug 的基本语法</div></div></a></div><div><a href="/2021/08/29/blog/hexo-05-multidevice/" title="hexo | 多设备管理博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed@master/WallPapers/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-29</div><div class="title">hexo | 多设备管理博客</div></div></a></div><div><a href="/2021/09/10/server/04-server-deploy/" title="服务器教程(番外) | hexo 博客部署"><img class="cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/pic15.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-10</div><div class="title">服务器教程(番外) | hexo 博客部署</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">安装主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">文章内部</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2"><span class="toc-number">3.1.</span> <span class="toc-text">文章封面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="toc-number">3.2.</span> <span class="toc-text">代码高亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9E%E8%B5%8F%E7%95%8C%E9%9D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">赞赏界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%95%E9%83%A8%E5%88%86%E4%BA%AB%E6%8C%89%E9%92%AE"><span class="toc-number">3.4.</span> <span class="toc-text">底部分享按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E"><span class="toc-number">3.5.</span> <span class="toc-text">版权声明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">文章预览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="toc-number">4.1.</span> <span class="toc-text">显示封面图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%A7%88%E6%96%87%E5%AD%97"><span class="toc-number">4.2.</span> <span class="toc-text">预览文字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">个人信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B4%E5%83%8F"><span class="toc-number">5.1.</span> <span class="toc-text">头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A7%93%E5%90%8D"><span class="toc-number">5.2.</span> <span class="toc-text">姓名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E4%BA%A4%E5%9B%BE%E6%A0%87"><span class="toc-number">5.3.</span> <span class="toc-text">社交图标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C-iconfont"><span class="toc-number">5.3.1.</span> <span class="toc-text">使用阿里 iconfont</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%9B%BE%E6%A0%87"><span class="toc-number">5.3.2.</span> <span class="toc-text">设置图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#follow-me"><span class="toc-number">5.4.</span> <span class="toc-text">follow me</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">菜单栏设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">标签设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.2.</span> <span class="toc-text">分类设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="toc-number">6.3.</span> <span class="toc-text">搜索功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%A8%A1%E6%9D%BF"><span class="toc-number">7.1.</span> <span class="toc-text">编写模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#404%E9%A1%B5%E9%9D%A2"><span class="toc-number">7.2.</span> <span class="toc-text">404页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-id-aside-%E4%BE%A7%E8%BE%B9%E6%A0%8F-span"><span class="toc-number">7.3.</span> <span class="toc-text">侧边栏</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">踩坑的地方</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

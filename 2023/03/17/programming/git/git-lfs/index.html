@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git 进阶教程(一) | 大文件存储详解 | 我的学习空间</title><meta name="author" content="致宏"><meta name="copyright" content="致宏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="唠唠闲话 最近接触的项目用 LFS 来管理文件，特此学习和记录，本文转载自知乎。  相关阅读 BitBucket: https:&#x2F;&#x2F;www.atlassian.com&#x2F;git&#x2F;tutorials&#x2F;git-lfs 知乎：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;146683392   前置知识 以下转载自知乎，中间做了少量修改和加粗。 内容概要：  Git 仓库中如何管理大的二进制文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 进阶教程(一) | 大文件存储详解">
+<meta property="og:url" content="http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/index.html">
+<meta property="og:site_name" content="我的学习空间">
+<meta property="og:description" content="唠唠闲话 最近接触的项目用 LFS 来管理文件，特此学习和记录，本文转载自知乎。  相关阅读 BitBucket: https:&#x2F;&#x2F;www.atlassian.com&#x2F;git&#x2F;tutorials&#x2F;git-lfs 知乎：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;146683392   前置知识 以下转载自知乎，中间做了少量修改和加粗。 内容概要：  Git 仓库中如何管理大的二进制文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/08/28/LbxOeJMiEaRXfZV.png">
+<meta property="article:published_time" content="2023-03-17T13:55:49.000Z">
+<meta property="article:modified_time" content="2023-03-18T07:52:12.582Z">
+<meta property="article:author" content="致宏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/08/28/LbxOeJMiEaRXfZV.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git 进阶教程(一) | 大文件存储详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-18 15:52:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/08/28/LbxOeJMiEaRXfZV.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/guestboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git 进阶教程(一) | 大文件存储详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2023-03-17T13:55:49.000Z" title="发布于 2023-03-17 21:55:49">2023-03-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-18T07:52:12.582Z" title="更新于 2023-03-18 15:52:12">2023-03-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>最近接触的项目用 LFS 来管理文件，特此学习和记录，本文转载自<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146683392">知乎</a>。</p>
+<blockquote>
+<p><strong>相关阅读</strong><br>
+BitBucket: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/git-lfs">https://www.atlassian.com/git/tutorials/git-lfs</a><br>
+知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146683392">https://zhuanlan.zhihu.com/p/146683392</a></p>
+</blockquote>
+<hr>
+<h2 id="前置知识">前置知识</h2>
+<p>以下转载自知乎，中间做了少量修改和加粗。</p>
+<p>内容概要：</p>
+<ul>
+<li>Git 仓库中如何管理大的二进制文件</li>
+<li>什么是 Git LFS</li>
+<li>Git LFS 是如何工作的</li>
+<li>Git LFS 的安装</li>
+</ul>
+<h3 id="什么是-Git-LFS">什么是 Git LFS</h3>
+<p>Git 是<em>分布式</em>版本控制系统，在克隆过程中会将仓库的整个历史记录传输到客户端。对于包涵大文件（尤其是经常被修改的大文件）的项目，初始克隆需要大量时间，因为客户端会下载每个文件的每个版本。Git LFS（Large File Storage）是由 Atlassian, GitHub 以及其他开源贡献者开发的 Git 扩展，<strong>它通过延迟地（lazily）下载大文件的相关版本来减少大文件在仓库中的影响</strong>，具体来说，大文件是在 checkout 的过程中下载的，而不是 clone 或 fetch 过程中下载（这意味着你在后台 fetch 远端仓库内容到本地时，并不会下载大文件内容，而是在你 checkout 到工作区的时候才会真正去下载大文件的内容）。</p>
+<p>Git LFS 通过将仓库中的<strong>大文件替换为指针（pointer）文件</strong>来做到这一点。在正常使用期间，你不会看到这些指针文件，因为它们是由 Git LFS 自动处理的：</p>
+<ol>
+<li>
+<p>当执行 <code>git add</code> 命令，添加文件到仓库时，Git LFS 用一个指针替换其内容，并将文件内容存储在本地 Git LFS 缓存中（本地 Git LFS 缓存位于仓库的 <code>.git/lfs/objects</code> 目录中）。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230317221624.png" alt="20230317221624"></p>
+</li>
+<li>
+<p>当你推送新的提交到服务器时，新提交引用的所有 Git LFS 文件都会从本地 Git LFS 缓存传输到绑定到 Git 仓库的远程 Git LFS 存储（即 LFS 文件内容会直接从本地 Git LFS 缓存传输到远程 Git LFS 存储服务器）。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230317221914.png" alt="20230317221914"></p>
+</li>
+<li>
+<p>当你 checkout 一个包含 Git LFS 指针的提交时，指针文件将替换为本地 Git LFS 缓存中的文件，或者从远端 Git LFS 存储区下载。<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230317221957.png" alt="20230317221957"></p>
+</li>
+</ol>
+<h3 id="关于-LFS-的指针文件">关于 LFS 的指针文件</h3>
+<p>LFS 的指针文件是一个文本文件，存储在 Git 仓库中，<strong>对应大文件的内容存储在 LFS 服务器里，而不是 Git 仓库中</strong>，下面为一个图片 LFS 文件的指针文件内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">version https://git-lfs.github.com/spec/v1</span><br><span class="line">oid sha256:5b62e134d2478ae0bbded57f6be8f048d8d916cb876f0656a8a6d1363716d999</span><br><span class="line">size 285</span><br></pre></td></tr></table></figure>
+<p>指针文件很小，内容为 key-value 格式。第一行为指针文件规范 URL，第二行为文件的对象 id，也即 LFS 文件的存储对象文件名，可以在 <code>.git/lfs/objects</code> 目录中找到该文件的存储对象，第三行为文件的实际大小（单位为字节）。<strong>所有 LFS 指针文件都是这种格式。</strong></p>
+<p>Git LFS 是无缝的：在你的工作副本中，你只会看到实际的文件内容。这意味着你不需要更改现有的 Git 工作流程就可以使用 Git LFS。你只需按常规进行 <code>git checkout</code>、编辑文件、<code>git add</code> 和 <code>git commit</code>。<strong>而 <code>git clone</code> 和 <code>git pull</code> 将明显更快，因为你只下载实际 checkout 的提交所引用的大文件版本</strong>，而不是曾经存在过的文件的每一个版本。</p>
+<p>为了使用 Git LFS，你需要一个支持 Git LFS 的托管服务器，例如 <a target="_blank" rel="noopener" href="https://bitbucket.org/">Bitbucket Cloud</a> 或 <a target="_blank" rel="noopener" href="https://www.atlassian.com/software/bitbucket/server">Bitbucket Server</a>（GitHub、GitLab也都支持 Git LFS）。仓库用户将需要安装 <a target="_blank" rel="noopener" href="https://git-lfs.com/">Git LFS 命令行客户端</a>，或支持 Git LFS 的 GUI 客户端，例如 <a target="_blank" rel="noopener" href="https://www.sourcetreeapp.com/">Sourcetree</a>。</p>
+<h3 id="安装-Git-LFS">安装 Git LFS</h3>
+<blockquote>
+<p>这节做了删改。</p>
+</blockquote>
+<ol>
+<li>
+<p>Ubuntu 可以执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-lfs</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Mac 可以执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git-lfs</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Windows 可以在 <a target="_blank" rel="noopener" href="https://git-lfs.com/">Git LFS 官网</a> 下载安装包，然后安装。</p>
+</li>
+</ol>
+<p>一旦安装好了 Git LFS，运行 <code>git lfs install</code> 来初始化 Git LFS。你只需要运行该命令一次，当克隆包含 Git LFS 内容的仓库时，Git LFS 将自动进行自我引导启用。</p>
+<h2 id="实践部分">实践部分</h2>
+<h3 id="创建新的-Git-LFS-仓库">创建新的 Git LFS 仓库</h3>
+<p>要创建新的支持 Git LFS 的仓库，你需要在创建仓库后运行 <code>git lfs install</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化 Git 仓库</span></span><br><span class="line"><span class="built_in">mkdir</span> Atlasteroids</span><br><span class="line"><span class="built_in">cd</span> Atlasteroids</span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 初始化 Git LFS</span></span><br><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
+<p>这将在你的仓库中安装一个特殊的 pre-push <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/git-hooks">Git 钩子</a>，该钩子将在你执行 <code>git push</code> 的时候传输 Git LFS 文件到服务器上。</p>
+<p>所有 Bitbucket Cloud 仓库已自动启用 Git LFS 。对于 Bitbucket Server，你需要在仓库设置中启用 Git LFS：<br>
+<img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230317224140.png" alt="20230317224140"></p>
+<p>当你的仓库初始化了 Git LFS 后，你可以通过使用 <code>git lfs track</code> 来指定要跟踪的文件。</p>
+<h3 id="克隆现有的-Git-LFS-仓库">克隆现有的 Git LFS 仓库</h3>
+<p>安装 Git LFS 后，你可以像往常一样用 <code>git clone</code> 命令来克隆 Git LFS 仓库。在克隆过程的结尾，Git 将 checkout 默认分支（通常是 master），并且将自动为你下载完成 checkout 过程所需的所有 Git LFS 文件。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@bitbucket.org:tpettersen/Atlasteroids.git</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Cloning into <span class="string">&#x27;Atlasteroids&#x27;</span>...</span><br><span class="line">remote: Counting objects: 156, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (154/154), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 156 (delta 87), reused 0 (delta 0)</span><br><span class="line">Receiving objects: 100% (156/156), 54.04 KiB | 31.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (87/87), <span class="keyword">done</span>.</span><br><span class="line">Checking connectivity... <span class="keyword">done</span>.</span><br><span class="line">Downloading Assets/Sprites/projectiles-spritesheet.png (21.14 KB)</span><br><span class="line">Downloading Assets/Sprites/productlogos_cmyk-spritesheet.png (301.96 KB)</span><br><span class="line">Downloading Assets/Sprites/shuttle2.png (1.62 KB)</span><br><span class="line">Downloading Assets/Sprites/space1.png (1.11 MB)</span><br><span class="line">Checking out files: 100% (81/81), <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>仓库里有 4 个 PNG 文件被 Git LFS 跟踪。执行 <code>git clone</code> 命令时，在从仓库中检出指针文件的时候，Git LFS 文件被一个一个下载下来。</p>
+<h3 id="加快克隆速度">加快克隆速度</h3>
+<p>如果你正在克隆包含大量 LFS 文件的仓库，显式使用 <code>git lfs clone</code> 命令可提供更好的性能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git lfs <span class="built_in">clone</span> git@bitbucket.org:tpettersen/Atlasteroids.git</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Cloning into <span class="string">&#x27;Atlasteroids&#x27;</span>...</span><br><span class="line">remote: Counting objects: 156, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (154/154), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 156 (delta 87), reused 0 (delta 0)</span><br><span class="line">Receiving objects: 100% (156/156), 54.04 KiB | 0 bytes/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (87/87), <span class="keyword">done</span>.</span><br><span class="line">Checking connectivity... <span class="keyword">done</span>.</span><br><span class="line">Git LFS: (4 of 4 files) 1.14 MB / 1.15 MB</span><br></pre></td></tr></table></figure>
+<p><code>git lfs clone</code> 命令不会一次下载一个 Git LFS 文件，而是等到检出（checkout）完成后再批量下载所有必需的 Git LFS 文件。这利用了并行下载的优势，并显著减少了产生的 HTTP 请求和进程的数量（这对于提高 Windows 的性能尤为重要）。</p>
+<h3 id="拉取并检出">拉取并检出</h3>
+<p>就像克隆一样，你可以使用常规的 <code>git pull</code> 命令拉取 Git LFS 仓库。拉取完成后，所有需要的 Git LFS 文件都会作为自动检出过程的一部分而被下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Updating 4784e9d..7039f0a</span><br><span class="line">Downloading Assets/Sprites/powerup.png (21.14 KB)</span><br><span class="line">Fast-forward</span><br><span class="line">Assets/Sprites/powerup.png | 3 +</span><br><span class="line">Assets/Sprites/powerup.png.meta | 4133 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><br><span class="line">2 files changed, 4136 insertions(+)</span><br><span class="line">create mode 100644 Assets/Sprites/projectiles-spritesheet.png</span><br><span class="line">create mode 100644 Assets/Sprites/projectiles-spritesheet.png.meta</span><br></pre></td></tr></table></figure>
+<p>不需要显式的命令即可获取 Git LFS 内容。然而，如果检出因为意外原因而失败，你可以通过使用 <code>git lfs pull</code> <strong>命令来下载当前提交的所有丢失的 Git LFS 内容</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git lfs pull</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Git LFS: (4 of 4 files) 1.14 MB / 1.15 MB</span><br></pre></td></tr></table></figure>
+<h3 id="加快拉取速度">加快拉取速度</h3>
+<p>像 <code>git lfs clone</code> 命令一样，<code>git lfs pull</code> 命令批量下载 Git LFS 文件。如果你知道上次拉取以来已经更改了大量文件，希望禁用 checkout 期间的自动下载，这可以通过在调用 git pull 命令时使用 <code>-c</code> 选项覆盖 Git 配置来完成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -c filter.lfs.smudge= -c filter.lfs.required=<span class="literal">false</span> pull</span><br></pre></td></tr></table></figure>
+<p>然后再显式地使用 <code>git lfs pull</code> 命令来批量下载 Git LFS 内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs pull</span><br></pre></td></tr></table></figure>
+<p>由于这条命令太长，可以通过 <code>git config alias</code> 来设置简写</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.plfs <span class="string">&quot;\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull &amp;&amp; git lfs pull&quot;</span></span><br><span class="line">git plfs</span><br></pre></td></tr></table></figure>
+<p>当需要下载大量的 Git LFS 文件时，这将大大提高性能（同样，尤其是在 Windows 上）。</p>
+<h3 id="使用-Git-LFS-跟踪文件">使用 Git LFS 跟踪文件</h3>
+<p>当向仓库中添加新的大文件类型时，你需要通过使用 git lfs track 命令指定一个模式来告诉 Git LFS 对其进行跟踪：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git lfs track <span class="string">&quot;*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Tracking *.ogg</span><br></pre></td></tr></table></figure>
+<p>请注意，<code>&quot;*.ogg&quot;</code> 周围的引号很重要。省略它们将导致通配符被 shell 扩展，并将为当前目录中的每个 <code>.ogg</code> 文件<strong>创建单独的条目</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 你大概不希望这样做</span></span><br><span class="line">git lfs track *.ogg</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Tracking explode.ogg</span><br><span class="line">Tracking music.ogg</span><br><span class="line">Tracking phaser.ogg</span><br></pre></td></tr></table></figure>
+<p>Git LFS 支持的模式与 <code>.gitignore</code> 支持的模式相同，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 追踪所有 .ogg 文件</span></span><br><span class="line">git lfs track <span class="string">&quot;*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 追踪所有命名为 music.ogg 的文件</span></span><br><span class="line">git lfs track <span class="string">&quot;music.ogg&quot;</span></span><br><span class="line"><span class="comment"># 追踪 Assets 目录及其所有子目录中的所有文件</span></span><br><span class="line">git lfs track <span class="string">&quot;Assets/&quot;</span></span><br><span class="line"><span class="comment"># 追踪 Assets 目录中的所有文件，但不包括子目录</span></span><br><span class="line">git lfs track <span class="string">&quot;Assets/*&quot;</span></span><br><span class="line"><span class="comment"># 追踪 Assets/Audio 目录中的所有 ogg 文件</span></span><br><span class="line">git lfs track <span class="string">&quot;Assets/Audio/*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 追踪任何名为 Music 的目录中的所有 ogg 文件</span></span><br><span class="line">git lfs track <span class="string">&quot;**/Music/*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 追踪任何目录中包含 &quot;xxhdpi&quot; 的 png 文件</span></span><br><span class="line">git lfs track <span class="string">&quot;*xxhdpi*.png&quot;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，Git LFS 不支持像 <code>.gitignore</code> 那样的负模式（negative patterns）。</p>
+<p>运行 <code>git lfs track</code> 后，你会在你的运行命令的仓库中发现名为 <code>.gitattributes</code> 的新文件。<code>.gitattributes</code> 是一种 Git 机制，用于将特殊行为绑定到某些文件模式。Git LFS 自动创建或更新<code> .gitattributes</code> 文件，以将<strong>跟踪的文件模式绑定到 Git LFS 过滤器</strong>。但是，你需要将对 <code>.gitattributes</code> 文件的任何更改自己提交到仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git lfs track <span class="string">&quot;*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Tracking *.ogg</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git add .gitattributes</span><br><span class="line">git diff --cached</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">diff --git a/.gitattributes b/.gitattributes</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..b6dd0bb</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/.gitattributes</span><br><span class="line">@@ -0,0 +1 @@</span><br><span class="line">+*.ogg filter=lfs diff=lfs merge=lfs -text</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;Track ogg files with Git LFS&quot;</span></span><br></pre></td></tr></table></figure>
+<p>为了便于维护，通过始终从仓库的根目录运行 <code>git lfs track</code>，将所有 Git LFS 模式保持在单个 <code>.gitattributes</code> 文件中。然而，你可以通过调用不带参数的 <code>git lfs track</code> 命令来显示 Git LFS 当前正在跟踪的所有模式的列表（以及它们在其中定义的 <code>.gitattributes</code> 文件）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git lfs track</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Listing tracked paths</span><br><span class="line">*.stl (.gitattributes)</span><br><span class="line">*.png (Assets/Sprites/.gitattributes)</span><br><span class="line">*.ogg (Assets/Audio/.gitattributes)</span><br></pre></td></tr></table></figure>
+<p>你可以通过从 <code>.gitattributes</code> 文件中删除相应的行，或者通过运行 <code>git lfs untrack</code> 命令来停止使用 Git LFS 跟踪特定模式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git lfs untrack <span class="string">&quot;*.ogg&quot;</span></span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Untracking *.ogg</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">diff --git a/.gitattributes b/.gitattributes</span><br><span class="line">index b6dd0bb..e69de29 100644</span><br><span class="line">--- a/.gitattributes</span><br><span class="line">+++ b/.gitattributes</span><br><span class="line">@@ -1 +0,0 @@</span><br><span class="line">-*.ogg filter=lfs diff=lfs merge=lfs -text</span><br></pre></td></tr></table></figure>
+<p>运行 <code>git lfs untrack</code> 命令后，你自己必须再次提交 <code>.gitattributes</code> 文件的更改。</p>
+<h3 id="提交和推送">提交和推送</h3>
+<p>你可以按常规方式提交并推送到包含 Git LFS 内容的仓库。如果你已经提交了被 Git LFS 跟踪的文件的变更，则当 Git LFS 内容传输到服务器时，你会从 git push 中看到一些其他输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Git LFS: (3 of 3 files) 4.68 MB / 4.68 MB</span><br><span class="line">Counting objects: 8, <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (8/8), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (8/8), 1.16 KiB | 0 bytes/s, <span class="keyword">done</span>.</span><br><span class="line">Total 8 (delta 1), reused 0 (delta 0)</span><br><span class="line">To git@bitbucket.org:tpettersen/atlasteroids.git</span><br><span class="line">7039f0a..b3684d3 master -&gt; master</span><br></pre></td></tr></table></figure>
+<p>如果由于某些原因传输 LFS 文件失败，推送将被终止，你可以放心地重试。与 Git 一样，Git LFS 存储也是<strong>内容寻址</strong>的（而不是按文件名寻址）：内容是根据密钥存储的，该密钥是内容本身的 SHA-256 哈希。这意味着重新尝试将 Git LFS 文件传输到服务器总是安全的；你不可能用错误的版本意外覆盖 Git LFS 文件的内容。</p>
+<h3 id="在主机之间移动-Git-LFS-仓库">在主机之间移动 Git LFS 仓库</h3>
+<p>要将 Git LFS 仓库从一个托管提供者迁移到另一个托管提供者序，你可以结合使用指定了 <code>-all</code> 选项的 <code>git lfs fetch</code> 和 <code>git lfs push</code> 命令。</p>
+<p>例如，要将所有 Git 和 Git LFS 仓库从名为 github 的远端移动到名为 bitbucket 的远端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个 bare clone 的 GitHub 仓库 | 不能 add/commit/checkout</span></span><br><span class="line">git <span class="built_in">clone</span> --bare git@github.com:kannonboy/atlasteroids.git</span><br><span class="line"><span class="built_in">cd</span> atlasteroids</span><br><span class="line"><span class="comment"># 设置命令为 Bitbucket 和 GitHub 的远端</span></span><br><span class="line">git remote add bitbucket git@bitbucket.org:tpettersen/atlasteroids.git</span><br><span class="line">git remote add github git@github.com:kannonboy/atlasteroids.git</span><br><span class="line"><span class="comment"># 从 GitHub 获取所有 Git LFS 内容</span></span><br><span class="line">git lfs fetch --all github</span><br><span class="line"><span class="comment"># 推送所有 Git 和 Git LFS 内容到 Bitbucket</span></span><br><span class="line">git push --mirror bitbucket</span><br><span class="line">git lfs push --all bitbucket</span><br></pre></td></tr></table></figure>
+<h3 id="获取额外的-Git-LFS-历史记录">获取额外的 Git LFS 历史记录</h3>
+<p>Git LFS 通常仅下载你实际在本地检出的提交所需的文件。但是，你可以使用 <code>git lfs fetch --recent</code> 命令强制 Git LFS 为其他最近修改的分支下载额外的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git lfs fetch --recent</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Fetching master</span><br><span class="line">Git LFS: (0 of 0 files, 14 skipped) 0 B / 0 B, 2.83 MB skipped Fetching recent branches within 7 days</span><br><span class="line">Fetching origin/power-ups</span><br><span class="line">Git LFS: (8 of 8 files, 4 skipped) 408.42 KB / 408.42 KB, 2.81 MB skipped</span><br><span class="line">Fetching origin/more-music</span><br><span class="line">Git LFS: (1 of 1 files, 14 skipped) 1.68 MB / 1.68 MB, 2.83 MB skipped</span><br></pre></td></tr></table></figure>
+<p>这对于在外出午餐时批量下载新的 Git LFS 内容很有用，或者如果你打算与队友一起审查工作，并且由于网络连接受限而无法在以后下载内容时，这将非常有用。</p>
+<p>Git LFS 会考虑包含最近提交超过 7 天的提交的任何分支或标签。 你可以通过设置 <code>lfs.fetchrecentrefsdays</code> 属性来配置被视为最近的天数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置为最近 10 天的分支或标签</span></span><br><span class="line">git config lfs.fetchrecentrefsdays 10</span><br></pre></td></tr></table></figure>
+<p>默认情况下，<code>git lfs fetch --recent</code> 将仅对“最近”分支或标记(tag)的最新提交下载 Git LFS 内容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230318152756.png" alt="20230318152756"></p>
+<p>但是，你可以通过配置 <code>lfs.fetchrecentcommitsdays</code> 属性，将 Git LFS 配置为在最近的分支和标签上下载更早提交的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载最近的分支或标记的最新 3 天的 Git LFS 内容</span></span><br><span class="line">git config lfs.fetchrecentcommitsdays 3</span><br></pre></td></tr></table></figure>
+<p>请谨慎使用此设置：如果分支移动很快，则可能会导致下载大量数据。 但是，如果你需要查看分支上的插页式更改，跨分支的 <code>cherry-pick</code> 提交或重写历史记录，它可能会很有用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230318152941.png" alt="20230318152941"></p>
+<p>如在<a href="#%E5%9C%A8%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%A7%BB%E5%8A%A8-git-lfs-%E4%BB%93%E5%BA%93">主机之间移动 Git LFS 仓库</a>中所述，你还可以选择使用 <code>git lfs fetch --all</code> 获取仓库的所有 Git LFS 内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git lfs fetch --all</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Scanning <span class="keyword">for</span> all objects ever referenced...</span><br><span class="line">✔ 23 objects found</span><br><span class="line">Fetching objects...</span><br><span class="line">Git LFS: (9 of 9 files, 14 skipped) 2.06 MB / 2.08 MB, 2.83 MB skipped</span><br></pre></td></tr></table></figure>
+<h3 id="删除本地-Git-LFS-文件">删除本地 Git LFS 文件</h3>
+<p>你可以使用 <code>git lfs prune</code> 命令从本地 Git LFS 缓存中删除文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git lfs prune</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">✔ 4 <span class="built_in">local</span> objects, 33 retained</span><br><span class="line">Pruning 4 files, (2.1 MB)</span><br><span class="line">✔ Deleted 4 files</span><br></pre></td></tr></table></figure>
+<p>这将删除所有被认为是旧的本地 Git LFS 文件。<strong>不</strong>被以下方式引用的文件称为旧文件：</p>
+<ul>
+<li>当前 checkout 的提交</li>
+<li>尚未推送（到 origin，或任何 <code>lfs.pruneremotetocheck</code> 设置的）的提交</li>
+<li>最近一次提交</li>
+</ul>
+<p>默认情况下，最近的提交是最近十天内创建的任何提交。 通过添加以下内容计算得出：</p>
+<ul>
+<li><a href="#%E8%8E%B7%E5%8F%96%E9%A2%9D%E5%A4%96%E7%9A%84-git-lfs-%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95">获取额外的 Git LFS 历史记录</a> 中所讨论的 <code>lfs.fetchrecentrefsdays</code> 属性的值（默认为 7）</li>
+<li>一直到 <code>lfs.pruneoffsetdays</code> 属性的值（默认为 3）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230318153313.png" alt="20230318153313"></p>
+<p>你可以配置 prune 偏移量以将 Git LFS 内容保留更长的时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保留最近 4 周的提交（7 + 21）</span></span><br><span class="line">git config lfs.pruneoffsetdays 21</span><br></pre></td></tr></table></figure>
+<p>与 Git 的内置垃圾收集不同，Git LFS 内容不会自动修剪，因此，定期运行 <code>git lfs prune</code> 命令是保持本地仓库大小减小的好主意。</p>
+<p>你可以使用 <code>git lfs prune --dry-run</code> 来测试 prune 操作将产生什么效果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git lfs prune --dry-run</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">✔ 4 <span class="built_in">local</span> objects, 33 retained</span><br><span class="line">4 files would be pruned (2.1 MB)</span><br></pre></td></tr></table></figure>
+<p>以及使用 <code>git lfs prune --verbose --dry-run</code> 命令精确查看哪些 Git LFS 对象将被修剪：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git lfs prune --dry-run --verbose</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">✔ 4 <span class="built_in">local</span> objects, 33 retained</span><br><span class="line">4 files would be pruned (2.1 MB)</span><br><span class="line">* 4a3a36141cdcbe2a17f7bcf1a161d3394cf435ac386d1bff70bd4dad6cd96c48 (2.0 MB)</span><br><span class="line">* 67ad640e562b99219111ed8941cb56a275ef8d43e67a3dac0027b4acd5de4a3e (6.3 KB)</span><br><span class="line">* 6f506528dbf04a97e84d90cc45840f4a8100389f570b67ac206ba802c5cb798f (1.7 MB)</span><br><span class="line">* a1d7f7cdd6dba7307b2bac2bcfa0973244688361a48d2cebe3f3bc30babcf1ab (615.7 KB)</span><br></pre></td></tr></table></figure>
+<p><code>--verbose</code> 模式输出的长十六进制字符串是要 prune 的 Git LFS 对象的 SHA-256 哈希（也称为对象 ID 或 OID）。 你可以使用“<a target="_blank" rel="noopener" href="http://km.oa.com/group/41444/articles/show/finding-references">查找路径</a>”中描述的技术或引用 Git LFS 对象的提交来查找有关将被修剪的对象的更多信息。</p>
+<p>作为附加的安全检查，你可以使用 <code>--verify-remote</code> 选项在删除之前，检查远程 Git LFS 存储区是否具有你的 Git LFS 对象的副本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git lfs prune --verify-remote</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">✔ 16 <span class="built_in">local</span> objects, 2 retained, 12 verified with remote</span><br><span class="line">Pruning 14 files, (1.7 MB)</span><br><span class="line">✔ Deleted 14 files</span><br></pre></td></tr></table></figure>
+<p>这将使修剪过程明显变慢，但是你可以从服务器上恢复所有修剪的对象，从而使你高枕无忧。 你可以通过全局配置 <code>lfs.pruneverifyremotealways</code> 属性为系统永久启用 <code>--verify-remote</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global lfs.pruneverifyremotealways <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>或者，你可以通过省略上述命令中的 <code>--global</code> 选项，仅对当前仓库启用远端校验。</p>
+<h3 id="从服务器删除远端-Git-LFS-文件">从服务器删除远端 Git LFS 文件</h3>
+<p>Git LFS 命令行客户端不支持删除服务器上的文件，因此如何删除他们取决于你的托管服务提供商。</p>
+<p>在 Bitbucket Cloud 中，你可以通过 仓库设置&gt; Git LFS 查看和删除 Git LFS 文件：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230318153356.png" alt="20230318153356"></p>
+<p>请注意，每个 Git LFS 文件均通过其 SHA-256 OID 进行索引；通过 UI 看不到引用每个文件的路径。这是因为在许多不同的提交中，可能对应有许多引用对象的不同路径，因此查找它们将是一个非常缓慢的过程。</p>
+<p>要确定给定的 Git LFS 文件实际包含什么，你有三个选项可用：</p>
+<ul>
+<li>在 Bitbucket Git LFS UI 的左栏中查看文件预览图像和文件类型</li>
+<li>使用 Bitbucket Git LFS UI 右栏中的链接下载文件-搜索引用 Git LFS 对象的 SHA-256 OID 的提交，如下一节所述</li>
+</ul>
+<h3 id="查找引用-Git-LFS-对象的路径或提交">查找引用 Git LFS 对象的路径或提交</h3>
+<p>如果你有一个 Git LFS SHA-256 OID，你可以使用 <code>git log --all -p -S</code> 命令确定哪些提交引用了它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --all -p -S 3b6124b8b01d601fa20b47f5be14e1be3ea7759838c1aac8f36df4859164e4cc</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">commit 22a98faa153d08804a63a74a729d8846e6525cb0</span><br><span class="line">Author: Tim Pettersen &lt;tpettersen@atlassian.com&gt;</span><br><span class="line">Date: Wed Jul 27 11:03:27 2016 +1000</span><br><span class="line">Projectiles and exploding asteroids</span><br><span class="line">diff --git a/Assets/Sprites/projectiles-spritesheet.png</span><br><span class="line">new file mode 100755</span><br><span class="line">index 0000000..49d7baf</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/Assets/Sprites/projectiles-spritesheet.png</span><br><span class="line">@@ -0,0 +1,3 @@</span><br><span class="line">+version https://git-lfs.github.com/spec/v1</span><br><span class="line">+oid sha256:3b6124b8b01d601fa20b47f5be14e1be3ea7759838c1aac8f36df4859164e4cc</span><br><span class="line">+size 21647</span><br></pre></td></tr></table></figure>
+<p>此 <code>git log</code> 咒语会通过添加或删除包含指定字符串（Git LFS SHA-256 OID）的行（-S）的任何分支（–all）上的提交生成补丁（-p）。</p>
+<p>该补丁将向你显示 LFS 对象的提交和路径，以及添加它的人和提交时间。 你可以简单地检出提交，Git LFS 将在需要时下载文件并将其放置在你的工作副本中。</p>
+<p>如果你怀疑特定的 Git LFS 对象位于当前的 HEAD 或特定的分支中，则可以使用 <code>git grep</code> 查找引用它的文件路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 HEAD 中查找特定对象的 OID</span></span><br><span class="line">git grep 3b6124b8b01d601fa20b47f5be14e1be3ea7759838c1aac8f36df4859164e4cc HEAD</span><br><span class="line">HEAD:Assets/Sprites/projectiles-spritesheet.png:oid sha256:3b6124b8b01d601fa20b47f5be14e1be3ea7759838c1aac8f36df4859164e4cc</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 &quot;power-ups&quot; 分支上查找特定对象的 OID</span></span><br><span class="line">git grep e88868213a5dc8533fc9031f558f2c0dc34d6936f380ff4ed12c2685040098d4 power-ups</span><br><span class="line">power-ups:Assets/Sprites/shield2.png:oid sha256:e88868213a5dc8533fc9031f558f2c0dc34d6936f380ff4ed12c2685040098d4</span><br></pre></td></tr></table></figure>
+<p>你可以用任何包含 Git LFS 对象的 ref，commit 或 tree 替换 HEAD 或 power-ups。</p>
+<h3 id="包含-排除-Git-LFS-文件">包含/排除 Git LFS 文件</h3>
+<p>在某些情况下，你可能指向为特定提交下载可用的 Git LFS 内容的子集。例如，在配置 CI 构建以运行单元测试时，你可能只需要源代码，因此可能要排除构建代码不需要的重量级文件。</p>
+<p>你可以使用 ``git lfs fetch -X<code>（或 </code>–exclude` ）排除模式或子目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs fetch -X <span class="string">&quot;Assets/**&quot;</span></span><br></pre></td></tr></table></figure>
+<p>或者，你可能只想包含特定的模式或子目录。例如，音频工程师可以使用 <code>git lfs fetch -I</code> (或 <code>--include</code>)命令仅获取 <code>ogg</code> 和 <code>wav</code> 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs fetch -I <span class="string">&quot;*.ogg,*.wav&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果你将包含和排除合并在一起使用，则只会获取与包含模式匹配，但与排除模式不匹配的文件。例如，你可以使用以下方法获取 <code>Assets</code> 目录中除 gif 文件之外的所有内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs fetch -I <span class="string">&quot;Assets/**&quot;</span> -X <span class="string">&quot;*.gif&quot;</span></span><br></pre></td></tr></table></figure>
+<p>排除和包含支持与 <code>git lfs track</code> 和 <code>.gitignore</code> 相同的模式。 你可以通过设置 <code>lfs.fetchinclude</code> 和 <code>lfs.fetchexclude</code> 配置属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config lfs.fetchinclude &quot;Assets/**&quot;</span><br><span class="line">git config lfs.fetchexclude &quot;*.gif&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="锁定-Git-LFS-文件">锁定 Git LFS 文件</h3>
+<p>不幸的是，没有解决二进制合并冲突的简便方法。 使用 Git LFS 文件锁定，你可以按扩展名或文件名锁定文件，并防止二进制文件在合并期间被覆盖。</p>
+<p>为了利用 LFS 的文件锁定功能，你首先需要告诉 Git 哪些类型的文件是可锁定的。 在下面的示例中，在 <code>git lfs track</code> 命令后附加了 <code>--lockable</code> 标志。下边命令既将 PSD 文件存储在 LFS 中，又将它们标记为可锁定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track <span class="string">&quot;*.psd&quot;</span> --lockable</span><br></pre></td></tr></table></figure>
+<p>然后将以下内容添加到 <code>.gitattributes</code> 文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.psd filter=lfs diff=lfs merge=lfs -text lockable</span><br></pre></td></tr></table></figure>
+<p>在准备对 LFS 文件进行更改时，你将使用 lock 命令以便将文件在 Git 服务器上注册为锁定的文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git lfs lock images/foo.psd</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">Locked images/foo.psd</span><br></pre></td></tr></table></figure>
+<p>一旦不再需要文件锁定，你可以使用 Git LFS 的 unlock 命令将其移除。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs unlock images/foo.psd</span><br></pre></td></tr></table></figure>
+<p>与 <code>git push</code> 类似，可以使用 <code>--force</code> 标志覆盖 Git LFS 文件锁。 除非你完全确定自己在做什么，否则不要使用 <code>--force</code> 标志。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs unlock images/foo.psd --force</span><br></pre></td></tr></table></figure>
+<h3 id="Git-LFS-如何工作">Git LFS 如何工作</h3>
+<p>如果你想了解有关 clean 和 smudge filter，pre-push 钩子以及 Git LFS 背后的其他有趣的计算机科学的更多信息，请查看来自 Atlassian 在 LinuxCon 2016 的 Git LFS 的演示文稿。</p>
+<hr>
+<p>施工完毕。。。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">致宏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/">http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">我的学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/08/28/LbxOeJMiEaRXfZV.png" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/17/programming/git/git-hook/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/zhihu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">git-hook</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/06/server/chatgpt/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zhihongecnu/PicBed3/picgo/20230316131423.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">十分钟部署 ChatGPT</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/RexWzh/PicBed/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">致宏</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Git-LFS"><span class="toc-number">2.1.</span> <span class="toc-text">什么是 Git LFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-LFS-%E7%9A%84%E6%8C%87%E9%92%88%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">关于 LFS 的指针文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git-LFS"><span class="toc-number">2.3.</span> <span class="toc-text">安装 Git LFS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">实践部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84-Git-LFS-%E4%BB%93%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">创建新的 Git LFS 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E7%8E%B0%E6%9C%89%E7%9A%84-Git-LFS-%E4%BB%93%E5%BA%93"><span class="toc-number">3.2.</span> <span class="toc-text">克隆现有的 Git LFS 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%BF%AB%E5%85%8B%E9%9A%86%E9%80%9F%E5%BA%A6"><span class="toc-number">3.3.</span> <span class="toc-text">加快克隆速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E5%B9%B6%E6%A3%80%E5%87%BA"><span class="toc-number">3.4.</span> <span class="toc-text">拉取并检出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%BF%AB%E6%8B%89%E5%8F%96%E9%80%9F%E5%BA%A6"><span class="toc-number">3.5.</span> <span class="toc-text">加快拉取速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Git-LFS-%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">3.6.</span> <span class="toc-text">使用 Git LFS 跟踪文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E5%92%8C%E6%8E%A8%E9%80%81"><span class="toc-number">3.7.</span> <span class="toc-text">提交和推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%A7%BB%E5%8A%A8-Git-LFS-%E4%BB%93%E5%BA%93"><span class="toc-number">3.8.</span> <span class="toc-text">在主机之间移动 Git LFS 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%A2%9D%E5%A4%96%E7%9A%84-Git-LFS-%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">3.9.</span> <span class="toc-text">获取额外的 Git LFS 历史记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0-Git-LFS-%E6%96%87%E4%BB%B6"><span class="toc-number">3.10.</span> <span class="toc-text">删除本地 Git LFS 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%A0%E9%99%A4%E8%BF%9C%E7%AB%AF-Git-LFS-%E6%96%87%E4%BB%B6"><span class="toc-number">3.11.</span> <span class="toc-text">从服务器删除远端 Git LFS 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%BC%95%E7%94%A8-Git-LFS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%B7%AF%E5%BE%84%E6%88%96%E6%8F%90%E4%BA%A4"><span class="toc-number">3.12.</span> <span class="toc-text">查找引用 Git LFS 对象的路径或提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E5%90%AB-%E6%8E%92%E9%99%A4-Git-LFS-%E6%96%87%E4%BB%B6"><span class="toc-number">3.13.</span> <span class="toc-text">包含&#x2F;排除 Git LFS 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A-Git-LFS-%E6%96%87%E4%BB%B6"><span class="toc-number">3.14.</span> <span class="toc-text">锁定 Git LFS 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-LFS-%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.15.</span> <span class="toc-text">Git LFS 如何工作</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 致宏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-8grfz18jfe3c2793',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

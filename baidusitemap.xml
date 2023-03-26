@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.wzhecnu.cn/2023/03/26/gpt/gpt-demo-negative/</loc>
+    <lastmod>2023-03-26</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2023/03/26/gpt/gpt-demo-positive/</loc>
+    <lastmod>2023-03-26</lastmod>
+  </url>
+  <url>
     <loc>http://www.wzhecnu.cn/2021/10/23/hello-world/</loc>
     <lastmod>2023-03-23</lastmod>
   </url>
@@ -81,11 +89,11 @@
     <lastmod>2023-03-08</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/19/server/06-server-usage/</loc>
+    <loc>http://www.wzhecnu.cn/2021/11/14/server/05-school-server/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/14/server/05-school-server/</loc>
+    <loc>http://www.wzhecnu.cn/2021/11/19/server/06-server-usage/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -97,15 +105,11 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-jia-she-yu-liang-zi-tai/</loc>
+    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-li-xue-yu-liang-zi-ji-suan/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
     <loc>http://www.wzhecnu.cn/2021/11/21/quantum/liang-zi-men-yu-liang-zi-dian-lu/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-li-xue-yu-liang-zi-ji-suan/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -121,7 +125,7 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/10/16/quantum/bloch-sphere/</loc>
+    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-jia-she-yu-liang-zi-tai/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -129,11 +133,15 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/22/quantum/liang-zi-chuan-shu-yu-mi-yao-fen-fa/</loc>
+    <loc>http://www.wzhecnu.cn/2021/10/16/quantum/bloch-sphere/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
     <loc>http://www.wzhecnu.cn/2021/10/16/quantum/dirac-notation/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2021/11/22/quantum/liang-zi-chuan-shu-yu-mi-yao-fen-fa/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -161,6 +169,22 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
+    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/04/23/programming/julia/julia-note-5-package/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/10/25/programming/julia/julia-note-7-package/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/02/19/programming/julia/julia-python/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
     <loc>http://www.wzhecnu.cn/2021/10/20/programming/others/python-er-cha-shu/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
@@ -173,31 +197,15 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/23/programming/julia/julia-note-5-package/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/10/25/programming/julia/julia-note-7-package/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/02/19/programming/julia/julia-python/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
     <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
+    <loc>http://www.wzhecnu.cn/2022/03/05/programming/julia/julia-algebra/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/05/programming/julia/julia-algebra/</loc>
+    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -253,7 +261,7 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/</loc>
+    <loc>http://www.wzhecnu.cn/2021/12/12/programming/algebra/weyl-group-extension/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -261,15 +269,15 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/12/12/programming/algebra/weyl-group-extension/</loc>
-    <lastmod>2022-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/06/12/programming/database/database-mysql/</loc>
+    <loc>http://www.wzhecnu.cn/2022/03/25/programming/data-structure/leetcode-note-01/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
     <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
+    <lastmod>2022-12-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/06/12/programming/database/database-mysql/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -281,11 +289,11 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
+    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
+    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
@@ -305,11 +313,11 @@
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/09/14/blog/shi-yong-qi-niu-yun-zhi-zuo-wen-jian-wai-lian/</loc>
+    <loc>http://www.wzhecnu.cn/2021/07/25/blog/hexo-03-fu-za-she-zhi/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/07/25/blog/hexo-03-fu-za-she-zhi/</loc>
+    <loc>http://www.wzhecnu.cn/2021/09/14/blog/shi-yong-qi-niu-yun-zhi-zuo-wen-jian-wai-lian/</loc>
     <lastmod>2022-12-29</lastmod>
   </url>
 </urlset> 

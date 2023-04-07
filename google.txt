@@ -4,7 +4,7 @@ http://www.wzhecnu.cn/2021/08/13/programming/others/lean-intro/
 http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2021/10/12/local/
-http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
-http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/
-http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/
-http://www.wzhecnu.cn/2021/08/29/blog/hexo-05-multidevice/
+http://www.wzhecnu.cn/2021/10/09/chat/lao-lao-xian-hua/
+http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/
+http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/
+http://www.wzhecnu.cn/2021/10/16/quantum/bloch-sphere/

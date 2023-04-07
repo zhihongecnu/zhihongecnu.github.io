@@ -1,3 +1,4 @@
+http://www.wzhecnu.cn/2023/04/04/programming/others/lean4/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2023/03/18/programming/git/git-lfs-practice/
 http://www.wzhecnu.cn/2023/03/17/programming/git/git-hook/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2023/01/09/programming/julia/julia-note-8-wrapper/
 http://www.wzhecnu.cn/2022/12/30/mac/01-mac-usage/
 http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
 http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/
-http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/

@@ -1,4 +1,5 @@
 http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
+http://www.wzhecnu.cn/2021/11/14/server/05-school-server/
 http://www.wzhecnu.cn/2022/07/04/server/docker-tutorial/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2021/08/13/programming/others/lean-intro/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2021/10/12/local/
 http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
 http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/
-http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/

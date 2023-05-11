@@ -1,4 +1,3 @@
-http://www.wzhecnu.cn/2023/05/06/chat/seven-years/
 http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/
@@ -8,3 +7,4 @@ http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
 http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/
 http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/
 http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/
+http://www.wzhecnu.cn/2022/10/25/programming/julia/julia-note-7-package/

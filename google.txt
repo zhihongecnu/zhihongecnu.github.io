@@ -1,4 +1,3 @@
-http://www.wzhecnu.cn/2023/05/06/chat/seven-years/
 http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/
 http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/
 http://www.wzhecnu.cn/2021/10/09/chat/lao-lao-xian-hua/
@@ -8,3 +7,4 @@ http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2022/07/04/server/docker-tutorial/
 http://www.wzhecnu.cn/2021/08/21/server/03-ubuntu-usage/
 http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
+http://www.wzhecnu.cn/2021/08/20/server/01-build-server/

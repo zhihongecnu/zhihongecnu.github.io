@@ -1,4 +1,4 @@
-http://www.wzhecnu.cn/2023/05/06/chat/seven-years/
+http://www.wzhecnu.cn/2023/05/23/server/oh-my-zsh/
 http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/

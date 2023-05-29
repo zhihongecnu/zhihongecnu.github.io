@@ -2,8 +2,8 @@ http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/
 http://www.wzhecnu.cn/2022/06/01/programming/gsoc/qr-code-03-errorcorrection/
 http://www.wzhecnu.cn/2022/06/02/programming/gsoc/qr-code-04-build/
 http://www.wzhecnu.cn/2022/06/03/programming/gsoc/qr-code-05-mask/
-http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/
 http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/
+http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/
 http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/
 http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/
 http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/

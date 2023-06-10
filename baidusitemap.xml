@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/</loc>
+    <lastmod>2023-06-07</lastmod>
+  </url>
+  <url>
     <loc>http://www.wzhecnu.cn/2021/10/23/hello-world/</loc>
     <lastmod>2023-06-04</lastmod>
   </url>
@@ -25,11 +29,11 @@
     <lastmod>2023-05-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
+    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
     <lastmod>2023-05-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
+    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
     <lastmod>2023-05-29</lastmod>
   </url>
   <url>
@@ -189,10 +193,6 @@
     <lastmod>2023-05-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/</loc>
-    <lastmod>2023-05-29</lastmod>
-  </url>
-  <url>
     <loc>http://www.wzhecnu.cn/2022/02/10/server/08-bash-usage/</loc>
     <lastmod>2023-05-29</lastmod>
   </url>
@@ -281,11 +281,11 @@
     <lastmod>2023-03-27</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
+    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
     <lastmod>2023-03-27</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
+    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
     <lastmod>2023-03-27</lastmod>
   </url>
   <url>

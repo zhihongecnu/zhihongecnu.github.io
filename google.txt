@@ -1,6 +1,6 @@
+http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2021/07/25/blog/hexo-03-fu-za-she-zhi/
 http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
-http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2022/07/04/server/docker-tutorial/
 http://www.wzhecnu.cn/2023/06/18/blog/docsify/

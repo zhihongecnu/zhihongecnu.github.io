@@ -1,3 +1,4 @@
+http://www.wzhecnu.cn/2021/07/25/blog/hexo-03-fu-za-she-zhi/
 http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
 http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/
 http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/
-http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/

@@ -7,4 +7,4 @@ http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
 http://www.wzhecnu.cn/2023/06/18/blog/docsify/
 http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/
 http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/
-http://www.wzhecnu.cn/2021/07/25/blog/hexo-03-fu-za-she-zhi/
+http://www.wzhecnu.cn/2021/08/29/blog/hexo-05-multidevice/

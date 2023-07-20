@@ -1,4 +1,5 @@
 http://www.wzhecnu.cn/2023/07/19/apple-id/
+http://www.wzhecnu.cn/2023/07/15/blog/server-secure/
 http://www.wzhecnu.cn/2023/07/15/blog/wordpress/
 http://www.wzhecnu.cn/2023/06/18/blog/docsify/
 http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/
 http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/
 http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/
-http://www.wzhecnu.cn/2023/01/09/programming/julia/julia-note-8-wrapper/

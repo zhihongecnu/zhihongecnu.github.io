@@ -1,10 +1,10 @@
+http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
 http://www.wzhecnu.cn/2023/07/15/blog/wordpress/
 http://www.wzhecnu.cn/2023/07/15/server/server-secure/
 http://www.wzhecnu.cn/2023/05/23/server/oh-my-zsh/
 http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/
 http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
-http://www.wzhecnu.cn/2021/10/09/chat/lao-lao-xian-hua/
-http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/
-http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/
-http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
+http://www.wzhecnu.cn/2023/06/18/blog/docsify/
+http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/
+http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/

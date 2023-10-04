@@ -342,14 +342,14 @@ FTP 中文意思是文件传输协议，是英文 FileProtocol 的缩写，主�
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'http://twikoo.wzhecnu.cn',
+      envId: 'https://twikoo.wzhecnu.cn',
       region: ''
     }, null))
   }
 
   const getCount = () => {
     twikoo.getCommentsCount({
-      envId: 'http://twikoo.wzhecnu.cn',
+      envId: 'https://twikoo.wzhecnu.cn',
       region: '',
       urls: [window.location.pathname],
       includeReply: false

@@ -7,4 +7,4 @@ http://www.wzhecnu.cn/2023/05/23/server/oh-my-zsh/
 http://www.wzhecnu.cn/2021/11/10/programming/algebra/cas-graph-automorphism-group/
 http://www.wzhecnu.cn/2023/07/15/server/server-secure/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
-http://www.wzhecnu.cn/2021/10/09/chat/lao-lao-xian-hua/
+http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/

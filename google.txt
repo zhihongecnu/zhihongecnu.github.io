@@ -1,10 +1,10 @@
+http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
+http://www.wzhecnu.cn/2023/11/25/server/docker-jiao-cheng/
+http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/
 http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
 http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/
-http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/
 http://www.wzhecnu.cn/2023/05/23/server/oh-my-zsh/
 http://www.wzhecnu.cn/2021/11/10/programming/algebra/cas-graph-automorphism-group/
 http://www.wzhecnu.cn/2023/07/15/server/server-secure/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/
-http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/
-http://www.wzhecnu.cn/2023/06/18/blog/docsify/

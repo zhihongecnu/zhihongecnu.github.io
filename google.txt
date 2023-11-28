@@ -1,7 +1,7 @@
 http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
+http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
 http://www.wzhecnu.cn/2023/11/25/server/docker-jiao-cheng/
 http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/
-http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
 http://www.wzhecnu.cn/2023/03/06/gpt/chatgpt/
 http://www.wzhecnu.cn/2023/05/23/server/oh-my-zsh/
 http://www.wzhecnu.cn/2021/11/10/programming/algebra/cas-graph-automorphism-group/

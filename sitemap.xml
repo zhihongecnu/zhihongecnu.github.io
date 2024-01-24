@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wzhecnu.cn/2024/01/13/gpt/gpt4-shi-yong-zhi-nan/</loc>
+    <loc>http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/</loc>
     
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2023/12/28/server/lets-encrpt-ssl/</loc>
+    <loc>http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/</loc>
     
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-01-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2024/01/13/gpt/gpt4-shi-yong-zhi-nan/</loc>
+    
+    <lastmod>2024-01-13</lastmod>
     
   </url>
   
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
+    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
+    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -205,14 +212,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
+    <loc>http://www.wzhecnu.cn/2022/06/02/programming/gsoc/qr-code-04-build/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -226,7 +226,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/</loc>
+    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -240,7 +240,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/06/02/programming/gsoc/qr-code-04-build/</loc>
+    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -345,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/08/25/programming/git/git/</loc>
+    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
+    <loc>http://www.wzhecnu.cn/2021/08/25/programming/git/git/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -541,14 +548,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-li-xue-yu-liang-zi-ji-suan/</loc>
+    <loc>http://www.wzhecnu.cn/2021/10/01/quantum/liang-zi-li-xue-qu-wen/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/10/01/quantum/liang-zi-li-xue-qu-wen/</loc>
+    <loc>http://www.wzhecnu.cn/2021/10/08/quantum/liang-zi-li-xue-yu-liang-zi-ji-suan/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -627,7 +634,7 @@
 
   <url>
     <loc>http://www.wzhecnu.cn/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -635,175 +642,182 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/sage/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/CAS/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/OSPP/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/qrcode/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/git/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/leetcode/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/Python/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/Julia/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/LaTeX/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/markdown/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/hexo/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/wordpress/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/chat/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/GPT/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/gpt/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/ubuntu/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/shell/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/zsh/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/Lie/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/MySQL/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/Julia-Note/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/haskell/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/lean/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/vscode/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/Mathematica/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/tags/Nginx/</loc>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -812,49 +826,49 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E4%BA%8C%E7%BB%B4%E7%A0%81%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E9%97%B2%E8%81%8A/</loc>
-    <lastmod>2024-01-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/categories/%E9%87%8F%E5%AD%90/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wzhecnu.cn/categories/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/</loc>
-    <lastmod>2024-01-13</lastmod>
+    <lastmod>2024-01-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/categories/%E9%87%8F%E5%AD%90/</loc>
+    <lastmod>2024-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

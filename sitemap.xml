@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/</loc>
+    <loc>http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/</loc>
     
     <lastmod>2024-01-25</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/</loc>
+    <loc>http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/</loc>
     
     <lastmod>2024-01-25</lastmod>
     
@@ -100,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -114,7 +107,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/08/21/server/03-ubuntu-usage/</loc>
+    <loc>http://www.wzhecnu.cn/2022/06/10/chat/zhi-neng-jiao-yu-bao-kao-zhi-nan/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -122,6 +115,13 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/2021/08/20/server/01-build-server/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2021/08/21/server/03-ubuntu-usage/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -198,13 +198,6 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.wzhecnu.cn/2022/09/02/programming/gsoc/qr-code-02/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -212,14 +205,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/06/03/programming/gsoc/qr-code-05-mask/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
+    <loc>http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -233,7 +219,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
+    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -241,6 +227,20 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/06/03/programming/gsoc/qr-code-05-mask/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -261,7 +261,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
+    <loc>http://www.wzhecnu.cn/2022/02/19/programming/julia/julia-python/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -269,13 +269,6 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/2021/10/20/programming/others/python-er-cha-shu/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/02/19/programming/julia/julia-python/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -296,28 +289,14 @@
   </url>
   
   <url>
+    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wzhecnu.cn/2021/08/13/programming/others/lean-intro/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/01/28/programming/others/rubik-s-cube/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2021/08/28/programming/others/vscode-terminal/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2021/09/24/programming/others/tu-lun-gong-ju/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -331,6 +310,27 @@
   </url>
   
   <url>
+    <loc>http://www.wzhecnu.cn/2021/09/24/programming/others/tu-lun-gong-ju/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2021/08/28/programming/others/vscode-terminal/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/01/28/programming/others/rubik-s-cube/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wzhecnu.cn/2021/11/10/programming/algebra/cas-graph-automorphism-group/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -338,7 +338,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
+    <loc>http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -352,7 +359,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
+    <loc>http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -387,20 +394,6 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2021/10/31/programming/julia/julia-note-2/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.wzhecnu.cn/2021/10/31/programming/julia/julia-note-3/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -422,7 +415,14 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2023/01/09/programming/julia/julia-note-8-wrapper/</loc>
+    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/2021/10/31/programming/julia/julia-note-2/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -436,7 +436,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
+    <loc>http://www.wzhecnu.cn/2023/01/09/programming/julia/julia-note-8-wrapper/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -485,6 +485,13 @@
   </url>
   
   <url>
+    <loc>http://www.wzhecnu.cn/2023/11/17/gpt/chattool/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wzhecnu.cn/2021/07/19/blog/markdown-yu-fa/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -527,13 +534,6 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/2023/11/17/gpt/chattool/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.wzhecnu.cn/2021/10/16/quantum/dirac-notation/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -569,6 +569,13 @@
   </url>
   
   <url>
+    <loc>http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/</loc>
+    
+    <lastmod>2023-12-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wzhecnu.cn/2021/07/19/blog/hexo-01-kuang-jia-pian/</loc>
     
     <lastmod>2023-12-02</lastmod>
@@ -577,13 +584,6 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/2021/07/22/blog/hexo-02-zhu-ti-mei-hua/</loc>
-    
-    <lastmod>2023-12-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/2023/03/22/gpt/openai-api-call/</loc>
     
     <lastmod>2023-12-02</lastmod>
     
@@ -697,14 +697,35 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/tags/markdown/</loc>
+    <loc>http://www.wzhecnu.cn/tags/LaTeX/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/tags/LaTeX/</loc>
+    <loc>http://www.wzhecnu.cn/tags/chat/</loc>
+    <lastmod>2024-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/tags/gpt/</loc>
+    <lastmod>2024-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/tags/GPT/</loc>
+    <lastmod>2024-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wzhecnu.cn/tags/markdown/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -719,27 +740,6 @@
   
   <url>
     <loc>http://www.wzhecnu.cn/tags/wordpress/</loc>
-    <lastmod>2024-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/tags/chat/</loc>
-    <lastmod>2024-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/tags/GPT/</loc>
-    <lastmod>2024-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wzhecnu.cn/tags/gpt/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,6 +774,13 @@
   </url>
   
   <url>
+    <loc>http://www.wzhecnu.cn/tags/Julia-Note/</loc>
+    <lastmod>2024-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.wzhecnu.cn/tags/MySQL/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
@@ -781,7 +788,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/tags/Julia-Note/</loc>
+    <loc>http://www.wzhecnu.cn/tags/Nginx/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -802,13 +809,6 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/tags/vscode/</loc>
-    <lastmod>2024-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.wzhecnu.cn/tags/Mathematica/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
@@ -816,7 +816,7 @@
   </url>
   
   <url>
-    <loc>http://www.wzhecnu.cn/tags/Nginx/</loc>
+    <loc>http://www.wzhecnu.cn/tags/vscode/</loc>
     <lastmod>2024-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

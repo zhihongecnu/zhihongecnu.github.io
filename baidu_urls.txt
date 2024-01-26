@@ -1,10 +1,10 @@
 http://www.wzhecnu.cn/2024/01/26/server/droppy-tutorial/
-http://www.wzhecnu.cn/2024/01/26/vim-usage/
 http://www.wzhecnu.cn/2024/01/26/gpt/streamlit-shi-zhan-rag/
-http://www.wzhecnu.cn/2024/01/26/gradio-shi-zhan-tts/
 http://www.wzhecnu.cn/2024/01/26/gpt/gradio-shi-zhan-rag/
-http://www.wzhecnu.cn/2024/01/25/smtp/
 http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/
 http://www.wzhecnu.cn/2024/01/13/gpt/gpt4-shi-yong-zhi-nan/
-http://www.wzhecnu.cn/2023/12/28/server/overleaf/
 http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/
+http://www.wzhecnu.cn/2023/12/27/programming/others/pypi-2fa/
+http://www.wzhecnu.cn/2023/11/25/server/nginx/docker-jiao-cheng/
+http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
+http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/

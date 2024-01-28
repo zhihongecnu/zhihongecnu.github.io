@@ -1,4 +1,5 @@
 http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
+http://www.wzhecnu.cn/2023/07/15/blog/wordpress/
 http://www.wzhecnu.cn/2024/01/28/gpt/gradio-shi-zhan-tts/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/
 http://www.wzhecnu.cn/2024/01/26/server/droppy-tutorial/
 http://www.wzhecnu.cn/2021/10/01/quantum/liang-zi-li-xue-qu-wen/
 http://www.wzhecnu.cn/2021/08/29/blog/hexo-05-multidevice/
-http://www.wzhecnu.cn/2021/09/14/blog/shi-yong-qi-niu-yun-zhi-zuo-wen-jian-wai-lian/

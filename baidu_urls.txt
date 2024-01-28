@@ -1,3 +1,4 @@
+http://www.wzhecnu.cn/2024/01/28/gpt/gradio-shi-zhan-tts/
 http://www.wzhecnu.cn/2024/01/26/server/droppy-tutorial/
 http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/
 http://www.wzhecnu.cn/2024/01/13/gpt/gpt4-shi-yong-zhi-nan/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
 http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/
 http://www.wzhecnu.cn/2023/07/15/server/server-secure/
 http://www.wzhecnu.cn/2023/07/15/blog/wordpress/
-http://www.wzhecnu.cn/2023/06/18/blog/docsify/

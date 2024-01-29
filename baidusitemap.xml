@@ -5,10 +5,6 @@
     <lastmod>2024-01-29</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2024/01/29/server/compare/</loc>
-    <lastmod>2024-01-29</lastmod>
-  </url>
-  <url>
     <loc>http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/</loc>
     <lastmod>2024-01-29</lastmod>
   </url>
@@ -121,11 +117,11 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/08/20/server/01-build-server/</loc>
+    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/04/05/chat/ti-wen-de-yi-zhu/</loc>
+    <loc>http://www.wzhecnu.cn/2021/08/20/server/01-build-server/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -137,11 +133,11 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/14/server/05-school-server/</loc>
+    <loc>http://www.wzhecnu.cn/2021/11/19/server/06-server-usage/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/19/server/06-server-usage/</loc>
+    <loc>http://www.wzhecnu.cn/2021/11/14/server/05-school-server/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -149,11 +145,11 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/02/10/server/08-bash-usage/</loc>
+    <loc>http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/11/29/server/09-server-advance/</loc>
+    <loc>http://www.wzhecnu.cn/2022/02/10/server/08-bash-usage/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -173,15 +169,55 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
+    <loc>http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/06/02/programming/gsoc/qr-code-04-build/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/06/03/programming/gsoc/qr-code-05-mask/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/09/02/programming/gsoc/qr-code-02/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
     <loc>http://www.wzhecnu.cn/2022/02/19/programming/julia/julia-python/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/08/13/programming/others/haskell-intro/</loc>
+    <loc>http://www.wzhecnu.cn/2021/08/13/programming/others/lean-intro/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/08/13/programming/others/lean-intro/</loc>
+    <loc>http://www.wzhecnu.cn/2021/08/13/programming/others/haskell-intro/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -201,55 +237,15 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/22/programming/gsoc/qr-code-01/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/09/02/programming/gsoc/qr-code-02/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/06/02/programming/gsoc/qr-code-04-build/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/06/03/programming/gsoc/qr-code-05-mask/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/08/20/programming/gsoc/qr-code-06-decode/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/11/15/programming/gsoc/qr-code-07-style/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary-en/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/11/26/programming/gsoc/qr-code-08-summary/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/03/17/programming/gsoc/qr-code/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/04/25/programming/gsoc/qr-code-extra/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
     <loc>http://www.wzhecnu.cn/2021/11/10/programming/algebra/cas-graph-automorphism-group/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
+    <loc>http://www.wzhecnu.cn/2022/06/01/programming/gsoc/qr-code-03-errorcorrection/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/03/05/programming/julia/julia-algebra/</loc>
+    <loc>http://www.wzhecnu.cn/2023/03/17/programming/git/git-lfs/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -261,6 +257,10 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
+    <loc>http://www.wzhecnu.cn/2022/03/05/programming/julia/julia-algebra/</loc>
+    <lastmod>2023-12-02</lastmod>
+  </url>
+  <url>
     <loc>http://www.wzhecnu.cn/2021/10/31/programming/julia/julia-note-2/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
@@ -269,7 +269,7 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2021/11/24/programming/julia/julia-note-4-parallel/</loc>
+    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -277,7 +277,7 @@
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
-    <loc>http://www.wzhecnu.cn/2022/07/01/programming/julia/julia-note-6-scrap/</loc>
+    <loc>http://www.wzhecnu.cn/2021/11/24/programming/julia/julia-note-4-parallel/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>
@@ -286,10 +286,6 @@
   </url>
   <url>
     <loc>http://www.wzhecnu.cn/2023/01/09/programming/julia/julia-note-8-wrapper/</loc>
-    <lastmod>2023-12-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wzhecnu.cn/2022/06/01/programming/gsoc/qr-code-03-errorcorrection/</loc>
     <lastmod>2023-12-02</lastmod>
   </url>
   <url>

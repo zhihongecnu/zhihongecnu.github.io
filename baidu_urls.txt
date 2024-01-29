@@ -1,4 +1,3 @@
-http://www.wzhecnu.cn/2024/01/29/server/compare/
 http://www.wzhecnu.cn/2024/01/29/server/systemctl-xiang-jie/
 http://www.wzhecnu.cn/2024/01/28/gpt/gradio-shi-zhan-tts/
 http://www.wzhecnu.cn/2024/01/26/server/droppy-tutorial/
@@ -8,3 +7,4 @@ http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/
 http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
 http://www.wzhecnu.cn/2023/11/17/gpt/chattool/
 http://www.wzhecnu.cn/2023/11/11/blog/twikoo-ping-lun-pei-zhi/
+http://www.wzhecnu.cn/2023/07/15/server/server-secure/

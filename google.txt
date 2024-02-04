@@ -1,3 +1,4 @@
+http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
 http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/
 http://www.wzhecnu.cn/2021/08/25/programming/git/git/
 http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/
@@ -7,4 +8,3 @@ http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/
 http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/
 http://www.wzhecnu.cn/2024/01/31/librechat/
-http://www.wzhecnu.cn/2024/01/31/xiao-yuan-wang/

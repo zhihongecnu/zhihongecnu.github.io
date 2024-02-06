@@ -7,4 +7,4 @@ http://www.wzhecnu.cn/2024/01/29/server/systemctl-xiang-jie/
 http://www.wzhecnu.cn/2023/04/15/gpt/gpt-request-forward/
 http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/
 http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/
-http://www.wzhecnu.cn/2024/01/31/librechat/
+http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/

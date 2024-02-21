@@ -1,5 +1,5 @@
-http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
+http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
 http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
 http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/
 http://www.wzhecnu.cn/2021/08/25/programming/git/git/

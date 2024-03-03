@@ -1,10 +1,10 @@
+http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/
 http://www.wzhecnu.cn/2021/08/20/server/02-ubuntu-basicapp/
+http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/
 http://www.wzhecnu.cn/2024/02/22/gpt/db-gpt/
 http://www.wzhecnu.cn/2024/02/26/server/zi-dong-jiao-ben/
-http://www.wzhecnu.cn/2024/02/26/server/ubuntu-she-bei-wei-hu/
 http://www.wzhecnu.cn/2023/06/17/server/frp-tunnel/
 http://www.wzhecnu.cn/2021/10/23/hello-world/
 http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
 http://www.wzhecnu.cn/2021/07/19/programming/git/github-duo-zhang-hu-she-zhi/
 http://www.wzhecnu.cn/2021/08/25/programming/git/git/
-http://www.wzhecnu.cn/2021/09/18/programming/git/git-submodule/

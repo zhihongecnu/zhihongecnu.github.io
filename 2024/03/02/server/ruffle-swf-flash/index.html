@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>重燃经典 Flash 游戏复苏 | Ruffle 使用全指南 | 学习空间</title><meta name="keywords" content="Ruffle"><meta name="author" content="Rex"><meta name="copyright" content="Rex"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文介绍了如何使用 Ruffle 项目运行 Flash 的 swf 文件，让经典游戏和动画在现代浏览器上重获新生。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重燃经典 Flash 游戏复苏 | Ruffle 使用全指南">
+<meta property="og:url" content="http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/index.html">
+<meta property="og:site_name" content="学习空间">
+<meta property="og:description" content="本文介绍了如何使用 Ruffle 项目运行 Flash 的 swf 文件，让经典游戏和动画在现代浏览器上重获新生。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg">
+<meta property="article:published_time" content="2024-03-02T04:35:57.000Z">
+<meta property="article:modified_time" content="2024-03-03T12:10:37.591Z">
+<meta property="article:author" content="Rex">
+<meta property="article:tag" content="Ruffle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/iconfont.css"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '重燃经典 Flash 游戏复苏 | Ruffle 使用全指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-03 20:10:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习空间</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">重燃经典 Flash 游戏复苏 | Ruffle 使用全指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发布于</span><time class="post-meta-date-created" datetime="2024-03-02T04:35:57.000Z" title="发布于 2024-03-02 12:35:57">2024-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-03T12:10:37.591Z" title="更新于 2024-03-03 20:10:37">2024-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="唠唠闲话">唠唠闲话</h2>
+<p>随着 Adobe Flash Player 在 2020 年底停止更新和支持，那些曾经陪伴我们成长的经典 Flash 游戏和动画似乎注定要被时代遗忘。从 4399 小游戏到 QQ 宠物，这些曾经的网络文化标志物，都因为 Flash 的消逝而逐渐淡出人们的视野。像 Q 宠这样在 2018 年就已经停服的游戏，许多人对它们的怀念之情愈加浓厚。而随着人工智能的发展，虚拟现实的兴起，相信未来会有更多的人希望重温这些经典。但现在，借助 Ruffle 开源项目，我们有机会让这些经典的 Flash 作品再次闪耀。</p>
+<h2 id="Ruffle-教程">Ruffle 教程</h2>
+<h3 id="Ruffle-是什么？">Ruffle 是什么？</h3>
+<p>Ruffle 是一个基于 Rust 开发的开源项目，旨在无缝地在所有现代操作系统和浏览器上运行 Flash 内容，无需任何额外操作。通过 Ruffle，无论是经典游戏还是动画，都可以在现代环境中运行，继续为用户带来快乐。</p>
+<blockquote>
+<p>Ruffle 是一个非常活跃的开源项目，当前已有 11473 个 commit，162 个贡献者，且每天都在更新。相信它会在未来继续发展壮大，对 Flash 的支持也会越来越完善。</p>
+</blockquote>
+<h3 id="插件客户端">插件客户端</h3>
+<p>无论是 Windows、macOS（支持 M1/M2 芯片）还是 Linux，都可以在 <a target="_blank" rel="noopener" href="https://ruffle.rs/downloads">Ruffle 官网</a> 找到并下载相应的客户端。不过对于 Windows 用户，如果是在本地运行 Flash，更推荐直接下载 Flash Player。</p>
+<p><img src="https://qiniu.wzhecnu.cn/PicBed6/picgo/20240303115425.png" alt="20240303115425"></p>
+<p>对于希望在浏览器中直接体验 Flash 内容的用户，Ruffle 也提供了 Chrome、Firefox、Edge 和 Safari 的浏览器扩展插件。安装后，当访问包含 SWF 文件的网站时，Ruffle 会自动介入，使这些内容得以在现代浏览器上运行。</p>
+<p><img src="https://qiniu.wzhecnu.cn/PicBed6/picgo/20240303115857.png" alt="Ruffle 浏览器插件示意图"></p>
+<h3 id="引用-Ruffle">引用 Ruffle</h3>
+<p>如果希望让用户能直接访问带 flash 游戏的网页，且无需安装插件，可以将 Ruffle 添加到网站中。具体地，有以下几种方式。</p>
+<p>作为示例，我们先写一个简单的 HTML 页面，并引入 Ruffle：</p>
+<p>下图 html 文件定义了一个全屏的容器，其中 container 放置游戏页面。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>游戏名称<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 确保html和body元素占满整个屏幕 */</span></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden; <span class="comment">/* 隐藏滚动条 */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 使容器和Ruffle播放器全屏和自适应 */</span></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#container</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#container</span> ruffle-player &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">flex-shrink</span>: <span class="number">0</span>; <span class="comment">/* 防止播放器被压缩 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//unpkg.com/@ruffle-rs/ruffle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> ruffle = <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="title function_">newest</span>();</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> player = ruffle.<span class="title function_">createPlayer</span>();</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;container&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">          container.<span class="title function_">appendChild</span>(player);</span></span><br><span class="line"><span class="language-javascript">          player.<span class="title function_">load</span>(<span class="string">&#x27;game.swf&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码中的这段 JavaScript 代码，用于引入 ruffle 脚本并加载游戏。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//unpkg.com/@ruffle-rs/ruffle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> ruffle = <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="title function_">newest</span>();</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> player = ruffle.<span class="title function_">createPlayer</span>();</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;container&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      container.<span class="title function_">appendChild</span>(player);</span></span><br><span class="line"><span class="language-javascript">      player.<span class="title function_">load</span>(<span class="string">&#x27;game.swf&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第一行从 <code>https://unpkg.com/@ruffle-rs/ruffle</code> 引入 Ruffle 脚本，第二段的 js 代码创建一个 Ruffle 播放器，并加载游戏，游戏文件为 <code>game.swf</code>。</p>
+<p>如果网络访问 <a target="_blank" rel="noopener" href="http://unpkg.com">unpkg.com</a> 慢，可以在<a target="_blank" rel="noopener" href="https://ruffle.rs/downloads">下载页</a> 将 Web Package 的内容下载到网站目录，然后用相对路径加载：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;path/to/ruffle.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>当然，也可以使用自定义的 CDN 资源，比如写个 Nginx 脚本分享 <code>/var/www/cdn</code> 目录下的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name cdn.example.com;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    add_header &#x27;Access-Control-Allow-Origin&#x27; *;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /var/www/cdn;</span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里加上一行 <code>add_header 'Access-Control-Allow-Origin' *;</code> 是为了避免跨域问题。</p>
+<h4 id="跨域问题">跨域问题</h4>
+<p>通常，为了加速网站的访问，可以将游戏文件和 Ruffle 插件托管在如七牛云这样的 CDN 上时，但这可能会遇到跨域资源共享（CORS）问题。跨域问题发生是因为出于安全考虑，浏览器限制了一个源（如你的网站）如何访问另一个源（如 CDN）的资源。如果不正确配置 CORS，浏览器将阻止你的网页请求这些资源，导致游戏或动画无法加载。</p>
+<p>例如，将 swf 游戏文件托管在 CDN 加速访问时，如果没有适当设置 CORS，就会看到类似下图的错误：</p>
+<p><img src="https://qiniu.wzhecnu.cn/PicBed6/picgo/20240303180531.png" alt="CORS 错误示例图"></p>
+<p>为了解决这个问题，需在托管资源的服务器上设置适当的 CORS 策略。比如前边 Nginx 的配置。而对于七牛云，可以参考<a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/8608/dev-cross-domain-resource-sharing">跨域资源共享设置指南</a>。</p>
+<h3 id="播放器配置">播放器配置</h3>
+<p>接下来，我们详细介绍 Ruffle 播放器的一些配置选项，这些选项可以帮助你更好地控制 Flash 内容的加载和显示。</p>
+<h4 id="多文件游戏">多文件游戏</h4>
+<p>如果你的 Flash 游戏由多个 swf 文件组成，并且这些文件之间有相互调用关系，你需要在 Ruffle 的配置中设置 <code>base</code> 参数。这个参数指定了 swf 文件的基础路径，确保 Ruffle 正确加载所有相关的 swf 文件。</p>
+<p>例如，如果你的游戏主文件是 <code>game.swf</code>，而它依赖于同一目录下的其他 swf 文件，你可以这样配置 Ruffle：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="property">config</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">base</span>: <span class="string">&quot;your/path&quot;</span> <span class="comment">// 指定 swf 文件的基础路径</span></span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> ruffle = <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="title function_">newest</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> player = ruffle.<span class="title function_">createPlayer</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;container&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        container.<span class="title function_">appendChild</span>(player);</span></span><br><span class="line"><span class="language-javascript">        player.<span class="title function_">load</span>(<span class="string">&#x27;your/path/game.swf&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，Ruffle 会从指定的 <code>your/path</code> 路径加载 <code>game.swf</code> 和它依赖的其他 swf 文件，而不是从当前网页的目录下查找。类似地，如果游戏文件以链接形式获取，前边 <code>base</code> 也需要相应修改。</p>
+<h4 id="修改内嵌字体">修改内嵌字体</h4>
+<p>内嵌字体乱码是 Ruffle 被吐槽较多的一个问题，但去年年底 Ruffle 更新了一个特性：<a target="_blank" rel="noopener" href="https://github.com/ruffle-rs/ruffle/pull/13604">Add defaultFonts and fontSources config options</a>，支持修改字体。</p>
+<p>按官方文档的说法，支持对 Flash 默认三类字体的替换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">There</span> are <span class="number">3</span> <span class="keyword">default</span> fonts <span class="keyword">in</span> <span class="title class_">Flash</span>, _sans _serif and _typewriter - <span class="keyword">in</span> <span class="title class_">Ruffle</span> they are normally all set to <span class="title class_">Noto</span> <span class="title class_">Sans</span>, but you can replace it such <span class="attr">as</span>:</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="property">config</span> = &#123;</span><br><span class="line">    <span class="attr">fontSources</span>: [<span class="string">&quot;fonts.swf&quot;</span>], <span class="comment">// load up fonts here</span></span><br><span class="line">    <span class="attr">defaultFonts</span>: &#123;</span><br><span class="line">        <span class="attr">sans</span>: [<span class="string">&quot;Caveat&quot;</span>], <span class="comment">// then replace them here.</span></span><br><span class="line">        <span class="comment">// serif: [&quot;Font Name 1&quot;, &quot;Font Name 2&quot;], // Multiple fonts can be provided</span></span><br><span class="line">        <span class="comment">// typewriter: [&quot;Noto Sans&quot;], // typewriter is normally a monospace font</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体地，先按照 <a target="_blank" rel="noopener" href="https://github.com/ruffle-rs/ruffle/pull/13604">PR</a> 的图文教程，将字体转换为 swf 文件，然后在 Ruffle 配置中指定它们。</p>
+<p>目前，第一步需单独用 Animate 软件进行操作转化。这里我按教程将<a target="_blank" rel="noopener" href="https://cdn.wzhecnu.cn/adventure/myfont.swf">站酷快乐体</a>转化成了 swf 文件，支持中文字符。可通过如下配置引用，亲测有效：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="property">config</span> = &#123;</span><br><span class="line">    <span class="attr">fontSources</span>: [<span class="string">&quot;https://cdn.wzhecnu.cn/adventure/myfont.swf&quot;</span>], <span class="comment">// load up fonts here</span></span><br><span class="line">    <span class="attr">defaultFonts</span>: &#123;</span><br><span class="line">        <span class="attr">sans</span>: [<span class="string">&quot;站酷快乐体2016修订版&quot;</span>], <span class="comment">// then replace them here.</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="https://qiniu.wzhecnu.cn/PicBed6/picgo/20240303191024.png" alt="20240303191024"></p>
+<p>Ruffle 后续会考虑对字体文件的直接支持，比如使用 <code>.ttf</code> 文件。</p>
+<blockquote>
+<p>For now we only support SWFs containing fonts, but in the future we’ll allow actual font files too (such as ttf).</p>
+</blockquote>
+<h4 id="页面放缩">页面放缩</h4>
+<p>和 flash Player 不同，Ruffle 的右键没有控制缩放的选项，这些需在代码中设置。</p>
+<p>举个例子，设置“显示全部”，以及强制缩放：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="property">config</span> = &#123;</span><br><span class="line">    <span class="attr">scale</span>: <span class="string">&quot;showAll&quot;</span>,</span><br><span class="line">    <span class="attr">forceScale</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样可以避免主画面太小，且出现画面外辅助用的素材。</p>
+<h3 id="更多设置">更多设置</h3>
+<p>以上播放器设置可以整合到一块：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//unpkg.com/@ruffle-rs/ruffle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="property">config</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">fontSources</span>: [<span class="string">&quot;https://cdn.wzhecnu.cn/adventure/myfont.swf&quot;</span>], <span class="comment">// load up fonts here</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">defaultFonts</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">sans</span>: [<span class="string">&quot;站酷快乐体2016修订版&quot;</span>], <span class="comment">// then replace them here.</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">scale</span>: <span class="string">&quot;showAll&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">forceScale</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">base</span>: <span class="string">&quot;your/path&quot;</span> <span class="comment">// 设置CDN基路径</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> ruffle = <span class="variable language_">window</span>.<span class="property">RufflePlayer</span>.<span class="title function_">newest</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> player = ruffle.<span class="title function_">createPlayer</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;container&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        container.<span class="title function_">appendChild</span>(player);</span></span><br><span class="line"><span class="language-javascript">        player.<span class="title function_">load</span>(<span class="string">&#x27;your/path/xmxd.swf&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更多选项请参考 Ruffle 使用教程：<a target="_blank" rel="noopener" href="https://github.com/ruffle-rs/ruffle/wiki/Using-Ruffle">Using Ruffle</a>。实际上，可以先下载 Ruffle 播放器客户端，在本地调试后，将客户端里修改的参数填写到配置里。</p>
+<!-- 延伸：浏览器扩展 -->
+<h2 id="相关链接">相关链接</h2>
+<p>Ruffle 官网：<a target="_blank" rel="noopener" href="https://ruffle.rs/">Ruffle</a><br>
+常见问题：<a target="_blank" rel="noopener" href="https://github.com/ruffle-rs/ruffle/wiki/Frequently-Asked-Questions-For-Users">FAQ</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Rex</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/">http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href="http://www.wzhecnu.cn" target="_blank">学习空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ruffle/">Ruffle</a></div><div class="post_share"><div class="social-share" data-image="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg" data-sites="weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请作者喝茶</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/02/26/server/zi-dong-jiao-ben/"><img class="next-cover" src="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">服务器运维 | 自动执行脚本的几种方式</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rex</div><div class="author-info__description">Math + Computer = ?</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RexWzh"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RexWzh" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/518870168" target="_blank" title="B站"><i class="iconfont icon--bilibili"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wang-zhi-hong-79-21" target="_blank" title="知乎"><i class="iconfont icon-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新功能陆续上线，欢迎交流！干杯！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%94%A0%E5%94%A0%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">唠唠闲话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ruffle-%E6%95%99%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">Ruffle 教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ruffle-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">Ruffle 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.2.</span> <span class="toc-text">插件客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-Ruffle"><span class="toc-number">2.3.</span> <span class="toc-text">引用 Ruffle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.1.</span> <span class="toc-text">跨域问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%AD%E6%94%BE%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text">播放器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E6%B8%B8%E6%88%8F"><span class="toc-number">2.4.1.</span> <span class="toc-text">多文件游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%86%85%E5%B5%8C%E5%AD%97%E4%BD%93"><span class="toc-number">2.4.2.</span> <span class="toc-text">修改内嵌字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E6%94%BE%E7%BC%A9"><span class="toc-number">2.4.3.</span> <span class="toc-text">页面放缩</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">更多设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">相关链接</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Rex</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">粤ICP备2021109780号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.wzhecnu.cn',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.wzhecnu.cn',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="欢,迎,来,访,你,好,朋,友" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

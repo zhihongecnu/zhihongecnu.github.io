@@ -1,10 +1,10 @@
+http://www.wzhecnu.cn/2024/03/19/server/ubunut-upgrade/
+http://www.wzhecnu.cn/2024/03/19/docker-mailserver/
+http://www.wzhecnu.cn/2024/03/12/discourse-site/
+http://www.wzhecnu.cn/2024/03/12/docs-blog-tutorial/
+http://www.wzhecnu.cn/2024/03/09/gpt/llm-api/
 http://www.wzhecnu.cn/2024/03/02/server/ruffle-swf-flash/
 http://www.wzhecnu.cn/2024/02/26/server/zi-dong-jiao-ben/
 http://www.wzhecnu.cn/2024/02/22/gpt/db-gpt/
 http://www.wzhecnu.cn/2024/01/29/server/systemctl-xiang-jie/
 http://www.wzhecnu.cn/2024/01/26/server/droppy-tutorial/
-http://www.wzhecnu.cn/2024/01/25/server/nginx/double-site-visit/
-http://www.wzhecnu.cn/2024/01/13/gpt/gpt4-shi-yong-zhi-nan/
-http://www.wzhecnu.cn/2023/12/28/server/nginx/lets-encrpt-ssl/
-http://www.wzhecnu.cn/2023/12/27/programming/python/pypi-2fa/
-http://www.wzhecnu.cn/2023/11/17/gpt/chattool/

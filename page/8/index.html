@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-03-28 00:28:11'
+  postUpdate: '2024-03-28 00:32:39'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -183,14 +183,14 @@ https://github.com/discourse/discourse_docker
 </div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2024/03/09/gpt/llm-api/" title="大模型 API 推理 | 看这一篇就够了">     <img class="post_bg" src="https://qiniu.wzhecnu.cn/PicBed6/picgo/20240328002713.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大模型 API 推理 | 看这一篇就够了"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/03/09/gpt/llm-api/" title="大模型 API 推理 | 看这一篇就够了">大模型 API 推理 | 看这一篇就够了</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发布于</span><time datetime="2024-03-09T15:10:01.000Z" title="发布于 2024-03-09 23:10:01">2024-03-09</time></span></div><div class="content">唠唠闲话
 开源模型的训练微调和推理需要大量的设备算力，而参数量大的模型普通实验室根本跑不动。有需求就有发展的动力，比如有 vllm 等优化显存占用，加速推理的项目，或者 phi2 这种参数小但在某些方面不逊色的模型；而对于超大模型，比如前几天开源的 Grok，则可以通过代理站来使用，以上这些都极大降低了高校科研者的实验成本。
 本篇聊聊模型推理的方案，从简单到复杂，从闭源到开源，给大家一个全面的上手教程。
-特别地，我们主要讨论通过 API 启动模型这一策略。
+特别地，我们讨论 API 启动模型这一策略的使用方式。
 为什么用大模型 API
 自 OpenAI 2023/03 发布 API 提供给开发者以来已经一年了；作为行业标杆，主流模型在发布时都会与 OpenAI 作为比较。而目前几乎所有基于大模型的前后端服务或开源项目，都支持OpenAI 的 API 接口，其自然而然也成为了一种规范。
 使用 OpenAI 的接口来启动服务，有很多优点：
 
 只要写一份适配 OpenAI 接口的代码，就能同时兼容调用其他大模型
 将大模型推理 API 化，让前后端开发与模型分离，在不需要使用模型时可以关闭服务，减少 GPU 占用
-目前主流的模型服务，包括各类智能体 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2024/02/26/server/zi-dong-jiao-ben/" title="服务器运维 | 自动执行脚本的几种方式">     <img class="post_bg" src="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="服务器运维 | 自动执行脚本的几种方式"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/26/server/zi-dong-jiao-ben/" title="服务器运维 | 自动执行脚本的几种方式">服务器运维 | 自动执行脚本的几种方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发布于</span><time datetime="2024-02-26T07:29:21.000Z" title="发布于 2024-02-26 15:29:21">2024-02-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span></div><div class="content">唠唠闲话
+目前主流的模型服务，包括各类智能 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2024/02/26/server/zi-dong-jiao-ben/" title="服务器运维 | 自动执行脚本的几种方式">     <img class="post_bg" src="https://qiniu.wzhecnu.cn/PicBed5/images_for_blogs/zhihu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="服务器运维 | 自动执行脚本的几种方式"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/26/server/zi-dong-jiao-ben/" title="服务器运维 | 自动执行脚本的几种方式">服务器运维 | 自动执行脚本的几种方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发布于</span><time datetime="2024-02-26T07:29:21.000Z" title="发布于 2024-02-26 15:29:21">2024-02-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span></div><div class="content">唠唠闲话
 自动联网脚本，开机启动后自动挂载磁盘，内网穿透服务开机自启等。
 服务器重启后，或者间隔一段时间，会自动断网，此时需要重新运行，登录服务器脚本。
 以服务器自动联网为例，介绍几种方式：
